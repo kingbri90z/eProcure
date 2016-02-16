@@ -10,7 +10,8 @@
         "laravelcollective/html": "~5.0",
         "laravel/socialite": "^2.0",
         "bestmomo/scafold": "dev-master",
-        "orangehill/iseed": "dev-master"
+        "orangehill/iseed": "dev-master",
+        "adamwathan/eloquent-oauth-l5": "^0.4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
