@@ -20,6 +20,13 @@
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
 						{!! csrf_field() !!}
+						<div class="form-group">
+                           <div class="col-lg-4 col-lg-offset-4">
+                             <a href="{!!URL::to('google/authorize')!!}" class="btn btn-block btn-lg btn-social btn-google">
+                                <span class="fa fa-google"></span> Google Sign In
+                              </a>
+                             </div>
+                         </div><br>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>

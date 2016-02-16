@@ -7,6 +7,8 @@
 	<title>Laravel</title>
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{!!asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')!!}" rel="stylesheet" media="screen">
+    <link href="{!!asset('css/bootstrap-social.css')!!}" rel="stylesheet" media="screen">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>

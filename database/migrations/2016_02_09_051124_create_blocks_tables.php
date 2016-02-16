@@ -16,13 +16,13 @@ class CreateBlocksTables extends Migration
             $table->increments('id');
             $table->string('symbol');
             $table->integer('exchange_id')->unsigned();
-            $table->foreign('exchange_id')->references('id')->on('exchanges')->onDelete('no action');
+            //$table->foreign('exchange_id')->references('id')->on('exchanges')->onDelete('no action');
             $table->string('discount');
             $table->string('number_shares');
             // $table->string('discount_achieved');
             // $table->string('discount_commission');
             $table->integer('need_id')->unsigned();
-            $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
+           // $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
             $table->integer('custodian_id')->unsigned();
             $table->foreign('custodian_id')->references('id')->on('custodians')->onDelete('no action');
             $table->integer('rep_id')->unsigned();

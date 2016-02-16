@@ -55,9 +55,10 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => 'teamqilin',
-            'username'  => 'teamqilin',
-            'password'  => 'dbaccess',
+            'database'  => env('DB_DATABASE', 'teamqilin'),
+            'username'  => env('DB_USERNAME', 'teamqilin'),
+            'password'  => env('DB_PASSWORD', 'dbaccess'),
+            'port' 		=> env('DB_PORT', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

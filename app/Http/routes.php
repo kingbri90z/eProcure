@@ -20,6 +20,8 @@ Route::group(['middleware' => 'web'], function() {
 		'password' 	=> 'Auth\PasswordController',
 	]);
 
+    Route::get('{provider}/authorize', 'Auth\AuthController@redirectToProvider');
+    Route::get('{provider}/login', 'Auth\AuthController@handleProviderCallback');
 
 	Route::group(['middleware' => 'auth'], function() {
 
