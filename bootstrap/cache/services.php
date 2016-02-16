@@ -29,6 +29,7 @@
     25 => 'Collective\\Html\\HtmlServiceProvider',
     26 => 'Laravel\\Socialite\\SocialiteServiceProvider',
     27 => 'Bestmomo\\Scafold\\ScafoldServiceProvider',
+    28 => 'Orangehill\\Iseed\\IseedServiceProvider',
   ),
   'eager' => 
   array (
@@ -46,6 +47,7 @@
     11 => 'TeamQilin\\Providers\\EventServiceProvider',
     12 => 'TeamQilin\\Providers\\RouteServiceProvider',
     13 => 'Bestmomo\\Scafold\\ScafoldServiceProvider',
+    14 => 'Orangehill\\Iseed\\IseedServiceProvider',
   ),
   'deferred' => 
   array (

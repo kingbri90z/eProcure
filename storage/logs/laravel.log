@@ -10482,3 +10482,80 @@ Stack trace:
 #41 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #42 /home/vagrant/Code/buysellqilin/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #43 {main}  
+[2016-02-16 00:19:24] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Nwidart\DbExporter\DbExportHandlerServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Nwidart\\DbExpor...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:21:15] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:22:02] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:22:51] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:31:04] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:33:53] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  
+[2016-02-16 00:34:34] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'Orangehill\Iseed\IseedServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(114): Illuminate\Foundation\ProviderRepository->createProvider('Orangehill\\Isee...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(60): Illuminate\Foundation\ProviderRepository->compileManifest(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#7 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 {main}  

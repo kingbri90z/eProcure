@@ -159,7 +159,7 @@ return [
         'Collective\Html\HtmlServiceProvider',
         Laravel\Socialite\SocialiteServiceProvider::class,
         Bestmomo\Scafold\ScafoldServiceProvider::class,
-
+        'Orangehill\Iseed\IseedServiceProvider',
     ],
 
     /*
