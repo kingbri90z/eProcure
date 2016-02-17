@@ -129,7 +129,7 @@ class AuthController extends Controller
     }
     public function getLogout()
     {
-
+        //
         //Auth::Logout()
         return redirect('/needs');
     }

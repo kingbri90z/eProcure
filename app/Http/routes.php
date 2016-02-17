@@ -20,9 +20,16 @@ Route::group(['middleware' => 'web'], function() {
 		'password' 	=> 'Auth\PasswordController',
 	]);
 
-	Route::get('/', 'blocksController@index');
+	Route::get('/', function(){
+		if(Auth::check()){
+			return redirect('blocks');
+		}
+		return view('home');
+	});
     Route::get('{provider}/authorize', 'Auth\AuthController@redirectToProvider');
     Route::get('{provider}/login', 'Auth\AuthController@handleProviderCallback');
+
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 	Route::group(['middleware' => 'auth'], function() {
 
