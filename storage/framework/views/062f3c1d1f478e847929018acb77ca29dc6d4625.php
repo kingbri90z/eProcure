@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 
-<h1>Needs Admin</h1>
+<h1>Notes Admin</h1>
 
 <div class="list-group">
 
-	<?php foreach($needs as $need): ?>
+	<?php foreach($notes as $note): ?>
 
-  		<a href="/exchanges/<?php echo e($need->id); ?>/edit" class="list-group-item"><?php echo e($need->name); ?></a>
+  		<a href="/exchanges/<?php echo e($note->id); ?>/edit" class="list-group-item"><?php echo e($need->name); ?></a>
 
 	<?php endforeach; ?>
 
