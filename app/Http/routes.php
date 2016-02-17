@@ -29,7 +29,10 @@ Route::group(['middleware' => 'web'], function() {
     Route::get('{provider}/authorize', 'Auth\AuthController@redirectToProvider');
     Route::get('{provider}/login', 'Auth\AuthController@handleProviderCallback');
 
-    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::get('logout', function(){
+    	Auth::Logout();
+    	return redirect('auth/login');
+    });
 
 	Route::group(['middleware' => 'auth'], function() {
 

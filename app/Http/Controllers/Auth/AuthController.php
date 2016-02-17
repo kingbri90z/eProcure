@@ -83,7 +83,12 @@ class AuthController extends Controller
         }
         return $team;
     }
-
+    public function getLogoutddd()
+    {
+        //
+        //Auth::Logout()
+        return redirect('exchanges');
+    }
     /**
      * Obtain the user information from GitHub.
      *
@@ -126,12 +131,6 @@ class AuthController extends Controller
 
         return SocialAuth::authorize($provider);
 
-    }
-    public function getLogout()
-    {
-        //
-        //Auth::Logout()
-        return redirect('/needs');
     }
 
 }

@@ -41,7 +41,7 @@
                             <li><a href="/blocks">Add a block</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="">Log </a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
