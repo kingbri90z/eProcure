@@ -3691,5 +3691,413 @@
             "laravel",
             "seed"
         ]
+    },
+    {
+        "name": "socialnorm/socialnorm",
+        "version": "v0.2.2",
+        "version_normalized": "0.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm.git",
+            "reference": "c99860a8ab338481c8db30d6d080cd1f4b1352cd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm/zipball/c99860a8ab338481c8db30d6d080cd1f4b1352cd",
+            "reference": "c99860a8ab338481c8db30d6d080cd1f4b1352cd",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-10-26 13:41:55",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Normalize user details between various OAuth providers"
+    },
+    {
+        "name": "socialnorm/soundcloud",
+        "version": "v0.2.2",
+        "version_normalized": "0.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-soundcloud.git",
+            "reference": "a607526512ea960e880b70ab432c5a4f1d2e420a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-soundcloud/zipball/a607526512ea960e880b70ab432c5a4f1d2e420a",
+            "reference": "a607526512ea960e880b70ab432c5a4f1d2e420a",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-11-18 20:18:43",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\SoundCloud\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "SoundCloud provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/instagram",
+        "version": "v0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-instagram.git",
+            "reference": "a7799870525812959e7a1518fd5b2322d16650aa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-instagram/zipball/a7799870525812959e7a1518fd5b2322d16650aa",
+            "reference": "a7799870525812959e7a1518fd5b2322d16650aa",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-09-13 00:12:12",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Instagram\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Instagram provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/google",
+        "version": "v0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-google.git",
+            "reference": "d349ba58593011cd8d0ae9483bcd0921cd8a5637"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-google/zipball/d349ba58593011cd8d0ae9483bcd0921cd8a5637",
+            "reference": "d349ba58593011cd8d0ae9483bcd0921cd8a5637",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-09-13 00:12:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Google\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Google provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/linkedin",
+        "version": "v0.2.2",
+        "version_normalized": "0.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-linkedin.git",
+            "reference": "1601b5b3137491e22f89a1f11c312b937887f41d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-linkedin/zipball/1601b5b3137491e22f89a1f11c312b937887f41d",
+            "reference": "1601b5b3137491e22f89a1f11c312b937887f41d",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-09-13 00:10:05",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\LinkedIn\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "LinkedIn provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/github",
+        "version": "v0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-github.git",
+            "reference": "e815f3ab5467790fcb5a833946cee0b17a268068"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-github/zipball/e815f3ab5467790fcb5a833946cee0b17a268068",
+            "reference": "e815f3ab5467790fcb5a833946cee0b17a268068",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-09-13 00:10:40",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\GitHub\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "GitHub provider for SocialNorm"
+    },
+    {
+        "name": "socialnorm/facebook",
+        "version": "v0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/socialnorm-facebook.git",
+            "reference": "2a3ccaea5905ca341b4916fc2283aaf7d9f4960b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/socialnorm-facebook/zipball/2a3ccaea5905ca341b4916fc2283aaf7d9f4960b",
+            "reference": "2a3ccaea5905ca341b4916fc2283aaf7d9f4960b",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "socialnorm/socialnorm": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-09-13 00:11:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SocialNorm\\Facebook\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Facebook provider for SocialNorm"
+    },
+    {
+        "name": "adamwathan/eloquent-oauth",
+        "version": "v8.1.0",
+        "version_normalized": "8.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/eloquent-oauth.git",
+            "reference": "2c74b7b1c36566e6ba76315582b17285311e53ad"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/eloquent-oauth/zipball/2c74b7b1c36566e6ba76315582b17285311e53ad",
+            "reference": "2c74b7b1c36566e6ba76315582b17285311e53ad",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/auth": "4.*|5.*",
+            "illuminate/database": "4.*|5.*",
+            "illuminate/http": "4.*|5.*",
+            "illuminate/routing": "4.*|5.*",
+            "illuminate/session": "4.*|5.*",
+            "illuminate/support": "4.*|5.*",
+            "php": ">=5.5.0",
+            "socialnorm/facebook": "^0.2",
+            "socialnorm/github": "^0.2",
+            "socialnorm/google": "^0.2",
+            "socialnorm/instagram": "^0.2",
+            "socialnorm/linkedin": "^0.2",
+            "socialnorm/socialnorm": "^0.2",
+            "socialnorm/soundcloud": "^0.2"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-10-26 14:05:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AdamWathan\\EloquentOAuth\\": "src/"
+            },
+            "classmap": [
+                "tests/FunctionalTestCase.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Stupid simple OAuth authentication with Laravel and Eloquent"
+    },
+    {
+        "name": "adamwathan/eloquent-oauth-l5",
+        "version": "v0.4.2",
+        "version_normalized": "0.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/adamwathan/eloquent-oauth-l5.git",
+            "reference": "2606c0525b4be462a99e1a22212f7e1963a92422"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/adamwathan/eloquent-oauth-l5/zipball/2606c0525b4be462a99e1a22212f7e1963a92422",
+            "reference": "2606c0525b4be462a99e1a22212f7e1963a92422",
+            "shasum": ""
+        },
+        "require": {
+            "adamwathan/eloquent-oauth": "^8.1",
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-12-27 01:39:13",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AdamWathan\\EloquentOAuthL5\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Adam Wathan",
+                "email": "adam.wathan@gmail.com"
+            }
+        ],
+        "description": "Stupid simple OAuth authentication with Laravel and Eloquent"
     }
 ]

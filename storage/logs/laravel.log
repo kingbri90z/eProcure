@@ -12202,3 +12202,35 @@ Stack trace:
 #65 /home/vagrant/Code/teamqilin/public/index.php(54): Illuminate\Foundation\Http\Kernel->handle()
 #66 /home/vagrant/Code/teamqilin/public/index.php(0): {main}()
 #67 {main}  
+[2016-02-16 05:22:30] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(74): Illuminate\Foundation\ProviderRepository->createProvider('AdamWathan\\Eloq...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(232): Illuminate\Foundation\Application->bootstrapWith(Array)
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(127): Illuminate\Foundation\Http\Kernel->bootstrap()
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#7 /home/vagrant/Code/buysellqilin/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#8 {main}  
+[2016-02-16 05:22:37] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(74): Illuminate\Foundation\ProviderRepository->createProvider('AdamWathan\\Eloq...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(232): Illuminate\Foundation\Application->bootstrapWith(Array)
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(127): Illuminate\Foundation\Http\Kernel->bootstrap()
+#6 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#7 /home/vagrant/Code/buysellqilin/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#8 {main}  
+[2016-02-16 13:12:28] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Fatal error: Class 'AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider' not found in /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:146
+Stack trace:
+#0 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(74): Illuminate\Foundation\ProviderRepository->createProvider('AdamWathan\\Eloq...')
+#1 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(507): Illuminate\Foundation\ProviderRepository->load(Array)
+#2 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\Foundation\Application->registerConfiguredProviders()
+#3 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#4 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(208): Illuminate\Foundation\Application->bootstrapWith(Array)
+#5 /home/vagrant/Code/buysellqilin/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#6 /home/vagrant/Code/buysellqilin/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 {main}  
