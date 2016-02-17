@@ -73,6 +73,17 @@ class AuthController extends Controller
         ]);
     }
 
+    protected function teamCheck($email){
+        $team   = false;
+        $domain = explode('@', $email);
+        $domain = strtolower($domain[1]);
+
+        if($domain == env('DOMAIN_NAME')){
+            $team = true;
+        }
+        return $team;
+    }
+
     /**
      * Obtain the user information from GitHub.
      *
@@ -82,7 +93,15 @@ class AuthController extends Controller
     {
 
         try {
-            SocialAuth::login('google');
+            SocialAuth::login('google',function($user, $details){
+                $user->email = $details->raw()['email'];
+
+                if(!$this->teamCheck($user->email)){
+                    return redirect()->route('/');
+                }
+
+                $user->save();
+            });
         } catch (ApplicationRejectedException $e) {
             // User rejected application
         } catch (InvalidAuthorizationCodeException $e) {
@@ -108,6 +127,11 @@ class AuthController extends Controller
         return SocialAuth::authorize($provider);
 
     }
+    public function getLogout()
+    {
 
+        //Auth::Logout()
+        return redirect('/needs');
+    }
 
 }
