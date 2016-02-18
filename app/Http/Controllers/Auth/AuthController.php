@@ -74,14 +74,15 @@ class AuthController extends Controller
     }
 
     protected function teamCheck($email){
-        $team   = false;
-        $domain = explode('@', $email);
-        $domain = strtolower($domain[1]);
-
-        if($domain == env('DOMAIN_NAME')){
-            $team = true;
-        }
-        return $team;
+//        $team   = false;
+//        $domain = explode('@', $email);
+//        $domain = strtolower($domain[1]);
+//
+//        if($domain == env('DOMAIN_NAME')){
+//            $team = true;
+//        }
+//        return $team;
+        return true;
     }
     public function getLogoutddd()
     {
@@ -102,7 +103,9 @@ class AuthController extends Controller
                 $user->email = $details->raw()['email'];
 
                 if(!$this->teamCheck($user->email)){
-                    return redirect()->route('/');
+//                    return redirect()->route('/');
+                    return redirect('/');
+
                 }
 
                 $user->save();
@@ -131,6 +134,16 @@ class AuthController extends Controller
 
         return SocialAuth::authorize($provider);
 
+    }
+
+     /**
+     * Override built in registration
+     *
+     * */
+
+    public function showRegistrationForm()
+    {
+        return redirect('auth/login');
     }
 
 }

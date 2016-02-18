@@ -94,6 +94,7 @@
 }
 </style>
 <h1>Current Blocks</h1>
+                                         
 
 <ul class="list-group">
 	<li class="list-group-item table-header active">
@@ -135,7 +136,6 @@
 						                </div>
 						                <div class="commentText">
 						                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
 						                </div>
 						            </li>
 						            <li>
@@ -161,7 +161,7 @@
 
 					        	    <div class="form-group">
 										<input name="block_id" type="hidden" value="{{$block->id}}">
-						                <input class="form-control" name="body" type="text" placeholder="Your comments" />
+						                <input class="form-control" name="body" type="text" placeholder="Your comments" required/>
 						            </div>
 						            <div class="form-group">
 						                <button class="btn btn-default">Add</button>

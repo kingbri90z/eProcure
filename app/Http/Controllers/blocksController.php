@@ -10,6 +10,7 @@ use TeamQilin\Block;
 use TeamQilin\Exchange;
 use TeamQilin\Need;
 use TeamQilin\Rep;
+use TeamQilin\Note;
 
 class blocksController extends Controller
 {
@@ -31,7 +32,13 @@ class blocksController extends Controller
 			->where('status', '=' ,'published')
 			->get();
 
-		return view('blocks.main')->with('blocks', $blocks);
+        $note_set=array();
+        foreach ($blocks as $block){
+            $notes = Note::where('block_id','=',$block['id'])->get();
+            array_push($note_set,$notes);
+        }
+        $note_set=array_flatten($note_set);
+		return view('blocks.main')->with('blocks',$blocks,'note_set',$note_set);
 	}
 
 	public function show($id){

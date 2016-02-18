@@ -30,7 +30,7 @@ class notesController extends Controller
 
         Note::create($input);
 
-        return redirect('/notes');
+        return redirect('/blocks');
 	}
 
 	public function create(){

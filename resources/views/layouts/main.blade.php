@@ -35,10 +35,10 @@
                         <b class="caret"></b>
                         <ul class="dropdown-menu">
                             <li><a href="/blocks">View All</a></li>
-                            <li><a href="/blocks">Add a block</a></li>
+                            <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Log </a></li>
+                    <li><a href="">Logout </a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

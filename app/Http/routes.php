@@ -26,6 +26,7 @@ Route::group(['middleware' => 'web'], function() {
 		}
 		return view('home');
 	});
+
     Route::get('{provider}/authorize', 'Auth\AuthController@redirectToProvider');
     Route::get('{provider}/login', 'Auth\AuthController@handleProviderCallback');
 
