@@ -28,6 +28,8 @@ class CreateBlocksTables extends Migration
             $table->integer('rep_id')->unsigned();
             $table->foreign('rep_id')->references('id')->on('reps')->onDelete('no action');
             $table->enum('status', array('unpublished','published', 'archived'));
+            $table->string('roles');
+            $table->string('avatar');
             $table->timestamps();
         });
     }
