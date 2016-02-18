@@ -43,9 +43,9 @@
 						<?php if(!Request::is('auth/login')): ?>
 							<li><a href="<?php echo e(url('/auth/login')); ?>">Login</a></li>
 						<?php endif; ?>
-						<?php if(!Request::is('auth/register')): ?>
-							<li><a href="<?php echo e(url('/auth/register')); ?>">Register</a></li>
-						<?php endif; ?>
+						<?php /*<?php if(!Request::is('auth/register')): ?>*/ ?>
+							<?php /*<li><a href="<?php echo e(url('/auth/register')); ?>">Register</a></li>*/ ?>
+						<?php /*<?php endif; ?>*/ ?>
 					<?php else: ?>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo e(auth()->user()->name); ?> <span class="caret"></span></a>

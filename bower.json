@@ -1,6 +1,7 @@
 {
-    "name": "TeamQilin",
-    "dependencies": {
-      "bootstrap": "~3.3.5"
-    }
+  "name": "TeamQilin",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "moment": "^2.11.2"
+  }
 }

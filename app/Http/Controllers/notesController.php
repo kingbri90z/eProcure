@@ -21,6 +21,10 @@ class notesController extends Controller
 
 	public function show($id){
 
+        $note = Note::where('block_id','=',$id)->get();
+
+        return response()->json($note);
+
 	}
 
 	public function store(noteRequest $request){

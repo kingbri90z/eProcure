@@ -94,7 +94,7 @@
 }
 </style>
 <h1>Current Blocks</h1>
-                                         
+
 
 <ul class="list-group">
 	<li class="list-group-item table-header active">
@@ -185,10 +185,40 @@
 </ul>
 <script type="text/javascript">
 	$( document ).ready(function() {
+
+		$.date = function(dateObject) {
+		    var d = new Date(dateObject);
+		    var day = d.getDate();
+		    var month = d.getMonth() + 1;
+		    var year = d.getFullYear();
+		    if (day < 10) {
+		        day = "0" + day;
+		    }
+		    if (month < 10) {
+		        month = "0" + month;
+		    }
+		    var date = day + "/" + month + "/" + year;
+
+		    return date;
+		};
+
 	    $('.comments').hide();
 	    $('.commentsShowHide').click(function(){
 	    	var parent = $(this);
 	    	var id = parent.attr('data-id');
+
+			$.getJSON( "/notes/" + id, function( data ) {
+			  var html = '';
+			  console.log(data);
+			  $.each( data, function( key, val ) {
+			  	console.log(data[key]);
+			    html = html + '<li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text">on ' + moment(data[key].created_at, 'MMMM Do YYYY, h:mm:ss a') + '</span></div></li>';
+
+			  });
+			  $('.commentList').html(html);
+
+			});
+
 	    	$('#comments_' + id).toggle("slow",function(){
 	    		parent.text(function(i, text){
           			return text === "+" ? "-" : "+";

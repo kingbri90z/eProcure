@@ -15,7 +15,7 @@ return [
         'google' => [
             'client_id' => '996179344334-a5v7sg7uc044sphs9hjdtif741mi2b2b.apps.googleusercontent.com',
             'client_secret' => '12ARzVt-PIPyJIQpGzQ-bSEC',
-            'redirect_uri' => 'http://qilin.dev/google/login',
+            'redirect_uri' => 'http://buysellqilin.dev/google/login',
             'scope' => [],
         ],
         'github' => [

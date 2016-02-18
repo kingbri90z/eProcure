@@ -47,6 +47,7 @@ Route::group(['middleware' => 'web'], function() {
 
 		Route::resource('needs', 'needsController');
 
+		Route::get('notes/{block_id}', 'notesController@show');
 		Route::post('notes/{block_id}', 'notesController@store');
 
 		Route::resource('notes', 'notesController');

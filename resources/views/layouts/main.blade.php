@@ -7,7 +7,7 @@
 
         {!! Html::script('js/jquery.min.js') !!}
         {!! Html::script('js/bootstrap.min.js') !!}
-
+        {!! Html::script('js/moment.js') !!}
         <style>
         body { padding-top: 60px; }
         @media (max-width: 979px) {
