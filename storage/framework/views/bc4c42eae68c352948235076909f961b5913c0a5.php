@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<link rel="stylesheet" type="text/css" href="//catc.github.io/simple-hint/stylesheets/simple-hint.css">
 <style type="text/css">
 
 	@media  only screen and (max-width: 767px) {
@@ -197,7 +198,7 @@
 			  console.log(data);
 			  $.each( data, function( key, val ) {
 			  	console.log(data[key]);
-			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text">on ' + data[key].date + '</span></div></li>';
+			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med">on ' + data[key].date + '</span></div></li>';
 
 			  });
 			  $('.commentList[data-id="' + id + '"]').html(html);
