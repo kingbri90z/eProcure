@@ -9,6 +9,7 @@ use TeamQilin\Http\Requests\noteRequest;
 use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Note;
 use TeamQilin\User;
+use Carbon\Carbon;
 
 class notesController extends Controller
 {
@@ -21,9 +22,22 @@ class notesController extends Controller
 
 	public function show($id){
 
-        $note = Note::where('block_id','=',$id)->get();
+        $notes = Note
+			::join('users', 'notes.user_id', '=', 'users.id')
+			->select(
+				'notes.id AS id',
+				'notes.body AS body',
+				'notes.created_at AS created_at',
+				'users.avatar AS avatar'
+				)
+			->where('block_id','=', $id)
+			->get();
 
-        return response()->json($note);
+			foreach($notes as $key => $note ){
+				$notes[$key]['date'] = $note->created_at->diffForHumans();
+			}
+
+        return response()->json($notes);
 
 	}
 

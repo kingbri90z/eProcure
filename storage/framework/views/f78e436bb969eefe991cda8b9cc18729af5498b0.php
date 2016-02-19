@@ -42,7 +42,7 @@
                             <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Logout </a></li>
+                    <li><a href="/logout">Logout </a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

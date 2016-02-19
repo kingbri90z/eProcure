@@ -14,6 +14,7 @@
 	 	border-bottom:1px solid #bbb;
 	 	padding-bottom:3px;
 	 	position: relative;
+	 	background-color: #fff;
 	 }
 
 	.blocks-items::before {
@@ -21,6 +22,17 @@
 		content: attr(data-title) ": ";
 	}
 
+	.symbol{
+		background: #c0c0c0;
+		font-size: 2em;
+	}
+	.list-group-item{
+		background: #c0c0c0;
+	}
+
+	.comments{
+		background-color: #fff
+	}
 }
 
 
@@ -112,7 +124,7 @@
   	<li class="list-group-item">
 		<table>
 			<div class="row active">
-				<div class="col-sm-1 blocks-items" data-title="Symbol"><?php echo e($block->symbol); ?></div>
+				<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><?php echo e($block->symbol); ?></div>
 				<div class="col-sm-2 blocks-items" data-title="Exchange"><?php echo e($block->exchange); ?></div>
 				<div class="col-sm-1 blocks-items" data-title="Discount" class="numeric"><?php echo e($block->discount); ?></div>
 				<div class="col-sm-2 blocks-items" data-title="Shares" class="numeric"><?php echo e($block->number_shares); ?></div>
@@ -127,43 +139,16 @@
 						      <label>Notes</label>
 						    </div>
 						    <div class="actionBox">
-						        <ul class="commentList">
-						            <li>
-						                <div class="commenterImage">
-						                  <img src="http://lorempixel.com/50/50/people/6" />
-						                </div>
-						                <div class="commentText">
-						                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-						                </div>
-						            </li>
-						            <li>
-						                <div class="commenterImage">
-						                  <img src="http://lorempixel.com/50/50/people/7" />
-						                </div>
-						                <div class="commentText">
-						                    <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-						                </div>
-						            </li>
-						            <li>
-						                <div class="commenterImage">
-						                  <img src="http://lorempixel.com/50/50/people/9" />
-						                </div>
-						                <div class="commentText">
-						                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-						                </div>
-						            </li>
-						        </ul>
+						        <ul class="commentList" data-id="<?php echo e($block->id); ?>"></ul>
 						        <?php echo Form::open(array('url' => 'notes/' . $block->id,'class' => 'form-inline')); ?>
 
 
 					        	    <div class="form-group">
 										<input name="block_id" type="hidden" value="<?php echo e($block->id); ?>">
-						                <input class="form-control" name="body" type="text" placeholder="Your comments" required/>
+						                <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
 						            </div>
 						            <div class="form-group">
-						                <button class="btn btn-default">Add</button>
+						                <button class="btn btn-success">Add</button>
 						            </div>
 
 								<?php echo Form::close(); ?>
@@ -212,10 +197,10 @@
 			  console.log(data);
 			  $.each( data, function( key, val ) {
 			  	console.log(data[key]);
-			    html = html + '<li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text">on ' + moment(data[key].created_at, 'MMMM Do YYYY, h:mm:ss a') + '</span></div></li>';
+			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text">on ' + data[key].date + '</span></div></li>';
 
 			  });
-			  $('.commentList').html(html);
+			  $('.commentList[data-id="' + id + '"]').html(html);
 
 			});
 

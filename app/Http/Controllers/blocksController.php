@@ -11,6 +11,7 @@ use TeamQilin\Exchange;
 use TeamQilin\Need;
 use TeamQilin\Rep;
 use TeamQilin\Note;
+use TeamQilin\User;
 
 class blocksController extends Controller
 {

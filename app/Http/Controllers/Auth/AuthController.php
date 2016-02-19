@@ -84,12 +84,8 @@ class AuthController extends Controller
 //        return $team;
         return true;
     }
-    public function getLogoutddd()
-    {
-        //
-        //Auth::Logout()
-        return redirect('exchanges');
-    }
+
+
     /**
      * Obtain the user information from GitHub.
      *
@@ -100,7 +96,12 @@ class AuthController extends Controller
 
         try {
             SocialAuth::login('google',function($user, $details){
-                $user->email = $details->raw()['email'];
+
+                $name               = explode(" ", $details->raw()['name']);
+                $user->email        = $details->raw()['email'];
+                $user->first_name   = $name[0];
+                $user->last_name    = $name[1];
+                $user->avatar       = $details->raw()['picture'];
 
                 if(!$this->teamCheck($user->email)){
 //                    return redirect()->route('/');
