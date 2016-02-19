@@ -54,5 +54,8 @@ Route::group(['middleware' => 'web'], function() {
 
 		Route::resource('reps', 'repsController');
 
-	});
+        Route::get('admin', 'Auth\AuthController@showAdmin');
+
+
+    });
 });
