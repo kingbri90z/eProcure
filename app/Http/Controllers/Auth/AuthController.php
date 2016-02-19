@@ -150,8 +150,5 @@ class AuthController extends Controller
         return redirect('auth/login');
     }
 
-    public function showAdmin()
-    {
-        return View('admin/users/show');
-    }
+
 }

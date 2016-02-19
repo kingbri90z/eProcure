@@ -54,7 +54,8 @@ Route::group(['middleware' => 'web'], function() {
 
 		Route::resource('reps', 'repsController');
 
-        Route::get('admin', 'Auth\AuthController@showAdmin');
+        Route::resource('admin', 'AdminUserController');
+        Route::get('admin/edit/{user_id}', 'AdminUserController@edit');
 
 
     });
