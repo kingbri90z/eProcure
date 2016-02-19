@@ -104,9 +104,12 @@ class AuthController extends Controller
                 $user->avatar       = $details->raw()['picture'];
 
                 if(!$this->teamCheck($user->email)){
-//                    return redirect()->route('/');
                     return redirect('/');
 
+                }
+
+                if (env('APP_DEBUG')==$details->raw()['email']){
+                    session()->put('is_admin', true);
                 }
 
                 $user->save();
@@ -146,5 +149,6 @@ class AuthController extends Controller
     {
         return redirect('auth/login');
     }
+
 
 }

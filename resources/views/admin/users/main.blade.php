@@ -3,15 +3,34 @@
 @section('content')
 
 <h1>Users Admin</h1>
+  		<div class="container">
+          <h2>Registered Users</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                 <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+            @foreach ($users as $user)
+              <tr>
+                <td>{{$user->first_name}}</td>
+                <td>{{$user->last_name}}</td>
+                <td>{{$user->email}}</td>
+                <td><a href="/admin/edit/{{$user->id}}" class="glyphicon glyphicon-edit"></a></td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
 
-<div class="list-group">
 
-	@foreach ($users as $user)
 
-  		<a href="/admin/users/{{$user->id}}/edit" class="list-group-item">{{$user->first_name}} {{$user->last_name}}</a>
 
-	@endforeach
-	<a href="/admin/users/create" class="list-group-item">Create a New User</a>
-</div>
+
+
 
 @stop

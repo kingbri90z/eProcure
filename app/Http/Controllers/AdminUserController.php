@@ -50,10 +50,11 @@ class AdminUserController extends Controller
     public function update($id, UserRequest $request){
 
         $user = User::findOrFail($id);
+        $user->roles=$request->all()['role'];
+        $user->save();
 
-        $user->update($request->all());
 
-        return redirect('admin/users');
+        return redirect('admin');
 
     }
 }

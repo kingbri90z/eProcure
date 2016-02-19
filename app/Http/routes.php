@@ -54,5 +54,9 @@ Route::group(['middleware' => 'web'], function() {
 
 		Route::resource('reps', 'repsController');
 
-	});
+        Route::resource('admin', 'AdminUserController');
+        Route::get('admin/edit/{user_id}', 'AdminUserController@edit');
+
+
+    });
 });
