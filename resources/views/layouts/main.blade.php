@@ -8,6 +8,8 @@
         {!! Html::script('js/jquery.min.js') !!}
         {!! Html::script('js/bootstrap.min.js') !!}
         {!! Html::script('js/moment.js') !!}
+
+
         <style>
         body { padding-top: 60px; }
         @media (max-width: 979px) {
@@ -38,7 +40,9 @@
                             <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
+                @if(session('is_admin'))
                     <li><a href="/admin">Admin </a></li>
+                @endif
                     <li><a href="/logout">Logout </a></li>
                 </ul>
             </div><!--/.nav-collapse -->

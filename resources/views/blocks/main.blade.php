@@ -30,7 +30,8 @@
 		font-size: 2em;
 	}
 	.list-group-item{
-		background: #c0c0c0;
+		border:none;
+		margin-bottom:4px;
 	}
 
 	.comments{
@@ -108,67 +109,18 @@
 </style>
 <h1>Current Blocks</h1>
 
-
-<ul class="list-group">
-	<li class="list-group-item table-header active">
-		<div class="row">
-			<div class="col-sm-1">Symbol</div>
-			<div class="col-sm-2">Exchange</div>
-			<div class="col-sm-1">Discount</div>
-			<div class="col-sm-2">Shares</div>
-			<div class="col-sm-1">Need</div>
-			<div class="col-sm-2">Custodian</div>
-			<div class="col-sm-2">Qilin Rep</div>
-			<div class="col-sm-1">Notes</div>
-		</div>
-	</li>
-	@foreach ($blocks as $block)
-
-  	<li class="list-group-item">
-		<table>
-			<div class="row active">
-				<div class="col-sm-1 blocks-items symbol" data-title="Symbol">{{$block->symbol}}</div>
-				<div class="col-sm-2 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
-				<div class="col-sm-1 blocks-items" data-title="Discount" class="numeric">{{$block->discount}}</div>
-				<div class="col-sm-2 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
-				<div class="col-sm-1 blocks-items" data-title="Need">{{$block->symbol}}</div>
-				<div class="col-sm-2 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
-				<div class="col-sm-2 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
-				<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">+</button></div>
-				<div class="rows">
-					<div class="col-md-12 comments" id="comments_{{$block->id}}">
-						<div class="detailBox">
-						    <div class="titleBox">
-						      <label>Notes</label>
-						    </div>
-						    <div class="actionBox">
-						        <ul class="commentList" data-id="{{$block->id}}"></ul>
-						        {!! Form::open(array('url' => 'notes/' . $block->id,'class' => 'form-inline')) !!}
-
-					        	    <div class="form-group">
-										<input name="block_id" type="hidden" value="{{$block->id}}">
-						                <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
-						            </div>
-						            <div class="form-group">
-						                <button class="btn btn-success">Add</button>
-						            </div>
-
-								{!! Form::close() !!}
-
-								@include('errors.errors')
-						    </div>
-						</div>
-
-
-
-					</div>
-				</div>
-			<div class="row active">
-		</table>
-	</li>
-	@endforeach
-
+<ul class="nav nav-tabs" id="displayTabs">
+  <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab">Buy Side</a></li>
+  <li role="presentation"><a href="#sell" aria-controls="Sell" role="tab" data-toggle="tab">Sell Side</a></li>
 </ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="buy">
+		@include('blocks.table', ['blockType' => 'Buyer'])
+	</div>
+    <div role="tabpanel" class="tab-pane" id="sell">
+    	@include('blocks.table', ['blockType' => 'Seller'])
+    </div>
+</div>
 <script type="text/javascript">
 	$( document ).ready(function() {
 
@@ -198,20 +150,27 @@
 			  console.log(data);
 			  $.each( data, function( key, val ) {
 			  	console.log(data[key]);
-			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med">on ' + data[key].date + '</span></div></li>';
+			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med"> By ' + data[key].full_name + ' on ' + data[key].date + '</span></div></li>';
 
 			  });
-			  $('.commentList[data-id="' + id + '"]').html(html);
-
+			$('.commentList[data-id="' + id + '"]').html(html).promise().done(function(){
+		    	$('#comments_' + id).toggle("slow",function(){
+		    		parent.text(function(i, text){
+	          			return text === "+" ? "-" : "+";
+	      			})
+		    	});
 			});
 
-	    	$('#comments_' + id).toggle("slow",function(){
-	    		parent.text(function(i, text){
-          			return text === "+" ? "-" : "+";
-      			})
-	    	});
-
+			});
 	    });
+
+		/*
+		Tabs
+		 */
+		// $('#displayTabs a').click(function (e) {
+		// 	e.preventDefault()
+		// 	$(this).tab('show')
+		// })
 	});
 </script>
 @stop

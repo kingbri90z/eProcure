@@ -28,13 +28,18 @@ class notesController extends Controller
 				'notes.id AS id',
 				'notes.body AS body',
 				'notes.created_at AS created_at',
-				'users.avatar AS avatar'
+				'users.avatar AS avatar',
+				'users.first_name As first_name',
+				'users.last_name As last_name'
 				)
 			->where('block_id','=', $id)
+			->orderBy('created_at', 'DESC')
 			->get();
 
 			foreach($notes as $key => $note ){
-				$notes[$key]['date'] = $note->created_at->diffForHumans();
+				$notes[$key]['date'] 		= $note->created_at->diffForHumans();
+				$notes[$key]['full_name'] 	= $this->getFullName($note->first_name, $note->last_name);
+				$notes[$key]['at_name'] 	= $this->getAtFullName($note->first_name, $note->last_name);
 			}
 
         return response()->json($notes);
@@ -70,5 +75,13 @@ class notesController extends Controller
 
         return redirect('notes');
 
+    }
+
+    private function getFullName($firstName,$lastName){
+    	return $firstName . " " . $lastName;
+    }
+
+    private function getAtFullName($firstName,$lastName){
+    	return $firstName . $lastName;
     }
 }
