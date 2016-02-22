@@ -1,6 +1,6 @@
 <?php
 
-namespace TeamQilin\Models;
+namespace TeamQilin;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -12,7 +12,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+        'roles',
     ];
 
     /**

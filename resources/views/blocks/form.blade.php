@@ -4,8 +4,12 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('discount', 'Discount Rate: ') !!}
+	{!! Form::label('discount', 'Our Discount: ') !!}
 	{!! Form::number('discount', null, array('class' => 'form-control')) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('discount_target', 'Target Discount: ') !!}
+	{!! Form::number('discount_target', null, array('class' => 'form-control')) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('number_shares', 'Number of Shares: ') !!}
@@ -24,7 +28,20 @@
 	{{ Form::select('custodian_id', $custodians, null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
+	{{ Form::label('source_id', 'Source: ') }}
+	{{ Form::select('source_id', $sources, null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
 	{{ Form::label('rep_id', 'Qilin Rep: ') }}
 	{{ Form::select('rep_id', $reps, null, ['class' => 'form-control']) }}
 </div>
+<div class="form-group">
+	{!! Form::label('status', 'Status:') !!}
+    {{ Form::select('status', [
+    	'unpublished'=>'Unpublished',
+    	'published'=>'Published',
+    	'archived'=>'Archived'
+    	], null, ['class' => 'form-control']) }}
+</div>
+
 {!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}

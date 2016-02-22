@@ -5,7 +5,8 @@
 					<div class="col-sm-1">Added</div>
 					<div class="col-sm-1">Exchange</div>
 					<div class="col-sm-1">Our Disc</div>
-					<div class="col-sm-2">Shares</div>
+					<div class="col-sm-1">Target Disc</div>
+					<div class="col-sm-1">Shares</div>
 					<div class="col-sm-1">Need</div>
 					<div class="col-sm-2">Custodian</div>
 					<div class="col-sm-2">Qilin Rep</div>
@@ -18,11 +19,18 @@
 		  	<li class="list-group-item">
 				<table>
 					<div class="row active">
-						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>{{$block->symbol}}</b></div>
+						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>
+							@if(session('is_admin'))
+								<a href="/blocks/{{$block->id}}/edit">{{$block->symbol}}</a>
+							@else
+								{{$block->symbol}}
+							@endif
+						</b></div>
 						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
 						<div class="col-sm-1 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$block->discount}}</div>
-						<div class="col-sm-2 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
+						<div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$block->discount_target}}</div>
+						<div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Need">{{$block->need}}</div>
 						<div class="col-sm-2 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
 						<div class="col-sm-2 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
