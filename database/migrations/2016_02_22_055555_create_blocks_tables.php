@@ -14,18 +14,16 @@ class CreateBlocksTables extends Migration
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('symbol');
+            $table->string('symbol_id')->unsigned();
+            $table->foreign('symbol_id')->references('id')->on('symbols')->onDelete('no action');
             $table->integer('exchange_id')->unsigned();
-            //$table->foreign('exchange_id')->references('id')->on('exchanges')->onDelete('no action');
             $table->string('discount');
             $table->string('number_shares');
             $table->string('discount_target');
-            // $table->string('discount_commission');
             $table->integer('need_id')->unsigned();
             $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
             $table->integer('source_id')->unsigned();
             $table->foreign('source_id')->references('id')->on('sources')->onDelete('no action');
-           // $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
             $table->integer('custodian_id')->unsigned();
             $table->foreign('custodian_id')->references('id')->on('custodians')->onDelete('no action');
             $table->integer('rep_id')->unsigned();
