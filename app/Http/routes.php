@@ -35,11 +35,14 @@ Route::group(['middleware' => 'web'], function() {
     	return redirect('auth/login');
     });
 
+    //Route::get('blocks', ['middleware' => 'admin', 'uses'=>'blocksController@index']);
+
 	Route::group(['middleware' => 'auth'], function() {
 
 		//Route::resource('admin/users', 'AdminUserController');
 
 		Route::resource('blocks', 'blocksController');
+
 
 		Route::resource('custodians', 'custodiansController');
 
@@ -55,9 +58,16 @@ Route::group(['middleware' => 'web'], function() {
 		Route::resource('reps', 'repsController');
 		Route::resource('sources', 'sourcesController');
 
-        Route::resource('admin', 'AdminUserController');
         Route::get('admin/edit/{user_id}', 'AdminUserController@edit');
+        Route::resource('admin',  'AdminUserController');
+//        Route::get('admin',  ['middleware' => 'admin', 'uses'=>'AdminUserController@index']);
+//
+//        Route::get('admin',  ['middleware' => 'admin', 'uses'=>'AdminUserController@index']);
+
+
 
 
     });
+
+
 });
