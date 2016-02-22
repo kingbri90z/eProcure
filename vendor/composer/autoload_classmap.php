@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BlocksTableSeeder' => $baseDir . '/database/seeds/BlocksTableSeeder.php',
-    'CreateBlocksTables' => $baseDir . '/database/migrations/2016_02_09_055555_create_blocks_tables.php',
+    'CreateBlocksTables' => $baseDir . '/database/migrations/2016_02_22_055555_create_blocks_tables.php',
     'CreateCustodians' => $baseDir . '/database/migrations/2016_02_08_194341_create-custodians.php',
     'CreateNotesTable' => $baseDir . '/database/migrations/2016_02_14_142846_create_notes_table.php',
     'CreateOauthIdentitiesTable' => $baseDir . '/database/migrations/2016_02_16_032447_create_oauth_identities_table.php',
