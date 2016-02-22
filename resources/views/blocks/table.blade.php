@@ -8,9 +8,10 @@
 					<div class="col-sm-1">Target Disc</div>
 					<div class="col-sm-1">Shares</div>
 					<div class="col-sm-1">Need</div>
-					<div class="col-sm-2">Custodian</div>
-					<div class="col-sm-2">Qilin Rep</div>
-					<div class="col-sm-1">Notes</div>
+					<div class="col-sm-1">Custodian</div>
+					<div class="col-sm-1">Source</div>
+					<div class="col-sm-1">Qilin Rep</div>
+					<div class="col-sm-2">Notes</div>
 				</div>
 			</li>
 		@foreach ($blocks as $block)
@@ -32,9 +33,10 @@
 						<div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$block->discount_target}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Need">{{$block->need}}</div>
-						<div class="col-sm-2 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
-						<div class="col-sm-2 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
-						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">+</button></div>
+						<div class="col-sm-1 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
+						<div class="col-sm-1 blocks-items" data-title="Source">{{$block->source}}</div>
+						<div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
+						<div class="col-sm-2 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">+</button></div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$block->id}}">
 								<div class="detailBox">

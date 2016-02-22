@@ -22,6 +22,9 @@ class CreateBlocksTables extends Migration
             $table->string('discount_target');
             // $table->string('discount_commission');
             $table->integer('need_id')->unsigned();
+            $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
+            $table->integer('source_id')->unsigned();
+            $table->foreign('source_id')->references('id')->on('sources')->onDelete('no action');
            // $table->foreign('need_id')->references('id')->on('needs')->onDelete('no action');
             $table->integer('custodian_id')->unsigned();
             $table->foreign('custodian_id')->references('id')->on('custodians')->onDelete('no action');

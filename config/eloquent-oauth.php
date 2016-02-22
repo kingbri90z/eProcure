@@ -1,6 +1,6 @@
 <?php
 
-namespace TeamQilin\Models;
+namespace TeamQilin;
 
 return [
     'model' => User::class,

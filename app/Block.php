@@ -15,7 +15,8 @@ class Block extends Model
     	'need_id',
     	'custodian_id',
     	'rep_id',
-        'status'
+        'status',
+        'source_id'
     ];
 
     public function notes(){

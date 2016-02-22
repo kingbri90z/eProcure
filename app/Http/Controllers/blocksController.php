@@ -24,6 +24,7 @@ class blocksController extends Controller
 			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
 			->join('needs', 'blocks.need_id', '=', 'needs.id')
 			->join('reps', 'blocks.rep_id', '=', 'reps.id')
+			->join('sources', 'blocks.source_id', '=', 'sources.id')
 			->select(
 				'blocks.id AS id',
 				'blocks.symbol AS symbol',
@@ -34,7 +35,8 @@ class blocksController extends Controller
 				'custodians.name AS custodian',
 				'exchanges.abbreviation AS exchange',
 				'needs.name AS need',
-				'reps.name AS rep'
+				'reps.name AS rep',
+				'sources.name AS source'
 			)
 			->where('status', '=' ,'published')
 			->get();
