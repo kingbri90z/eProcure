@@ -19,27 +19,28 @@ class blocksController extends Controller
 {
 	public function index(){
 
-		$blocks = Block
-			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
-			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
-			->join('needs', 'blocks.need_id', '=', 'needs.id')
-			->join('reps', 'blocks.rep_id', '=', 'reps.id')
-			->join('sources', 'blocks.source_id', '=', 'sources.id')
-			->select(
-				'blocks.id AS id',
-				'blocks.symbol AS symbol',
-				'blocks.discount AS discount',
-				'blocks.discount_target AS discount_target',
-				'blocks.created_at AS created_at',
-				'blocks.number_shares AS number_shares',
-				'custodians.name AS custodian',
-				'exchanges.abbreviation AS exchange',
-				'needs.name AS need',
-				'reps.name AS rep',
-				'sources.name AS source'
-			)
-			->where('status', '=' ,'published')
-			->get();
+        $blocks = Block
+            ::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
+            ->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
+            ->join('needs', 'blocks.need_id', '=', 'needs.id')
+            ->join('reps', 'blocks.rep_id', '=', 'reps.id')
+            ->join('sources', 'blocks.source_id', '=', 'sources.id')
+            ->join('symbols', 'blocks.symbol_id', '=', 'symbols.id')
+            ->select(
+                'blocks.id AS id',
+                'symbols.name AS symbol',
+                'blocks.discount AS discount',
+                'blocks.discount_target AS discount_target',
+                'blocks.created_at AS created_at',
+                'blocks.number_shares AS number_shares',
+                'custodians.name AS custodian',
+                'exchanges.abbreviation AS exchange',
+                'needs.name AS need',
+                'reps.name AS rep',
+                'sources.name AS source'
+            )
+            ->where('status', '=' ,'published')
+            ->get();
 
         $note_set=array();
         foreach ($blocks as $key => $block){

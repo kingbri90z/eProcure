@@ -3,7 +3,7 @@
 namespace TeamQilin\Http\Middleware;
 
 use Closure;
-
+use Redirect;
 class AdminMiddleware
 {
     /**
@@ -15,13 +15,11 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (session()->get('is_admin')=='A') {
+        //dd(session()->get('is_admin'));
+        if (session()->get('is_admin')==false) {
 
-            return Redirect::intended();
-
-        }else{
-            return redirect()->guest('auth/login');
-
+            return redirect('blocks');
+            
         }
 
         return $next($request);

@@ -97,10 +97,14 @@ class AuthController extends Controller
         try {
             SocialAuth::login('google',function($user, $details){
 
+
+                $role_if_exist=User::where('email','=',$details->raw()['email'])->get()->all()[0]->roles;
+
                 $name               = explode(" ", $details->raw()['name']);
                 $user->email        = $details->raw()['email'];
                 $user->first_name   = $name[0];
                 $user->last_name    = $name[1];
+                $user->roles        = $role_if_exist;
                 $user->avatar       = $details->raw()['picture'];
 
                 if(!$this->teamCheck($user->email)){
@@ -108,7 +112,7 @@ class AuthController extends Controller
 
                 }
 
-                if (env('APP_DEBUG')==$details->raw()['email']){
+                if (env('ADMIN_EMAIL')==$details->raw()['email']){
                     session()->put('is_admin', true);
                 }
 
