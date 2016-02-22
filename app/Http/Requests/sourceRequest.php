@@ -4,7 +4,7 @@ namespace TeamQilin\Http\Requests;
 
 use TeamQilin\Http\Requests\Request;
 
-class blockRequest extends Request
+class sourceRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class blockRequest extends Request
     public function rules()
     {
         return [
-            'symbol'            => 'required',
-            'exchange_id'       => 'required',
-            'discount'          => 'required',
-            'discount_target'   => 'required',
-            'number_shares'     => 'required',
-            'need_id'           => 'required',
-            'custodian_id'      => 'required',
-            'rep_id'            => 'required'
+            'name' => 'required'
         ];
     }
 }

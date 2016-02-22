@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => TeamQilin\Models\User::class,
+            'model' => TeamQilin\User::class,
         ],
 
         // 'users' => [

@@ -10,10 +10,13 @@ class Block extends Model
     	'symbol',
     	'exchange_id',
     	'discount',
+        'discount_target',
     	'number_shares',
     	'need_id',
     	'custodian_id',
-    	'rep_id'
+    	'rep_id',
+        'status',
+        'source_id'
     ];
 
     public function notes(){

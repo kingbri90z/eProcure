@@ -15,10 +15,10 @@
 
 <div class="form-group">
 	{!! Form::label('role', 'Role:') !!}
-	<select class="form-control" name="role">
-      <option value="A">Administrator</option>
-      <option value="N">Normal</option>
-    </select>
+    {{ Form::select('role', [
+    	'A'=>'Administrator',
+    	'N'=>'Normal'
+	], null, ['class' => 'form-control']) }}
 </div>
 
 {!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}
