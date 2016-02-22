@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BlocksTableSeeder' => $baseDir . '/database/seeds/BlocksTableSeeder.php',
-    'CreateBlocksTables' => $baseDir . '/database/migrations/2016_02_09_055555_create_blocks_tables.php',
+    'CreateBlocksTables' => $baseDir . '/database/migrations/2016_02_22_055555_create_blocks_tables.php',
     'CreateCustodians' => $baseDir . '/database/migrations/2016_02_08_194341_create-custodians.php',
     'CreateNotesTable' => $baseDir . '/database/migrations/2016_02_14_142846_create_notes_table.php',
     'CreateOauthIdentitiesTable' => $baseDir . '/database/migrations/2016_02_16_032447_create_oauth_identities_table.php',
@@ -96,6 +96,7 @@ return array(
     'Needs' => $baseDir . '/database/migrations/2016_02_12_140254_needs.php',
     'NeedsTableSeeder' => $baseDir . '/database/seeds/NeedsTableSeeder.php',
     'NotesTableSeeder' => $baseDir . '/database/seeds/NotesTableSeeder.php',
+    'OauthIdentitiesTableSeeder' => $baseDir . '/database/seeds/OauthIdentitiesTableSeeder.php',
     'Orangehill\\Iseed\\TableNotFoundException' => $vendorDir . '/orangehill/iseed/src/Orangehill/Iseed/Exceptions.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
@@ -533,8 +534,9 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Sources' => $baseDir . '/database/migrations/2016_02_22_004650_sources.php',
-    'SourcesTableSeeder' => $baseDir . '/database/seeds/SourcesTableSeeder copy.php',
+    'SourcesTableSeeder' => $baseDir . '/database/seeds/SourcesTableSeeder.php',
     'Symbols' => $baseDir . '/database/migrations/2016_02_22_055306_symbols.php',
+    'SymbolsTableSeeder' => $baseDir . '/database/seeds/SymbolsTableSeeder copy.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',

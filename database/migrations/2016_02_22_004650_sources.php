@@ -12,13 +12,15 @@ class Sources extends Migration
      */
     public function up()
     {
-        Schema::create('sources', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->enum('type', array('blocks','loans'));
-            $table->integer('relation_id')->unsigned();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('sources')) {
+            Schema::create('sources', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->enum('type', array('blocks','loans'));
+                $table->integer('relation_id')->unsigned();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -28,6 +30,8 @@ class Sources extends Migration
      */
     public function down()
     {
-        Schema::drop('blocks');
+        if (Schema::hasTable('sources')) {
+            Schema::drop('sources');
+        }
     }
 }

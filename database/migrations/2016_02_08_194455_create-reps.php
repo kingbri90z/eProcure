@@ -12,11 +12,13 @@ class CreateReps extends Migration
      */
     public function up()
     {
-        Schema::create('reps', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('reps')) {
+            Schema::create('reps', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -26,6 +28,8 @@ class CreateReps extends Migration
      */
     public function down()
     {
-        Schema::drop('reps');
+        if (Schema::hasTable('reps')) {
+            Schema::drop('reps');
+        }
     }
 }

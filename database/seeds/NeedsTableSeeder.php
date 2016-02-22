@@ -12,19 +12,19 @@ class NeedsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('needs')->delete();
-        
+
         \DB::table('needs')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'Buyer',
                 'created_at' => '2016-02-12 15:31:08',
                 'updated_at' => '2016-02-12 15:31:08',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'Seller',
@@ -32,7 +32,6 @@ class NeedsTableSeeder extends Seeder
                 'updated_at' => '2016-02-12 15:31:23',
             ),
         ));
-        
-        
+
     }
 }

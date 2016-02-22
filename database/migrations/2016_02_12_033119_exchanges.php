@@ -12,12 +12,14 @@ class Exchanges extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('exchanges')) {
             Schema::create('exchanges', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('abbreviation');
-            $table->timestamps();
-        });
+                $table->increments('id');
+                $table->string('name');
+                $table->string('abbreviation');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -27,6 +29,8 @@ class Exchanges extends Migration
      */
     public function down()
     {
-        Schema::drop('reps');
+        if (Schema::hasTable('exchanges')) {
+            Schema::drop('exchanges');
+        }
     }
 }
