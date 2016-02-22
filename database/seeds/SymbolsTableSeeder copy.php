@@ -4,13 +4,15 @@ use Illuminate\Database\Seeder;
 
 class SymbolsTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
+
 
         \DB::table('symbols')->delete();
 
@@ -19,15 +21,13 @@ class SymbolsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'name' => '0416.HK',
-                'exchange_id' => 1,
                 'created_at' => '2016-02-12 15:57:22',
                 'updated_at' => '2016-02-12 15:57:22',
             ),
             1 =>
             array (
-                'id' => 1,
+                'id' => 2,
                 'name' => '2799.HK',
-                'exchange_id' => 1,
                 'created_at' => '2016-02-12 15:57:22',
                 'updated_at' => '2016-02-12 15:57:22',
             ),

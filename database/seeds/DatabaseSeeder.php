@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserTableSeeder::class);
         $this->call('CustodiansTableSeeder');
         $this->call('RepsTableSeeder');
-        $this->call('BlocksTableSeeder');
         $this->call('ExchangesTableSeeder');
         $this->call('NeedsTableSeeder');
         $this->call('NotesTableSeeder');
@@ -25,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call('OauthIdentitiesTableSeeder');
         $this->call('SourcesTableSeeder');
         $this->call('SymbolsTableSeeder');
+        $this->call('BlocksTableSeeder');
     }
 }

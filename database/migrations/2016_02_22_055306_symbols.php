@@ -16,7 +16,7 @@ class Symbols extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('exchange_id')->unsigned();
-            $table->foreign('exchange_id')->references('id')->on('exchanges')->onDelete('no action');
+            // $table->foreign('exchange_id')->references('id')->on('exchanges')->onDelete('no action');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ class BlocksTableSeeder extends Seeder
             0 =>
             array (
                 'id' => 1,
-                'symbol' => 1,
+                'symbol_id' => 1,
                 'exchange_id' => 1,
                 'discount' => '15',
                 'number_shares' => '100',
@@ -36,7 +36,7 @@ class BlocksTableSeeder extends Seeder
             1 =>
             array (
                 'id' => 2,
-                'symbol' => 2,
+                'symbol_id' => 2,
                 'exchange_id' => 1,
                 'discount' => '12',
                 'number_shares' => '30',
