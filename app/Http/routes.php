@@ -35,11 +35,14 @@ Route::group(['middleware' => 'web'], function() {
     	return redirect('auth/login');
     });
 
+    Route::get('blocks', ['middleware' => 'admin', 'uses'=>'blocksController@index']);
+
 	Route::group(['middleware' => 'auth'], function() {
 
 		//Route::resource('admin/users', 'AdminUserController');
 
-		Route::resource('blocks', 'blocksController');
+		//Route::resource('blocks', 'blocksController');
+
 
 		Route::resource('custodians', 'custodiansController');
 

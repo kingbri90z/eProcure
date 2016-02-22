@@ -124,6 +124,14 @@ class AuthController extends Controller
         // Current user is now available via Auth facade
         $user = Auth::user();
 
+        $is_admin = Auth::user()['roles'];
+
+        if ($is_admin=="A"){
+            session()->put('is_admin', true);
+        }else{
+            session()->put('is_admin', false);
+        }
+
         return Redirect::intended();
     }
 
