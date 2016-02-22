@@ -25,9 +25,10 @@ class blocksController extends Controller
 			->join('needs', 'blocks.need_id', '=', 'needs.id')
 			->join('reps', 'blocks.rep_id', '=', 'reps.id')
 			->join('sources', 'blocks.source_id', '=', 'sources.id')
+			->join('symbols', 'blocks.symbol_id', '=', 'symbols.id')
 			->select(
 				'blocks.id AS id',
-				'blocks.symbol AS symbol',
+				'symbols.name AS symbol',
 				'blocks.discount AS discount',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',

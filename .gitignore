@@ -16,3 +16,4 @@ storage/
 .env.example
 Homestead.yaml
 Homestead.json
+.idea
