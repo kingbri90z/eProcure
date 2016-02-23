@@ -74,15 +74,14 @@ class AuthController extends Controller
     }
 
     protected function teamCheck($email){
-//        $team   = false;
-//        $domain = explode('@', $email);
-//        $domain = strtolower($domain[1]);
-//
-//        if($domain == env('DOMAIN_NAME')){
-//            $team = true;
-//        }
-//        return $team;
-        return true;
+        $team   = false;
+        $domain = explode('@', $email);
+        $domain = strtolower($domain[1]);
+
+        if($domain == env('DOMAIN_NAME')){
+            $team = true;
+        }
+        return ( env('APP_ENV') === 'local' ? true : $team );
     }
 
 
