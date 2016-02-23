@@ -57,10 +57,20 @@ class blocksController extends Controller
 	}
 
 	public function store(blockRequest $request){
+		//check for symbol.
+		$symbol = Symbol::findOrFail(1);
+		$symbol = Symbol::where('name', '=', $request->get('symbol'))->first();
 
-		$input = $request->all();
+		if($symbol == null){
+			//no symbol in the db.
+			//insert new one.
+			$request['symbol_id'] = Symbol::create(['name' => $request->get('symbol')])->id;
+		}
+		else{
+			$request['symbol_id'] = $symbol['id'];
+		}
 
-        Block::create($input);
+        Block::create($request->all());
 
         return redirect('blocks');
 
