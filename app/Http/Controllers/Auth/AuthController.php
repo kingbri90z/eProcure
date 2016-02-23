@@ -81,7 +81,7 @@ class AuthController extends Controller
         if($domain == env('DOMAIN_NAME')){
             $team = true;
         }
-        return ( env('APP_ENV') === 'local' ? true : $team );
+        return ( env('APP_ENV') == 'locall' ? true : $team );
     }
 
 
