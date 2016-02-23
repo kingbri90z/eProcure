@@ -3,6 +3,7 @@
 namespace TeamQilin\Http\Controllers\Auth;
 use SocialAuth;
 use TeamQilin\User;
+use Exception;
 use Auth;
 use Redirect;
 use Validator;
@@ -99,7 +100,8 @@ class AuthController extends Controller
 
                 if($this->teamCheck($details->raw()['email']) == false){
 
-                    return redirect('auth/login');
+                    throw new Exception;
+
                 }
 
                 $role_if_exist = User::where('email','=',$details->raw()['email'])->get()->all()[0]->roles;
@@ -114,7 +116,6 @@ class AuthController extends Controller
                 if( env('ADMIN_EMAIL') == $details->raw()['email'] ){
                     session()->put('is_admin', true);
                 }
-
                 $user->save();
             });
         } catch (ApplicationRejectedException $e) {
@@ -122,6 +123,9 @@ class AuthController extends Controller
         } catch (InvalidAuthorizationCodeException $e) {
             // Authorization was attempted with invalid
             // code,likely forgery attempt
+        }
+        catch(Exception $e){
+            return redirect('auth/login');
         }
 
         // Current user is now available via Auth facade
