@@ -11,7 +11,7 @@ use TeamQilin\User;
 class sourcesController extends Controller
 {
 	public function index(){
-dd('hi');
+
 		$sources = Source::all();
 
 		return view('sources.main')->with('sources', $sources);

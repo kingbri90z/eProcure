@@ -22,4 +22,13 @@ class Block extends Model
     public function notes(){
     	return $this->hasMany(Note::class);
     }
+
+	/**
+	 * This block is owned by the Symbol
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function symbol(){
+		return $this->belongsTo(App\Symbol);
+	}
 }
