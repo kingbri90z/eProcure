@@ -24,7 +24,7 @@ Route::group(['middleware' => 'web'], function() {
 		if(Auth::check()){
 			return redirect('blocks');
 		}
-		return view('home');
+		return view('auth/login');
 	});
 
     Route::get('{provider}/authorize', 'Auth\AuthController@redirectToProvider');

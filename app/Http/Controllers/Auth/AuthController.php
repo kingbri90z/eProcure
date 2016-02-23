@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use SocialNorm\Exceptions\ApplicationRejectedException;
 use SocialNorm\Exceptions\InvalidAuthorizationCodeException;
+
 class AuthController extends Controller
 {
     /*
@@ -81,7 +82,7 @@ class AuthController extends Controller
         if($domain == env('DOMAIN_NAME')){
             $team = true;
         }
-        return ( env('APP_ENV') == 'locall' ? true : $team );
+        return ( env('APP_ENV') == 'production' ? $team : true );
     }
 
 
@@ -96,8 +97,12 @@ class AuthController extends Controller
         try {
             SocialAuth::login('google',function($user, $details){
 
+                if($this->teamCheck($details->raw()['email']) == false){
 
-                $role_if_exist=User::where('email','=',$details->raw()['email'])->get()->all()[0]->roles;
+                    return redirect('auth/login');
+                }
+
+                $role_if_exist = User::where('email','=',$details->raw()['email'])->get()->all()[0]->roles;
 
                 $name               = explode(" ", $details->raw()['name']);
                 $user->email        = $details->raw()['email'];
@@ -106,12 +111,7 @@ class AuthController extends Controller
                 $user->roles        = $role_if_exist;
                 $user->avatar       = $details->raw()['picture'];
 
-                if(!$this->teamCheck($user->email)){
-                    return redirect('/');
-
-                }
-
-                if (env('ADMIN_EMAIL')==$details->raw()['email']){
+                if( env('ADMIN_EMAIL') == $details->raw()['email'] ){
                     session()->put('is_admin', true);
                 }
 
