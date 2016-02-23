@@ -10,10 +10,9 @@ use TeamQilin\Block;
 use TeamQilin\Exchange;
 use TeamQilin\Need;
 use TeamQilin\Rep;
-use TeamQilin\Note;
 use TeamQilin\User;
 use TeamQilin\Source;
-use Carbon\Carbon;
+use TeamQilin\Symbol;
 
 class blocksController extends Controller
 {
@@ -87,6 +86,7 @@ class blocksController extends Controller
 	public function edit($id){
 
        	$block 				= Block::findOrFail($id);
+		$block['symbol']	= Block::find(1)->symbol['name'];
 		$custodians			= Custodian::lists('name','id');
 		$exchanges			= Exchange::lists('name','id');
 		$needs				= Need::lists('name','id');
@@ -104,7 +104,18 @@ class blocksController extends Controller
 	}
 
     public function update($id, blockRequest $request){
+		//check for symbol.
+		$symbol = Symbol::findOrFail(1);
+		$symbol = Symbol::where('name', '=', $request->get('symbol'))->first();
 
+		if($symbol == null){
+			//no symbol in the db.
+			//insert new one.
+			$request['symbol_id'] = Symbol::create(['name' => $request->get('symbol')])->id;
+		}
+		else{
+			$request['symbol_id'] = $symbol['id'];
+		}
         $block = Block::findOrFail($id);
 
         $block->update($request->all());
