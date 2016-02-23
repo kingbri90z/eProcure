@@ -17,6 +17,9 @@
         @media (max-width: 979px) {
             body { padding-top: 0px; }
         }
+        @media only screen and (max-width: 979px) {
+         .content { padding-top:65px;}
+        }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     </head>
@@ -53,7 +56,7 @@
     </nav>
 
     <body>
-        <div class="container">
+        <div class="container content">
             @yield('content')
         </div><!-- /.container -->
     </body>
