@@ -58,8 +58,12 @@ Route::group(['middleware' => 'web'], function() {
 		Route::resource('reps', 'repsController');
 		Route::resource('sources', 'sourcesController');
 
+		Route::get('symbols/autocomplete', 'symbolsController@autocomplete');
+		Route::resource('symbols', 'symbolsController');
+
         Route::get('admin/edit/{user_id}', 'AdminUserController@edit');
         Route::resource('admin',  'AdminUserController');
+
 //        Route::get('admin',  ['middleware' => 'admin', 'uses'=>'AdminUserController@index']);
 //
 //        Route::get('admin',  ['middleware' => 'admin', 'uses'=>'AdminUserController@index']);

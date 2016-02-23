@@ -4,8 +4,11 @@ namespace TeamQilin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Securities extends Model
+class Symbol extends Model
 {
+    protected $fillable = [
+        'name'
+    ];
     /**
      * Symbols can have many blocks
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

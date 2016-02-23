@@ -45,3 +45,16 @@
 </div>
 
 {!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}
+
+<script>
+	$(function()
+	{
+		$( "#symbol" ).autocomplete({
+			source: "/symbols/autocomplete",
+			minLength: 1,
+			select: function(event, ui) {
+				$('#symbol').val(ui.item.value);
+			}
+		});
+	});
+</script>

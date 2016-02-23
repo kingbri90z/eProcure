@@ -4,10 +4,12 @@
         <title>Team Qilin</title>
 
         {!! Html::style('css/app.css') !!}
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
         {!! Html::script('js/jquery.min.js') !!}
         {!! Html::script('js/bootstrap.min.js') !!}
         {!! Html::script('js/moment.js') !!}
+        {!! Html::script('//code.jquery.com/ui/1.11.1/jquery-ui.js') !!}
 
 
         <style>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
   	protected $fillable = [
-    	'symbol',
+    	'symbol_id',
     	'exchange_id',
     	'discount',
         'discount_target',
@@ -29,6 +29,6 @@ class Block extends Model
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
 	public function symbol(){
-		return $this->belongsTo(App\Symbol);
+		return $this->belongsTo('TeamQilin\Symbol');
 	}
 }
