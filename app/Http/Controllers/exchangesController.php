@@ -3,7 +3,7 @@
 namespace TeamQilin\Http\Controllers;
 
 use TeamQilin\Http\Requests;
-use TeamQilin\Http\Requests\ExchangeRequest;
+use TeamQilin\Http\Requests\exchangeRequest;
 use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Exchange;
 
