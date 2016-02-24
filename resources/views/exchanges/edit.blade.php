@@ -2,11 +2,11 @@
 
 @section('content')
 
-<h1>Edit a Rep: {!! $rep->name !!}</h1>
+<h1>Edit an Exchange: {!! $exchange->name !!}</h1>
 
-{!! Form::model( $rep, ['method' => 'PATCH', 'action' => [ 'repsController@update', $rep->id ]]) !!}
+{!! Form::model( $exchange, ['method' => 'PATCH', 'action' => [ 'exchangesController@update', $exchange->id ]]) !!}
 
-	@include('reps.form', ['submitButtonText' => 'Edit a Rep'])
+	@include('exchanges.form', ['submitButtonText' => 'Edit a Exchange'])
 
 {!! Form::close() !!}
 

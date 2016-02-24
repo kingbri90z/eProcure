@@ -24,7 +24,7 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            
+
         ];
     }
 }

@@ -47,7 +47,15 @@
                         </ul>
                     </li>
                 @if(session('is_admin'))
-                    <li><a href="/admin">Admin </a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Admin
+                            <b class="caret"></b>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin">Users </a></li>
+                                <li><a href="/exchanges">Exchanges</a></li>
+                                <li><a href="/exchanges/create">Add a Exchange</a></li>
+                            </ul>
+                    </li>
                 @endif
                     <li><a href="/logout">Logout </a></li>
                 </ul>

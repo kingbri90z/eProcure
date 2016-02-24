@@ -36,16 +36,16 @@ class exchangesController extends Controller
 
 	public function edit($id){
 
-        $custodian = Exchange::findOrFail($id);
+        $exchange = Exchange::findOrFail($id);
 
-		return view('exchanges.edit')->with('custodian', $custodian);
+		return view('exchanges.edit')->with('exchange', $exchange);
 	}
 
-    public function update($id, custodianRequest $request){
+    public function update($id, exchangeRequest $request){
 
-        $custodian = Exchange::findOrFail($id);
+		$exchange = Exchange::findOrFail($id);
 
-        $custodian->update($request->all());
+		$exchange->update($request->all());
 
         return redirect('exchanges');
 
