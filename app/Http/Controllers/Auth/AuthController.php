@@ -97,26 +97,54 @@ class AuthController extends Controller
 
         try {
             SocialAuth::login('google',function($user, $details){
-
+                //check to see if the user has a team email.
                 if($this->teamCheck($details->raw()['email']) == false){
-
                     throw new Exception;
-
                 }
 
-                $role_if_exist = User::where('email','=',$details->raw()['email'])->get()->all()[0]->roles;
+                //explode full name from google
+                $name = explode(" ", $details->raw()['name']);
 
-                $name               = explode(" ", $details->raw()['name']);
-                $user->email        = $details->raw()['email'];
-                $user->first_name   = $name[0];
-                $user->last_name    = $name[1];
-                $user->roles        = $role_if_exist;
-                $user->avatar       = $details->raw()['picture'];
+                //check to see if user exists.
+                try {
+                    $userExists = User::where('email', '=', $details->raw()['email'])->first();
+                }
+                catch(Exception $e){
+                    dd($e);
+                }
 
+                //Very ugly code to save users. Needs to be refactored
+                if(!is_null($userExists)){
+                    $userExists->email        = $details->raw()['email'];
+                    $userExists->first_name   = $name[0];
+                    $userExists->last_name    = $name[1];
+                    $userExists->avatar       = $details->raw()['picture'];
+                    try{
+                        $userExists->save();
+                    }
+                    catch(Exception $e){
+                        dd($e);
+                    }
+                }
+                else{
+                    $user->email              = $details->raw()['email'];
+                    $user->first_name         = $name[0];
+                    $user->last_name          = $name[1];
+                    $user->roles              = 'N';
+                    $user->avatar             = $details->raw()['picture'];
+                    try{
+                        $user->save();
+                    }
+                    catch(Exception $e){
+                        dd($e);
+                    }
+                }
+
+                //check for admin
                 if( env('ADMIN_EMAIL') == $details->raw()['email'] ){
                     session()->put('is_admin', true);
                 }
-                $user->save();
+
             });
         } catch (ApplicationRejectedException $e) {
             // User rejected application
