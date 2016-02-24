@@ -11,7 +11,7 @@ class repsController extends Controller
 {
 	public function index(){
 
-		$reps = Rep::all();
+		$reps = Rep::orderBy('name', 'asc')->get();
 
 		return view('reps.main')->with('reps', $reps);
 	}

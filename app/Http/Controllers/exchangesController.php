@@ -12,7 +12,7 @@ class exchangesController extends Controller
 {
 	public function index(){
 
-		$exchanges = Exchange::all();
+		$exchanges = Exchange::orderBy('name', 'asc')->get();;
 
 		return view('exchanges.main')->with('exchanges', $exchanges);
 	}
