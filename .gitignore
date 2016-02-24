@@ -16,3 +16,4 @@ bootstrap/cache/
 Homestead.yaml
 Homestead.json
 .idea
+storage/logs/laravel.log
