@@ -16,7 +16,8 @@ class Block extends Model
     	'custodian_id',
     	'rep_id',
         'status',
-        'source_id'
+        'source_id',
+		'user_id'
     ];
 
 	/**

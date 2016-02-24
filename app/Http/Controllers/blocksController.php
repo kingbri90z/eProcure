@@ -13,6 +13,7 @@ use TeamQilin\Rep;
 use TeamQilin\User;
 use TeamQilin\Source;
 use TeamQilin\Symbol;
+use Auth;
 
 class blocksController extends Controller
 {
@@ -74,6 +75,9 @@ class blocksController extends Controller
 			$request['symbol_id'] = $symbol['id'];
 		}
 
+		$request['user_id'] = Auth::user()->id;
+
+		
         Block::create($request->all());
 
         return redirect('blocks');
