@@ -5,15 +5,15 @@
 
 <div class="form-group">
 	{!! Form::label('discount', 'Our Discount: ') !!}
-	{!! Form::number('discount', null, array('class' => 'form-control')) !!}
+	{!! Form::text('discount', null, array('class' => 'form-control')) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('discount_target', 'Target Discount: ') !!}
-	{!! Form::number('discount_target', null, array('class' => 'form-control')) !!}
+	{!! Form::text('discount_target', null, array('class' => 'form-control')) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('number_shares', 'Number of Shares: ') !!}
-	{!! Form::number('number_shares', null, array('class' => 'form-control')) !!}
+	{!! Form::text('number_shares', null, array('class' => 'form-control')) !!}
 </div>
 <div class="form-group">
 	{{ Form::label('need_id', 'Need a: ') }}

@@ -77,7 +77,7 @@ class blocksController extends Controller
 
 		$request['user_id'] = Auth::user()->id;
 
-		
+
         Block::create($request->all());
 
         return redirect('blocks');
