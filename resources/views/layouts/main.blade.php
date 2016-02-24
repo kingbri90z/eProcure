@@ -52,8 +52,12 @@
                             <b class="caret"></b>
                             <ul class="dropdown-menu">
                                 <li><a href="/admin">Users </a></li>
+                                <li role="separator" class="divider"></li>
                                 <li><a href="/exchanges">Exchanges</a></li>
                                 <li><a href="/exchanges/create">Add a Exchange</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/reps">Reps</a></li>
+                                <li><a href="/reps/create">Add a Rep</a></li>
                             </ul>
                     </li>
                 @endif

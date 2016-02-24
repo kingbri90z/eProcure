@@ -3,7 +3,7 @@
 namespace TeamQilin\Http\Controllers;
 
 use TeamQilin\Http\Requests;
-use TeamQilin\Http\Requests\RepRequest;
+use TeamQilin\Http\Requests\repRequest;
 use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Rep;
 
