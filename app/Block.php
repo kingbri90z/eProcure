@@ -19,8 +19,12 @@ class Block extends Model
         'source_id'
     ];
 
+	/**
+	 * This block has many comments
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
     public function notes(){
-    	return $this->hasMany(Note::class);
+    	return $this->hasMany('TeamQilin\Note');
     }
 
 	/**
@@ -30,5 +34,31 @@ class Block extends Model
 	 */
 	public function symbol(){
 		return $this->belongsTo('TeamQilin\Symbol');
+	}
+
+	/**
+	 * To get the number of notes
+	 * @return mixed
+	 */
+	public function notesCount(){
+		return $this->hasOne('TeamQilin\Note')
+			->selectRaw('id, count(*) as aggregate')
+			->groupBy('block_id');
+	}
+	/**
+	 * @return mixed
+	 */
+	public function notesCountAttribute()
+	{
+		// if relation is not loaded already, let's do it first
+		if ( ! array_key_exists('notesCount', $this->relations))
+			$this->load('notesCount');
+
+		$related = $this->getRelation('notesCount');
+
+		// then return the count directly
+
+		return ($related) ? (int) $related->aggregate : 0;
+
 	}
 }

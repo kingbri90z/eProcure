@@ -16,8 +16,12 @@ use TeamQilin\Symbol;
 
 class blocksController extends Controller
 {
-	public function index(){
+	private function getNotesCount($id){
+		$note = Block::findOrFail($id);
+		return $note->notesCount;
+	}
 
+	public function index(){
 		$blocks = Block
 			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
 			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
@@ -44,9 +48,8 @@ class blocksController extends Controller
         $note_set=array();
         foreach ($blocks as $key => $block){
         	$blocks[$key]['date'] = $block->created_at->diffForHumans();
+			$blocks[$key]['noteCount'] = $this->getNotesCount($blocks[$key]['id'])['aggregate'];
 
-            //$notes = Note::where('block_id','=',$block['id'])->get();
-            //array_push($note_set,$notes);
         }
         //$note_set=array_flatten($note_set);
 		return view('blocks.main')->with('blocks',$blocks);
@@ -58,8 +61,9 @@ class blocksController extends Controller
 
 	public function store(blockRequest $request){
 		//check for symbol.
-		$symbol = Symbol::findOrFail(1);
-		$symbol = Symbol::where('name', '=', $request->get('symbol'))->first();
+		$symbol = Symbol::findOrFail(1)
+			->where('name', '=', $request->get('symbol'))
+			->first();
 
 		if($symbol == null){
 			//no symbol in the db.
@@ -73,7 +77,6 @@ class blocksController extends Controller
         Block::create($request->all());
 
         return redirect('blocks');
-
 	}
 
 	public function create(){
