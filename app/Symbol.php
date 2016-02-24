@@ -14,6 +14,6 @@ class Symbol extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function blocks(){
-        return $this->hasMany('App\Block');
+        return $this->hasMany('TeamQilin\Block');
     }
 }

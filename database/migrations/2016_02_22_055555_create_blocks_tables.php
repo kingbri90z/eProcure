@@ -16,7 +16,7 @@ class CreateBlocksTables extends Migration
             Schema::create('blocks', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('symbol_id')->unsigned();
-                //$table->foreign('symbol_id')->references('id')->on('symbols')->onDelete('no action');
+                $table->foreign('symbol_id')->references('id')->on('symbols')->onDelete('no action');
                 $table->integer('exchange_id')->unsigned();
                 $table->string('discount');
                 $table->string('number_shares');

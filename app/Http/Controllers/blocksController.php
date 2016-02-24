@@ -96,7 +96,7 @@ class blocksController extends Controller
 	public function edit($id){
 
        	$block 				= Block::findOrFail($id);
-		$block['symbol']	= Block::find(1)->symbol['name'];
+		$block['symbol']	= Symbol::findOrFail($block['symbol_id'])->name;
 		$custodians			= Custodian::lists('name','id');
 		$exchanges			= Exchange::lists('name','id');
 		$needs				= Need::lists('name','id');
