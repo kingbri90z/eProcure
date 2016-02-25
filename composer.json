@@ -12,7 +12,8 @@
         "bestmomo/scafold": "dev-master",
         "orangehill/iseed": "dev-master",
         "adamwathan/eloquent-oauth-l5": "^0.4.2",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "irazasyed/telegram-bot-sdk": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

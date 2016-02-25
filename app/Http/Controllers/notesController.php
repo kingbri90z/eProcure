@@ -10,6 +10,7 @@ use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Note;
 use TeamQilin\User;
 use Carbon\Carbon;
+use Telegram;
 
 class notesController extends Controller
 {
@@ -43,15 +44,22 @@ class notesController extends Controller
 			}
 
         return response()->json($notes);
-
 	}
 
 	public function store(noteRequest $request){
 
-		$request['user_id'] = Auth::user()->id;
+		$user 				= Auth::user();
+		$request['user_id'] = $user->id;
 		$input 				= $request->all();
 
         Note::create($input);
+
+		$text = $user['first_name'] . ' added a comment on ' . $request['symbol'];
+
+		Telegram::sendMessage([
+			'chat_id' => env('TELEGRAM_CHAT_ROOM'),
+			'text' => $text
+		]);
 
         return redirect('/blocks');
 	}
@@ -72,6 +80,13 @@ class notesController extends Controller
         $note = Note::findOrFail($id);
 
         $note->update($request->all());
+
+		//$bot = new SomeService();
+
+		Telegram::sendMessage([
+			'chat_id' => '-121961631',
+			'text' => 'new update'
+		]);
 
         return redirect('notes');
 

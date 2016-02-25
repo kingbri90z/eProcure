@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider',
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
 
 
         /*
@@ -212,7 +213,7 @@ return [
         'Html'      => 'Collective\Html\HtmlFacade',
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'SocialAuth' => 'AdamWathan\EloquentOAuth\Facades\OAuth',
-
+        'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
 

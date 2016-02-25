@@ -23,14 +23,15 @@
     19 => 'Illuminate\\Validation\\ValidationServiceProvider',
     20 => 'Illuminate\\View\\ViewServiceProvider',
     21 => 'AdamWathan\\EloquentOAuthL5\\EloquentOAuthServiceProvider',
-    22 => 'TeamQilin\\Providers\\AppServiceProvider',
-    23 => 'TeamQilin\\Providers\\AuthServiceProvider',
-    24 => 'TeamQilin\\Providers\\EventServiceProvider',
-    25 => 'TeamQilin\\Providers\\RouteServiceProvider',
-    26 => 'Collective\\Html\\HtmlServiceProvider',
-    27 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    28 => 'Bestmomo\\Scafold\\ScafoldServiceProvider',
-    29 => 'Orangehill\\Iseed\\IseedServiceProvider',
+    22 => 'Telegram\\Bot\\Laravel\\TelegramServiceProvider',
+    23 => 'TeamQilin\\Providers\\AppServiceProvider',
+    24 => 'TeamQilin\\Providers\\AuthServiceProvider',
+    25 => 'TeamQilin\\Providers\\EventServiceProvider',
+    26 => 'TeamQilin\\Providers\\RouteServiceProvider',
+    27 => 'Collective\\Html\\HtmlServiceProvider',
+    28 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    29 => 'Bestmomo\\Scafold\\ScafoldServiceProvider',
+    30 => 'Orangehill\\Iseed\\IseedServiceProvider',
   ),
   'eager' => 
   array (
@@ -136,6 +137,8 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'telegram' => 'Telegram\\Bot\\Laravel\\TelegramServiceProvider',
+    'Telegram\\Bot\\Api' => 'Telegram\\Bot\\Laravel\\TelegramServiceProvider',
     'html' => 'Collective\\Html\\HtmlServiceProvider',
     'form' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
@@ -178,6 +181,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Telegram\\Bot\\Laravel\\TelegramServiceProvider' => 
     array (
     ),
     'Collective\\Html\\HtmlServiceProvider' => 

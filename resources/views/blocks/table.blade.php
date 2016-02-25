@@ -55,6 +55,7 @@
 
 							        	    <div class="form-group">
 												<input name="block_id" type="hidden" value="{{$block->id}}">
+												<input name="symbol" type="hidden" value="{{$block->symbol}}">
 								                <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
 								            </div>
 								            <div class="form-group">
