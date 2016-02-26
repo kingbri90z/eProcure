@@ -14,7 +14,6 @@
 // Route::get('admin', function (){
 // 	return view('admin.main');
 // });
-Route::get('get-updates', 'TelegramController@getUpdates');
 Route::group(['middleware' => 'web'], function() {
 	Route::controllers([
 		'auth' 		=> 'Auth\AuthController',
@@ -41,6 +40,9 @@ Route::group(['middleware' => 'web'], function() {
 	Route::group(['middleware' => 'auth'], function() {
 
 		//Route::resource('admin/users', 'AdminUserController');
+		//Routes Admins:
+		Route::get('admin/symbols/{id}/edit', 'symbolsController@edit');
+		Route::get('admin/symbols', 'symbolsController@adminIndex');
 
 		Route::resource('blocks', 'blocksController');
 
@@ -64,6 +66,9 @@ Route::group(['middleware' => 'web'], function() {
 
         Route::get('admin/edit/{user_id}', 'AdminUserController@edit');
         Route::resource('admin',  'AdminUserController');
+
+
+
 
 
 //        Route::get('admin',  ['middleware' => 'admin', 'uses'=>'AdminUserController@index']);

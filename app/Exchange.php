@@ -10,4 +10,8 @@ class Exchange extends Model
     	'name',
     	'abbreviation'
     ];
+
+    public function symbols(){
+        return $this->hasMany('TeamQilin\Symbol');
+    }
 }

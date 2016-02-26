@@ -12,10 +12,38 @@ use DB;
 
 class symbolsController extends Controller
 {
+    /**
+     * Used right now in the ajax call when adding in or editing a block
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(){
 
         $symbols = Symbol::all();
         return response()->json($symbols);
+    }
+
+    public function adminIndex(){
+
+        $symbols = Symbol::orderBy('name', 'asc')->get();
+
+        return view('symbols.admin.main')->with('symbols', $symbols);
+    }
+
+    public function edit($id){
+
+        $symbol = Symbol::findOrFail($id);
+
+        return view('symbols.edit')->with('symbol', $symbol);
+    }
+
+    public function update($id, Request $request){
+
+        $symbol = Symbol::findOrFail($id);
+
+        $symbol->update($request->all());
+
+        return redirect('admin/symbols');
+
     }
     public function autocomplete(Request $request){
 

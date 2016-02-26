@@ -16,4 +16,8 @@ class Symbol extends Model
     public function blocks(){
         return $this->hasMany('TeamQilin\Block');
     }
+
+    public function exchange(){
+        return $this->belongsTo('TeamQilin\Exchange');
+    }
 }
