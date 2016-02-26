@@ -14,6 +14,7 @@ use TeamQilin\User;
 use TeamQilin\Source;
 use TeamQilin\Symbol;
 use Auth;
+use Telegram;
 
 class blocksController extends Controller
 {
@@ -75,12 +76,19 @@ class blocksController extends Controller
 			$request['symbol_id'] = $symbol['id'];
 		}
 
-		$request['user_id'] = Auth::user()->id;
-
+		$user 				= Auth::user();
+		$request['user_id'] = $user->id;
 
         Block::create($request->all());
 
-        return redirect('blocks');
+		$text = $user['first_name'] . ' added a new block: ' . $request->get('symbol');
+
+		Telegram::sendMessage([
+			'chat_id' => env('TELEGRAM_CHAT_ROOM'),
+			'text' => $text
+		]);
+
+		return redirect('blocks');
 	}
 
 	public function create(){

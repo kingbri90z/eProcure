@@ -81,13 +81,6 @@ class notesController extends Controller
 
         $note->update($request->all());
 
-		//$bot = new SomeService();
-
-		Telegram::sendMessage([
-			'chat_id' => '-121961631',
-			'text' => 'new update'
-		]);
-
         return redirect('notes');
 
     }
