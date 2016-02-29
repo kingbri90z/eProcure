@@ -107,9 +107,9 @@ class blocksController extends Controller
 		$user 				= Auth::user();
 		$request['user_id'] = $user->id;
 
-        Block::create($request->all());
+		$block = Block::create($request->all());
 
-		$text = $user['first_name'] . ' added a new block: ' . $request->get('symbol');
+		$text = $user['first_name'] . ' added a new block: ' . str_replace('.', ':', $request->get('symbol')) . ' http://team.qilinfinance.com/blocks/' . $block->id;;
 
 		Telegram::sendMessage([
 			'chat_id' => env('TELEGRAM_CHAT_ROOM'),
