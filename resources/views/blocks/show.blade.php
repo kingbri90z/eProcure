@@ -135,7 +135,7 @@
                                     @if(session('is_admin'))
                                         <a href="/blocks/{{$blocks->id}}/edit">{{$blocks->symbol}}</a>
                                     @else
-                                        {{$block->symbol}}
+                                        {{$blocks->symbol}}
                                     @endif
                                 </b></div>
                             <div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$blocks->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$blocks->date}}</span></div>
