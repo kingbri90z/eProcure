@@ -54,7 +54,7 @@ class notesController extends Controller
 
         Note::create($input);
 
-		$text = $user['first_name'] . ' added a comment on ' . $request['symbol'] . '\nhttp://team.qilinfinance.com/blocks/' . $request['block_id'];
+		$text = $user['first_name'] . ' added a comment on ' . str_replace('.', ':', $request['symbol']) . ' http://team.qilinfinance.com/blocks/' . $request['block_id'];
 
 		Telegram::sendMessage([
 			'chat_id' => env('TELEGRAM_CHAT_ROOM'),
