@@ -45,6 +45,7 @@ class symbolsController extends Controller
         return redirect('admin/symbols');
 
     }
+
     public function autocomplete(Request $request){
 
         $term = $request->get('term');

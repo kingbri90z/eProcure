@@ -11,7 +11,8 @@
 					<div class="col-sm-1">Custodian</div>
 					<div class="col-sm-1">Source</div>
 					<div class="col-sm-1">Qilin Rep</div>
-					<div class="col-sm-2">Notes</div>
+					<div class="col-sm-1">Notes</div>
+					<div class="col-sm-1"></div>
 				</div>
 			</li>
 		@foreach ($blocks as $block)
@@ -20,13 +21,7 @@
 		  	<li class="list-group-item">
 				<table>
 					<div class="row active">
-						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>
-							@if(session('is_admin'))
-								<a href="/blocks/{{$block->id}}/edit">{{$block->symbol}}</a>
-							@else
-								{{$block->symbol}}
-							@endif
-						</b></div>
+						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>{{$block->symbol}}</b></div>
 						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
 						<div class="col-sm-1 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$block->discount}}</div>
@@ -36,13 +31,19 @@
 						<div class="col-sm-1 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Source">{{$block->source}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
-						<div class="col-sm-2 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">
+						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">
 								@if(empty($block->noteCount))
 									+
 								@else
 									<span class="badge">{{$block->noteCount}}</span>
 								@endif
-							</button></div>
+								</button>
+							</div>
+						<div class="col-sm-1 blocks-items" data-title="">
+							@if(session('is_admin'))
+								<a href="/blocks/{{$block->id}}/edit" class="glyphicon glyphicon-edit"></a>
+							@endif
+						</div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$block->id}}">
 								<div class="detailBox">

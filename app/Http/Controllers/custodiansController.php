@@ -21,6 +21,13 @@ class custodiansController extends Controller
 
 	}
 
+	public function adminIndex(){
+
+		$custodians = Custodian::orderBy('name', 'asc')->get();
+
+		return view('custodians.admin.main')->with('custodians', $custodians);
+	}
+
 	public function store(custodianRequest $request){
 
         $input = $request->all();
@@ -47,8 +54,7 @@ class custodiansController extends Controller
 
         $custodian->update($request->all());
 
-        return redirect('custodians');
+        return redirect('admin/custodians');
 
     }
-
 }
