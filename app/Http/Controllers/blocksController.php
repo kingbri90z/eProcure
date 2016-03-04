@@ -45,6 +45,7 @@ class blocksController extends Controller
 				'sources.name AS source'
 			)
 			->where('status', '=' ,'published')
+			->orderBy('symbol', 'asc')
 			->get();
 
         $note_set=array();
