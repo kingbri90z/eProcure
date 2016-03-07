@@ -31,7 +31,7 @@
 						<div class="col-sm-1 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Source">{{$block->source}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
-						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-success">
+						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="{{$block->id}}" class="commentsShowHide btn btn-info">
 								@if(empty($block->noteCount))
 									+
 								@else

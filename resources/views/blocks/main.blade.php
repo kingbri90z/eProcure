@@ -107,7 +107,7 @@
     padding:10px;
 }
 </style>
-<h1>Current Blocks</h1>
+<h1>Current Blocks <a href="/blocks/create" class="btn btn-success"> + </a></h1>
 
 <ul class="nav nav-tabs" id="displayTabs">
   <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab">Buy Side</a></li>
