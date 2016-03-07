@@ -21,7 +21,7 @@
 		  	<li class="list-group-item">
 				<table>
 					<div class="row active">
-						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>{{$block->symbol}}</b></div>
+						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/{{$block->id}}"><b>{{$block->symbol}}</b></a></div>
 						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
 						<div class="col-sm-1 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$block->discount}}</div>
