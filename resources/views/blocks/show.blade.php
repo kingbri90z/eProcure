@@ -3,7 +3,13 @@
 @section('content')
     <link rel="stylesheet" type="text/css" href="//catc.github.io/simple-hint/stylesheets/simple-hint.css">
     <style type="text/css">
+        body {
+            padding-right: 0px !important
+        }
 
+        .modal-open {
+            overflow-y: auto;
+        }
         @media only screen and (max-width: 767px) {
 
 
