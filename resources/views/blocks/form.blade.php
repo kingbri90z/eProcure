@@ -35,6 +35,7 @@
 	{{ Form::label('rep_id', 'Qilin Rep: ') }}
 	{{ Form::select('rep_id', $reps, null, ['class' => 'form-control']) }}
 </div>
+@if(session('is_admin'))
 <div class="form-group">
 	{!! Form::label('status', 'Status:') !!}
     {{ Form::select('status', [
@@ -43,7 +44,9 @@
     	'archived'=>'Archived'
     	], null, ['class' => 'form-control']) }}
 </div>
+@else
 
+@endif
 {!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}
 
 <script>
