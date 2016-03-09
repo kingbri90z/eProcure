@@ -219,7 +219,7 @@
         </div>
     </div>
 
-    <a href="/blocks" class="btn btn-default btn-lg active" role="button">Back to blocks</a>
+    <a href="/blocks" class="btn btn-default btn-lg active" role="button"> <span class="glyphicon glyphicon-arrow-left"></span> Back to blocks</a>
 
     <script type="text/javascript">
         $( document ).ready(function() {
