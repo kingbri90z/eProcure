@@ -97,7 +97,8 @@ class AuthController extends Controller
 
         try {
             SocialAuth::login('google',function($user, $details){
-                dd($user);
+                //dd($user);
+
                 //check to see if the user has a team email.
                 if($this->teamCheck($details->raw()['email']) == false){
                     throw new Exception;
