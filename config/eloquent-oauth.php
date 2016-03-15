@@ -13,8 +13,8 @@ return [
             'scope' => [],
         ],
         'google' => [
-            'client_id' => '996179344334-a5v7sg7uc044sphs9hjdtif741mi2b2b.apps.googleusercontent.com',
-            'client_secret' => '12ARzVt-PIPyJIQpGzQ-bSEC',
+            'client_id' => '549670115065-f97rdtj4q054a89k12ufq0g7qtcks55p.apps.googleusercontent.com',
+            'client_secret' => 'tTRnIRGCTKG6um18pdf3SO2E',
             'redirect_uri' => env('GOOGLE_REDIRECT', 'http://qilin.dev/google/login'),
             'scope' => [],
         ],
