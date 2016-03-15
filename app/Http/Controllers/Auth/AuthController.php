@@ -168,7 +168,7 @@ class AuthController extends Controller
         }else{
             session()->put('is_admin', false);
         }
-
+dd($user);
         return Redirect::intended();
     }
 
