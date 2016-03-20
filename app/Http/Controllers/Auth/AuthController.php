@@ -94,10 +94,9 @@ class AuthController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-
         try {
             SocialAuth::login('google',function($user, $details){
-                //dd($user);
+
 
                 //check to see if the user has a team email.
                 if($this->teamCheck($details->raw()['email']) == false){
