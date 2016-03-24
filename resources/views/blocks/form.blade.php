@@ -42,7 +42,7 @@
     	'unpublished'=>'Unpublished',
     	'published'=>'Published',
     	'archived'=>'Archived'
-    	], null, ['class' => 'form-control']) }}
+    	], 'published', ['class' => 'form-control']) }}
 </div>
 @else
 
