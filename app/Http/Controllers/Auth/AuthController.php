@@ -80,7 +80,7 @@ class AuthController extends Controller
         $domain = explode('@', $email);
         $domain = strtolower($domain[1]);
 
-        if($domain == env('DOMAIN_NAME')){
+        if($domain == env('DOMAIN_NAME') || $domain == env('ALT_DOMAIN_NAME')){
             $team = true;
         }
         return ( env('APP_ENV') == 'production' ? $team : true );
