@@ -45,7 +45,7 @@
     	], 'published', ['class' => 'form-control']) }}
 </div>
 @else
-
+	{{ Form::hidden('status', 'published') }}
 @endif
 {!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}
 
