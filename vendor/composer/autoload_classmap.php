@@ -15,6 +15,7 @@ return array(
     'CreateReps' => $baseDir . '/database/migrations/2016_02_08_194455_create-reps.php',
     'CreateRoleUser' => $baseDir . '/database/migrations/2016_02_08_192118_create-role-user.php',
     'CreateRoles' => $baseDir . '/database/migrations/2016_02_08_192106_create-roles.php',
+    'CreateTableBlockTrail' => $baseDir . '/database/migrations/2016_04_02_205549_create_table_block_trail.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CustodiansTableSeeder' => $baseDir . '/database/seeds/CustodiansTableSeeder.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

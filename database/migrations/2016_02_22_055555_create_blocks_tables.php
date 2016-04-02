@@ -30,7 +30,7 @@ class CreateBlocksTables extends Migration
                 $table->integer('rep_id')->unsigned();
                 $table->foreign('rep_id')->references('id')->on('reps')->onDelete('no action');
                 $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
+                //$table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
                 $table->enum('status', array('unpublished','published', 'archived'));
                 $table->timestamps();
             });
