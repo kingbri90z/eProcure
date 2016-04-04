@@ -12,8 +12,6 @@
 					<div class="col-sm-1">Source</div>
 					<div class="col-sm-1">Qilin Rep</div>
 					<div class="col-sm-1">Notes</div>
-					<div class="col-sm-1">Edit</div>
-
 					<div class="col-sm-1"></div>
 				</div>
 			</li>
@@ -21,7 +19,6 @@
 			@if ($block->need == $blockType)
 
 		  	<li class="list-group-item">
-				<table>
 					<div class="row active">
 						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/{{$block->id}}"><b>{{$block->symbol}}</b></a></div>
 						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
@@ -41,12 +38,14 @@
 								@endif
 								</span></button>
 							</div>
-						<div class="col-sm-1 blocks-items" data-title="Edit-block"><a href="/blocks/{{$block->id}}/edit" class="glyphicon glyphicon-edit"></a></div>
 
 						<div class="col-sm-1 blocks-items" data-title="">
 							@if(session('is_admin'))
 								<a href="/blocks/{{$block->id}}/edit" class="glyphicon glyphicon-edit"></a>
+							@else
+								not admin
 							@endif
+
 						</div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$block->id}}">
@@ -77,8 +76,7 @@
 
 							</div>
 						</div>
-					<div class="row active">
-				</table>
+					</div>
 			</li>
 			@endif
 		@endforeach
