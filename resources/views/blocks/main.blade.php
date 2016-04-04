@@ -121,8 +121,11 @@
     	@include('blocks.table', ['blockType' => 'Seller'])
     </div>
 </div>
+
 <script type="text/javascript">
 	$( document ).ready(function() {
+
+		var blocks = {!! $blocks !!};
 
 		$.date = function(dateObject) {
 		    var d = new Date(dateObject);
