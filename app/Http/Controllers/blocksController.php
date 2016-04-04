@@ -24,6 +24,7 @@ class blocksController extends Controller
 	}
 
 	public function index(){
+
 		$blocks = Block
 			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
 			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
@@ -48,7 +49,8 @@ class blocksController extends Controller
 			->orderBy('symbol', 'asc')
 			->get();
 
-        $note_set=array();
+        $note_set = array();
+
         foreach ($blocks as $key => $block){
         	$blocks[$key]['date'] = $block->created_at->diffForHumans();
 			$blocks[$key]['noteCount'] = $this->getNotesCount($blocks[$key]['id'])['aggregate'];
@@ -107,16 +109,28 @@ class blocksController extends Controller
 
 		$user 				= Auth::user();
 		$request['user_id'] = $user->id;
+		$block 				= Block::create($request->all());
 
-		$block = Block::create($request->all());
-
-		$text = $user['first_name'] . ' added a new block: ' . str_replace('.', ':', $request->get('symbol')) . ' http://team.qilinfinance.com/blocks/' . $block->id;;
-
-		Telegram::sendMessage([
-			'chat_id' => env('TELEGRAM_CHAT_ROOM'),
-			'text' => $text
-		]);
-
+		/*
+		 * *****************************
+		 * *****************************
+		 * Notifications to be send out.
+		 * *****************************
+		 * *****************************
+		 */
+		$text = $user['first_name'] .
+			' added a new block: ' .
+			str_replace('.', ':', $request->get('symbol')) .
+			' http://team.qilinfinance.com/blocks/' .
+			$block->id;
+		if(env('APP_ENV') == 'production') {
+			Telegram::sendMessage([
+				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
+				'text' => $text
+			]);
+		}
+		$mail = ['body' => $text];
+		\TeamQilin\Http\Controllers\NotificationController::SendUpdateToAll($mail);
 		return redirect('blocks');
 	}
 
