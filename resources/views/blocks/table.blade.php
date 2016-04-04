@@ -43,7 +43,6 @@
 							@if(session('is_admin'))
 								<a href="/blocks/{{$block->id}}/edit" class="glyphicon glyphicon-edit"></a>
 							@else
-								not admin
 							@endif
 
 						</div>
