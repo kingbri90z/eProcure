@@ -105,7 +105,7 @@
     padding:10px;
 }
 </style>
-<h1>Current Blocks</h1>
+<h1>Current Blocks <a href="/blocks/create" class="btn btn-success"> + </a></h1>
 
 <ul class="nav nav-tabs" id="displayTabs">
   <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab">Buy Side</a></li>
@@ -145,30 +145,20 @@
 
 			$.getJSON( "/notes/" + id, function( data ) {
 			  var html = '';
-			  console.log(data);
 			  $.each( data, function( key, val ) {
-			  	console.log(data[key]);
 			    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med"> By ' + data[key].full_name + ' on ' + data[key].date + '</span></div></li>';
-
 			  });
 			$('.commentList[data-id="' + id + '"]').html(html).promise().done(function(){
 		    	$('#comments_' + id).toggle("slow",function(){
-		    		parent.text(function(i, text){
-	          			return text === "+" ? "-" : "+";
+					console.log(parent);
+		    		parent.html(function(i, text){
+	          			return text === '<span class="badge">-</span>' ? '<span class="badge">+</span>' : '<span class="badge">-</span>';
 	      			})
 		    	});
 			});
 
 			});
 	    });
-
-		/*
-		Tabs
-		 */
-		// $('#displayTabs a').click(function (e) {
-		// 	e.preventDefault()
-		// 	$(this).tab('show')
-		// })
 	});
 </script>
 <?php $__env->stopSection(); ?>

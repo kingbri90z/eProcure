@@ -47,8 +47,9 @@
 @else
 	{{ Form::hidden('status', 'published') }}
 @endif
-{!! Form::submit($submitButtonText, array('class' => 'btn btn-default')) !!}
 
+{!! Form::submit($submitButtonText, array('class' => 'btn btn-primary')) !!}
+</br></br>
 <script>
 	$(function()
 	{

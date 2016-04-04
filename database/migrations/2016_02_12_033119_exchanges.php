@@ -15,7 +15,7 @@ class Exchanges extends Migration
         if (!Schema::hasTable('exchanges')) {
             Schema::create('exchanges', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('name');
+                $table->string('user_id');
                 $table->string('abbreviation');
                 $table->timestamps();
             });

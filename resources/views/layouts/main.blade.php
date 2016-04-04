@@ -5,6 +5,7 @@
 
         {!! Html::style('css/app.css') !!}
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        {!! Html::style('css/style.css') !!}
 
         {!! Html::script('js/jquery.min.js') !!}
         {!! Html::script('js/bootstrap.min.js') !!}
