@@ -38,6 +38,15 @@ class Block extends Model
 	}
 
 	/**
+	 * This block is owned by the Exchange
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function exchange(){
+		return $this->belongsTo('TeamQilin\Exchange');
+	}
+	
+	/**
 	 * To get the number of notes
 	 * @return mixed
 	 */
