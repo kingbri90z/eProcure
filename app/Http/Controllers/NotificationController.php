@@ -16,11 +16,13 @@ class NotificationController extends Controller
         $users = User::get();
 
         foreach ($users as $key => $user) {
-            Mail::send('emails.' . $blade, ['data' => $data], function ($message) use($users,$key,$data) {
-                $message->from('QilinBot@qilinfinance.com', 'Qilin Bot');
-                $message->to($users[$key]['email']);
-                $message->subject($data['title']);
-            });
+            //if($users[$key]['email'] == 'j.dombroski@qilinfinance.com'){
+                Mail::send('emails.' . $blade, ['data' => $data], function ($message) use($users,$key,$data) {
+                    $message->from('QilinBot@qilinfinance.com', 'Qilin Bot');
+                    $message->to($users[$key]['email']);
+                    $message->subject($data['title']);
+                });
+           // }
         }
     }
     
@@ -33,7 +35,7 @@ class NotificationController extends Controller
         self::sendUpdateToAll('newBlock',$data);
     }
     
-    public static function sendNewNote(){
-        
+    public static function sendNewNote($data){
+        return self::sendUpdateToAll('newNote',$data);
     }
 }

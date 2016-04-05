@@ -55,10 +55,16 @@ class notesController extends Controller
         Note::create($input);
 
 		/*
-		 * Notifications to be send out. 
+		 * *****************************
+		 * *****************************
+		 * Notifications to be send out.
+		 * *****************************
+		 * *****************************
 		 */
-		$text = $user['first_name'] . ' added a comment: "' . $request['body'] . '" on ' . str_replace('.', ':', $request['symbol']) . ' http://team.qilinfinance.com/blocks/' . $request['block_id'];
-		//send update to Telgram
+		$text = $user['first_name'] . ' added a comment: "' . $request['body'] .
+			'" on ' . str_replace('.', ':', $request['symbol']) .
+			' http://team.qilinfinance.com/blocks/' . $request['block_id'];
+
 		if(env('APP_ENV') == 'production') {
 			Telegram::sendMessage([
 				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
@@ -66,6 +72,16 @@ class notesController extends Controller
 			]);
 		}
 
+		$mail = [
+			'id'	=> $request['block_id'],
+			'title' => '[Qilin] New Note on ' . $request['symbol'],
+			'body' 	=> $text,
+			'block'	=> [
+				'symbol'	=> $request['symbol']
+			]
+		];
+
+		\TeamQilin\Http\Controllers\NotificationController::sendNewNote($mail);
         return redirect('/blocks');
 	}
 
