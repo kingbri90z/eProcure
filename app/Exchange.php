@@ -14,4 +14,12 @@ class Exchange extends Model
     public function symbols(){
         return $this->hasMany('TeamQilin\Symbol');
     }
+    
+    /**
+     * Exchanges can have many blocks
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function blocks(){
+        return $this->hasMany('TeamQilin\Block');
+    }
 }
