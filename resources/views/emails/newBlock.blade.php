@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td>Symbol:</td>
-        <td>{{ $data['block']['symbol']['name'] }}</td>
+        <td><a href="http://team.qilinfinance.com/blocks/{{ $data['block']['id'] }}">{{ $data['block']['symbol']['name'] }}</a></td>
     </tr>
     <tr>
         <td>Added:</td>
