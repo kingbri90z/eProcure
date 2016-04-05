@@ -129,8 +129,17 @@ class blocksController extends Controller
 				'text' => $text
 			]);
 		}
-		$mail = ['body' => $text];
-		\TeamQilin\Http\Controllers\NotificationController::SendUpdateToAll($mail);
+
+		$mail = [
+			'id'	=> $block->id,
+			'title' => '[Qilin] New Block ' . $request->get('symbol'),
+			'body' 	=> $text,
+			'block'	=> [
+				'symbol'	=> $request->get('symbol')
+			]
+		];
+
+		\TeamQilin\Http\Controllers\NotificationController::sendNewBlock($mail);
 		return redirect('blocks');
 	}
 

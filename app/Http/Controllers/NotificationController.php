@@ -2,21 +2,38 @@
 
 namespace TeamQilin\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use TeamQilin\Http\Requests;
-use TeamQilin\Http\Controllers\Controller;
 use Mail;
+use TeamQilin\User;
+use TeamQilin\Block;
+use Auth;
 
 class NotificationController extends Controller
 {
 
-    public static function SendUpdateToAll($data){
+    public static function sendUpdateToAll($blade,$data){
+        //Loop through list and send emails. 
+        $users = User::get();
 
-        Mail::send('emails.newBlock', ['data' => $data], function ($message) {
-            $message->from('j.dombroski@qilinfinance.com', 'New Block');
+        foreach ($users as $key => $user) {
+            Mail::send('emails.' . $blade, ['data' => $data], function ($message) use($users,$key,$data) {
+                $message->from('QilinBot@qilinfinance.com', 'Qilin Bot');
+                $message->to($users[$key]['email']);
+                $message->subject($data['title']);
+            });
+        }
+    }
+    
+    public static function sendNewBlock($data){
 
-            $message->to('j.dombroski@qilinfinance.com');
-        });
+        $data['block']      = Block::findOrFail($data['id']);
+        $data['symbol']     = $data['block']->symbol;
+        $data['exchange']   = $data['block']->exchange;
+
+        self::sendUpdateToAll('newBlock',$data);
+    }
+    
+    public static function sendNewNote(){
+        
     }
 }
