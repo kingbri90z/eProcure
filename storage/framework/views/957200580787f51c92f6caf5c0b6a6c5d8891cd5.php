@@ -119,8 +119,11 @@
     	<?php echo $__env->make('blocks.table', ['blockType' => 'Seller'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
 </div>
+
 <script type="text/javascript">
 	$( document ).ready(function() {
+
+		var blocks = <?php echo $blocks; ?>;
 
 		$.date = function(dateObject) {
 		    var d = new Date(dateObject);
