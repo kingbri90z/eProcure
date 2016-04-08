@@ -212,97 +212,65 @@ class blocksController extends Controller
         return redirect('blocks');
     }
 
-    public function compareBlocks($block_id, $block_old_data, $block_new_data)
-    {
+    public function compareBlocks($block_id, $block_old_data, $block_new_data){
+		$arr = [];
+
         if ($block_old_data->discount != $block_new_data->all()['discount']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed our discount from " .
+            $arr[] = "Our Discount from " .
                 $block_old_data->discount . " to " . $block_new_data->all()['discount'];
-            $note->save();
         }
         if ($block_old_data->number_shares != $block_new_data->all()['number_shares']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the number of shares from " .
+			$arr[] = "Number of shares from " .
                 $block_old_data->number_shares . " to " . $block_new_data->all()['number_shares'];
-            $note->save();
         }
 
         if ($block_old_data->symbol['name'] != $block_new_data->all()['symbol']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the symbol from " .
+			$arr[] = "Symbol from " .
                 $block_old_data->symbol['name'] . " to " . $block_new_data->all()['symbol'];
-            $note->save();
         }
         //explode(".",$block_old_data->symbol['name'])[0]
 
         if ($block_old_data->discount_target != $block_new_data->all()['discount_target']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the discount target from " .
+			$arr[] = "Discount target from " .
                 $block_old_data->discount_target . " to " . $block_new_data->all()['discount_target'];
-            $note->save();
         }
-
 
         if ($block_old_data->need_id != $block_new_data->all()['need_id']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the need ID from " .
+			$arr[] = "Need a from " .
                 $block_old_data->need_id . " to " . $block_new_data->all()['need_id'];
-            $note->save();
         }
 
-
         if ($block_old_data->exchange_id != $block_new_data->all()['exchange_id']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the exchanged ID from " .
+			$arr[] = "Exchanged ID from " .
                 $block_old_data->exchange_id . " to " . $block_new_data->all()['exchange_id'];
         }
 
         if ($block_old_data->custodian_id != $block_new_data->all()['custodian_id']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the custodian ID from " .
+			$arr[] = "Custodian ID from " .
                 $block_old_data->custodian_id . " to " . $block_new_data->all()['custodian_id'];
-            $note->save();
         }
-
 
         if ($block_old_data->source_id != $block_new_data->all()['source_id']) {
-            $note = new Note;
-            $first_name = Auth::user()->first_name;
-            $last_name = Auth::user()->last_name;
-            $note->user_id = Auth::user()->id;
-            $note->block_id = $block_id;
-            $note->body = $first_name . " " . $last_name . " changed the source ID  from " .
+			$arr[] = "Source ID  from " .
                 $block_old_data->source_id . " to " . $block_new_data->all()['source_id'];
-            $note->save();
         }
+
+		if(!empty($arr)){
+			$note = new Note;
+			$first_name = Auth::user()->first_name;
+			$last_name = Auth::user()->last_name;
+			$note->user_id = Auth::user()->id;
+			$note->block_id = $block_id;
+
+			$str = $first_name . " " . $last_name . " made the following updates:<br>";
+
+			foreach ($arr as $val){
+				$str = $str . $val . '<br>';
+			}
+
+			$note->body = rtrim($str,'<br>');
+			$note->save();
+		}
 
     return;
     }
