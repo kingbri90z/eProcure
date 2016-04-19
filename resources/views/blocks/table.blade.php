@@ -40,11 +40,7 @@
 							</div>
 
 						<div class="col-sm-1 blocks-items" data-title="">
-							@if(session('is_admin'))
 								<a href="/blocks/{{$block->id}}/edit" class="glyphicon glyphicon-edit"></a>
-							@else
-							@endif
-
 						</div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$block->id}}">

@@ -3,7 +3,7 @@
 namespace TeamQilin\Http\Controllers;
 
 use TeamQilin\Http\Requests;
-use TeamQilin\Http\Requests\CustodianRequest;
+use TeamQilin\Http\Requests\custodianRequest;
 use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Custodian;
 
