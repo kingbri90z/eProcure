@@ -7,7 +7,7 @@
 
 <hr>
 
-{!! Form::open(array('url' => 'custodians')) !!}
+{!! Form::open(array('url' => '/admin/custodians')) !!}
 
 	@include('custodians.form', ['submitButtonText' => 'Add a Custodian'])
 

@@ -60,8 +60,8 @@
                                 <li><a href="/reps">Reps</a></li>
                                 <li><a href="/reps/create">Add a Rep</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="/custodians">Custodians</a></li>
-                                <li><a href="/custodians/create">Add a Custodian</a></li>
+                                <li><a href="/admin/custodians">Custodians</a></li>
+                                <li><a href="/admin/custodians/create">Add a Custodian</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/admin/symbols">Symbols</a></li>
                                 <li><a href="/admin/symbols/add">Add a Symbol</a></li>

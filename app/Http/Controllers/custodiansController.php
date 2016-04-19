@@ -12,7 +12,7 @@ class custodiansController extends Controller
 {
 	public function index(){
 
-		$custodians = Custodian::all();
+		$custodians = Custodian::orderBy('name', 'asc')->get();
 
 		return view('custodians.main')->with('custodians', $custodians);
 	}
@@ -34,18 +34,18 @@ class custodiansController extends Controller
 
         Custodian::create($input);
 
-        return redirect('custodians');
+        return redirect('/admin/custodians');
 	}
 
 	public function create(){
-		return view('custodians.create');
+		return view('custodians/admin.create');
 	}
 
 	public function edit($id){
 
         $custodian = Custodian::findOrFail($id);
 
-		return view('custodians.edit')->with('custodian', $custodian);
+		return view('custodians.admin.edit')->with('custodian', $custodian);
 	}
 
     public function update($id, custodianRequest $request){
