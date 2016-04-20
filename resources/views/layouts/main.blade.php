@@ -47,6 +47,7 @@
                             <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
+                    <li><a href="/custodians">Custodians</a></li>
                 @if(session('is_admin'))
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Admin
