@@ -8,7 +8,7 @@
 
 	@foreach ($custodians as $custodian)
 
-  		<a href="/custodians/{{$custodian->id}}/edit" class="list-group-item">{{$custodian->name}}</a>
+  		<b class="list-group-item">{{$custodian->name}}</b>
 
 	@endforeach
 
