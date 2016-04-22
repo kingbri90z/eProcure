@@ -43,7 +43,8 @@
                         Blocks
                         <b class="caret"></b>
                         <ul class="dropdown-menu">
-                            <li><a href="/blocks">View All</a></li>
+                            <li><a href="/blocks">View Active</a></li>
+                            <li><a href="/blocks/all">View All</a></li>
                             <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
