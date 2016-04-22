@@ -113,7 +113,7 @@
             padding:10px;
         }
     </style>
-    <h1>Current Blocks{{  (!empty($block->status) && $block->status == 'archived'  ? " (Archived Block)" : '')}}</h1>
+    <h1>Current Blocks{{  (!empty($block->status) && $block->status == 'archived'  ? " (Closed Block)" : '')}}</h1>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="buy">
             <ul class="list-group">

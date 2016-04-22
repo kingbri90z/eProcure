@@ -35,6 +35,7 @@ class blocksController extends Controller
 			->select(
 				'blocks.id AS id',
 				'symbols.name AS symbol',
+				'blocks.status AS status',
 				'blocks.discount AS discount',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
@@ -68,6 +69,7 @@ class blocksController extends Controller
 				'blocks.id AS id',
 				'symbols.name AS symbol',
 				'blocks.discount AS discount',
+				'blocks.status AS status',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
 				'blocks.number_shares AS number_shares',

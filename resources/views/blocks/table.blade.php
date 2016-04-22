@@ -20,7 +20,7 @@
 
 		  	<li class="list-group-item">
 					<div class="row active">
-						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/{{$b->id}}"><b>{{$b->symbol}}</b></a></div>
+						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/{{$b->id}}"><b>{{$b->symbol}}</b></a>{{  (!empty($b->status) && $b->status == 'archived'  ? " (Closed)" : '')}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$b->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$b->date}}</span></div>
 						<div class="col-sm-1 blocks-items" data-title="Exchange">{{$b->exchange}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$b->discount}}</div>
