@@ -24,6 +24,37 @@ class blocksController extends Controller
 		return $note->notesCount;
 	}
 
+	public function getRelated($blockId,$symbolId){
+		return Block
+			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
+			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
+			->join('needs', 'blocks.need_id', '=', 'needs.id')
+			->join('reps', 'blocks.rep_id', '=', 'reps.id')
+			->join('sources', 'blocks.source_id', '=', 'sources.id')
+			->join('symbols', 'blocks.symbol_id', '=', 'symbols.id')
+			->select(
+				'blocks.id AS id',
+				'symbols.name AS symbol',
+				'blocks.discount AS discount',
+				'blocks.discount_target AS discount_target',
+				'blocks.created_at AS created_at',
+				'blocks.number_shares AS number_shares',
+				'custodians.name AS custodian',
+				'exchanges.abbreviation AS exchange',
+				'needs.name AS need',
+				'reps.name AS rep',
+				'sources.name AS source'
+			)
+			->where(function($q){
+				$q->where('status', '=' ,'published')
+					->orWhere('status', '=' ,'archived');
+			})
+			->where('blocks.id', '!=' ,$blockId)
+			->where('symbol_id', '=' ,$symbolId)
+			->orderBy('symbol', 'asc')
+			->get();
+	}
+
 	public function index(){
 
 		$blocks = Block
@@ -50,19 +81,16 @@ class blocksController extends Controller
 			->orderBy('symbol', 'asc')
 			->get();
 
-        $note_set = array();
-
         foreach ($blocks as $key => $block){
         	$blocks[$key]['date'] = $block->created_at->diffForHumans();
 			$blocks[$key]['noteCount'] = $this->getNotesCount($blocks[$key]['id'])['aggregate'];
 
         }
-        //$note_set=array_flatten($note_set);
 		return view('blocks.main')->with('blocks',$blocks);
 	}
 
 	public function show($id){
-		$blocks = Block
+		$block = Block
 			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
 			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
 			->join('needs', 'blocks.need_id', '=', 'needs.id')
@@ -72,6 +100,7 @@ class blocksController extends Controller
 			->select(
 				'blocks.id AS id',
 				'symbols.name AS symbol',
+				'symbols.id AS symbol_id',
 				'blocks.discount AS discount',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
@@ -82,15 +111,17 @@ class blocksController extends Controller
 				'reps.name AS rep',
 				'sources.name AS source'
 			)
-			->where('status', '=' ,'published')
+			->where('blocks.status', '=' ,'published')
 			->where('blocks.id', '=' , $id)
 			->get()->first();
 
 
-			$blocks['date'] 		= $blocks->created_at->diffForHumans();
-			$blocks['noteCount'] 	= $this->getNotesCount($blocks['id'])['aggregate'];
+			$block['date'] 			= $block->created_at->diffForHumans();
+			$block['noteCount'] 	= $this->getNotesCount($block['id'])['aggregate'];
 
-		return view('blocks.show')->with('blocks',$blocks);
+		return view('blocks.show')
+			->with('block',$block)
+			->with('blocks', $this->getRelated($block['id'],$block['symbol_id']));
 	}
 
 	public function store(blockRequest $request){

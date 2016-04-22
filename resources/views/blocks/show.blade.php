@@ -139,42 +139,42 @@
                         <div class="row active">
                             <div class="col-sm-1 blocks-items symbol" data-title="Symbol"><b>
                                     @if(session('is_admin'))
-                                        <a href="/blocks/{{$blocks->id}}/edit">{{$blocks->symbol}}</a>
+                                        <a href="/blocks/{{$block->id}}/edit">{{$block->symbol}}</a>
                                     @else
-                                        {{$blocks->symbol}}
+                                        {{$block->symbol}}
                                     @endif
                                 </b></div>
-                            <div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$blocks->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$blocks->date}}</span></div>
-                            <div class="col-sm-1 blocks-items" data-title="Exchange">{{$blocks->exchange}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$blocks->discount}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$blocks->discount_target}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$blocks->number_shares}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Need">{{$blocks->need}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Custodian">{{$blocks->custodian}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Source">{{$blocks->source}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$blocks->rep}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Notes"><button id="{{$blocks->id}}" data-id="{{$blocks->id}}" class="commentsShowHide btn btn-success">
+                            <div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
+                            <div class="col-sm-1 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$block->discount}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$block->discount_target}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Need">{{$block->need}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Source">{{$block->source}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>
+                            <div class="col-sm-1 blocks-items" data-title="Notes"><button id="{{$block->id}}" data-id="{{$block->id}}" class="commentsShowHide btn btn-success">
 
-                                    @if(empty($blocks->noteCount))
+                                    @if(empty($block->noteCount))
                                         +
                                     @else
-                                        <span class="badge">{{$blocks->noteCount}}</span>
+                                        <span class="badge">{{$block->noteCount}}</span>
                                     @endif
                                 </button></div>
-                            <div class="col-sm-1 blocks-items" data-title="Share"><button id="{{$blocks->id}}"  data-toggle="modal" data-target="#myModal" class="commentsShowHide btn btn-success"><span class="glyphicon glyphicon-share"></span></button></div>
+                            <div class="col-sm-1 blocks-items" data-title="Share"><button id="{{$block->id}}"  data-toggle="modal" data-target="#myModal" class="commentsShowHide btn btn-success"><span class="glyphicon glyphicon-share"></span></button></div>
                             <div class="rows">
-                                <div class="col-md-12 comments" id="comments_{{$blocks->id}}">
+                                <div class="col-md-12 comments" id="comments_{{$block->id}}">
                                     <div class="detailBox">
                                         <div class="titleBox">
                                             <label>Notes</label>
                                         </div>
                                         <div class="actionBox">
-                                            <ul class="commentList" data-id="{{$blocks->id}}"></ul>
-                                            {!! Form::open(array('url' => 'notes/' . $blocks->id,'class' => 'form-inline')) !!}
+                                            <ul class="commentList" data-id="{{$block->id}}"></ul>
+                                            {!! Form::open(array('url' => 'notes/' . $block->id,'class' => 'form-inline')) !!}
 
                                             <div class="form-group">
-                                                <input name="block_id" type="hidden" value="{{$blocks->id}}">
-                                                <input name="symbol" type="hidden" value="{{$blocks->symbol}}">
+                                                <input name="block_id" type="hidden" value="{{$block->id}}">
+                                                <input name="symbol" type="hidden" value="{{$block->symbol}}">
                                                 <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
                                             </div>
                                             <div class="form-group">
@@ -186,9 +186,6 @@
                                             @include('errors.errors')
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                             <div class="row active">
@@ -197,19 +194,24 @@
             </ul>
         </div>
     </div>
-
+    <h2>Related Blocks</h2>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="buy">
+            @include('blocks.table', ['blockType' => 'Buyer'])
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Share {{$blocks->symbol}}</h4>
+                    <h4 class="modal-title" id="myModalLabel">Share {{$block->symbol}}</h4>
                 </div>
                 <div class="modal-body">
-                    {{$blocks->symbol}}<br>
-                    {{$blocks->number_shares}} shares<br>
-                    {{$blocks->discount_target}}% discount<br>
+                    {{$block->symbol}}<br>
+                    {{$block->number_shares}} shares<br>
+                    {{$block->discount_target}}% discount<br>
                     1 tranche
                 </div>
                 <div class="modal-footer">
@@ -239,17 +241,20 @@
 
                 return date;
             };
+            $('.commentList[data-id]').each(function(){
 
-            var id = {{$blocks->id}};
+                var id = $(this).data('id');
 
-            $.getJSON( "/notes/" + id, function( data ) {
-                var html = '';
+                $.getJSON( "/notes/" + id, function( data ) {
+                    var html = '';
 
-                $.each( data, function( key, val ) {
-                    console.log(data[key]);
-                    html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med"> By ' + data[key].full_name + ' on ' + data[key].date + '</span></div></li>';
+                    $.each( data, function( key, val ) {
+                        console.log(data[key]);
+                        html = html + '<div class="commenterImage"><img src="' + data[key].avatar + '" style="width:30px;height:30px" /></div><li><div class="commenterImage"></div><div class="commentText"><p class="">"' + data[key].body + '"</p> <span class="date sub-text" data-hint="Created: ' + data[key].created_at + ' EST" class="hint-bottom hint-anim-d-med"> By ' + data[key].full_name + ' on ' + data[key].date + '</span></div></li>';
+                    });
+                    $('.commentList[data-id="' + id + '"]').html(html);
                 });
-                $('.commentList').html(html);
+
             });
         });
     </script>
