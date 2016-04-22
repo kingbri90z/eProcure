@@ -49,7 +49,9 @@ Route::group(['middleware' => 'web'], function() {
 		Route::get('admin/symbols/{id}/edit', 'symbolsController@edit');
 		Route::get('admin/symbols', 'symbolsController@adminIndex');
 
+		Route::get('blocks/all', 'blocksController@showAll');
 		Route::resource('blocks', 'blocksController');
+
 
 
 		Route::resource('custodians', 'custodiansController');

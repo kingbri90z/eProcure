@@ -89,6 +89,39 @@ class blocksController extends Controller
 		return view('blocks.main')->with('blocks',$blocks);
 	}
 
+	public function showAll(){
+
+		$blocks = Block
+			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
+			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
+			->join('needs', 'blocks.need_id', '=', 'needs.id')
+			->join('reps', 'blocks.rep_id', '=', 'reps.id')
+			->join('sources', 'blocks.source_id', '=', 'sources.id')
+			->join('symbols', 'blocks.symbol_id', '=', 'symbols.id')
+			->select(
+				'blocks.id AS id',
+				'symbols.name AS symbol',
+				'blocks.discount AS discount',
+				'blocks.discount_target AS discount_target',
+				'blocks.created_at AS created_at',
+				'blocks.number_shares AS number_shares',
+				'custodians.name AS custodian',
+				'exchanges.abbreviation AS exchange',
+				'needs.name AS need',
+				'reps.name AS rep',
+				'sources.name AS source'
+			)
+			->where('status', '!=' ,'boo')
+			->orderBy('symbol', 'asc')
+			->get();
+
+		foreach ($blocks as $key => $block){
+			$blocks[$key]['date'] 		= $block->created_at->diffForHumans();
+			$blocks[$key]['noteCount'] 	= $this->getNotesCount($blocks[$key]['id'])['aggregate'];
+		}
+		return view('blocks.main')->with('blocks',$blocks);
+	}
+
 	public function show($id){
 		$block = Block
 			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
