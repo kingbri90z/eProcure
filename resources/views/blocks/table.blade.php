@@ -59,9 +59,7 @@
 								            </div>
 								            <div class="form-group">
 								                <button class="btn btn-success">Add</button>
-								            </div>
-
-										{!! Form::close() !!}
+								            </div>										{!! Form::close() !!}
 
 										@include('errors.errors')
 								    </div>

@@ -135,6 +135,7 @@ class blocksController extends Controller
 				'symbols.name AS symbol',
 				'symbols.id AS symbol_id',
 				'blocks.discount AS discount',
+				'blocks.status AS status',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
 				'blocks.number_shares AS number_shares',
@@ -144,7 +145,10 @@ class blocksController extends Controller
 				'reps.name AS rep',
 				'sources.name AS source'
 			)
-			->where('blocks.status', '=' ,'published')
+			->where(function($q){
+				$q->where('status', '=' ,'published')
+					->orWhere('status', '=' ,'archived');
+			})
 			->where('blocks.id', '=' , $id)
 			->get()->first();
 
@@ -193,18 +197,20 @@ class blocksController extends Controller
 				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
 				'text' => $text
 			]);
+
+
+			$mail = [
+				'id'	=> $block->id,
+				'title' => '[Qilin] New Block ' . $request->get('symbol'),
+				'body' 	=> $text,
+				'block'	=> [
+					'symbol'	=> $request->get('symbol')
+				]
+			];
+
+			\TeamQilin\Http\Controllers\NotificationController::sendNewBlock($mail);
 		}
 
-		$mail = [
-			'id'	=> $block->id,
-			'title' => '[Qilin] New Block ' . $request->get('symbol'),
-			'body' 	=> $text,
-			'block'	=> [
-				'symbol'	=> $request->get('symbol')
-			]
-		];
-
-		\TeamQilin\Http\Controllers\NotificationController::sendNewBlock($mail);
 		return redirect('blocks');
 	}
 

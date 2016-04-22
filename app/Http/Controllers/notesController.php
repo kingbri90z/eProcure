@@ -70,18 +70,17 @@ class notesController extends Controller
 				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
 				'text' => $text
 			]);
+
+			$mail = [
+				'id'	=> $request['block_id'],
+				'title' => '[Qilin] New Note on ' . $request['symbol'],
+				'body' 	=> $text,
+				'block'	=> [
+					'symbol'	=> $request['symbol']
+				]
+			];
+			\TeamQilin\Http\Controllers\NotificationController::sendNewNote($mail);
 		}
-
-		$mail = [
-			'id'	=> $request['block_id'],
-			'title' => '[Qilin] New Note on ' . $request['symbol'],
-			'body' 	=> $text,
-			'block'	=> [
-				'symbol'	=> $request['symbol']
-			]
-		];
-
-		\TeamQilin\Http\Controllers\NotificationController::sendNewNote($mail);
         return redirect('/blocks');
 	}
 
