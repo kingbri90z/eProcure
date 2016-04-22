@@ -132,8 +132,6 @@
                         <div class="col-sm-2">Notes</div>
                     </div>
                 </li>
-
-
                 <li class="list-group-item">
                     <table>
                         <div class="row active">

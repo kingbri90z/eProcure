@@ -40,7 +40,7 @@
 							</div>
 
 						<div class="col-sm-1 blocks-items" data-title="">
-								<a href="/blocks/{{$b->id}}/edit" class="glyphicon glyphicon-edit"></a>
+							<a href="/blocks/{{$b->id}}/edit" class="glyphicon glyphicon-edit"></a>
 						</div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$b->id}}">
@@ -49,7 +49,8 @@
 								      <label>Notes</label>
 								    </div>
 								    <div class="actionBox">
-								        <ul class="commentList" data-id="{{$b->id}}"></ul>
+								        <ul class="commentList" data-id="{{$b->id}}"><li>No notes</li></ul>
+										@if(!empty($b->status) && $b->status == 'published')
 								        {!! Form::open(array('url' => 'notes/' . $b->id,'class' => 'form-inline')) !!}
 
 							        	    <div class="form-group">
@@ -59,14 +60,12 @@
 								            </div>
 								            <div class="form-group">
 								                <button class="btn btn-success">Add</button>
-								            </div>										{!! Form::close() !!}
-
+								            </div>
+										{!! Form::close() !!}
+										@endif
 										@include('errors.errors')
 								    </div>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>
