@@ -25,7 +25,7 @@ class blocksController extends Controller
 	}
 
 	public function getRelated($blockId,$symbolId){
-		return Block
+		$blocks = Block
 			::join('custodians', 'blocks.custodian_id', '=', 'custodians.id')
 			->join('exchanges', 'blocks.exchange_id', '=', 'exchanges.id')
 			->join('needs', 'blocks.need_id', '=', 'needs.id')
@@ -39,6 +39,7 @@ class blocksController extends Controller
 				'blocks.discount AS discount',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
+				'blocks.updated_at AS updated_at',
 				'blocks.number_shares AS number_shares',
 				'custodians.name AS custodian',
 				'exchanges.abbreviation AS exchange',
@@ -54,6 +55,16 @@ class blocksController extends Controller
 			->where('symbol_id', '=' ,$symbolId)
 			->orderBy('symbol', 'asc')
 			->get();
+
+		foreach ($blocks as $key => $block){
+			$blocks[$key]['date'] 		= $block->created_at->diffForHumans();
+			if(!empty($block->updated_at)){
+				$blocks[$key]['updated'] 	= $block->updated_at->diffForHumans();
+			}
+			$blocks[$key]['noteCount'] 	= $this->getNotesCount($blocks[$key]['id'])['aggregate'];
+
+		}
+		return $blocks;
 	}
 
 	public function index(){
@@ -72,6 +83,7 @@ class blocksController extends Controller
 				'blocks.status AS status',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
+				'blocks.updated_at AS updated_at',
 				'blocks.number_shares AS number_shares',
 				'custodians.name AS custodian',
 				'exchanges.abbreviation AS exchange',
@@ -84,8 +96,12 @@ class blocksController extends Controller
 			->get();
 
         foreach ($blocks as $key => $block){
-        	$blocks[$key]['date'] = $block->created_at->diffForHumans();
-			$blocks[$key]['noteCount'] = $this->getNotesCount($blocks[$key]['id'])['aggregate'];
+			$blocks[$key]['date'] 		= $block->created_at->diffForHumans();
+			$blocks[$key]['updated'] = '';
+			if(!empty($block->updated_at)){
+				$blocks[$key]['updated'] 	= $block->updated_at->diffForHumans();
+			}
+			$blocks[$key]['noteCount'] 	= $this->getNotesCount($blocks[$key]['id'])['aggregate'];
 
         }
 		return view('blocks.main')->with('blocks',$blocks);
@@ -106,6 +122,7 @@ class blocksController extends Controller
 				'blocks.discount AS discount',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
+				'blocks.updated_at AS updated_at',
 				'blocks.number_shares AS number_shares',
 				'custodians.name AS custodian',
 				'exchanges.abbreviation AS exchange',
@@ -119,6 +136,7 @@ class blocksController extends Controller
 
 		foreach ($blocks as $key => $block){
 			$blocks[$key]['date'] 		= $block->created_at->diffForHumans();
+			$blocks[$key]['updated'] 	= $block->updated_at->diffForHumans();
 			$blocks[$key]['noteCount'] 	= $this->getNotesCount($blocks[$key]['id'])['aggregate'];
 		}
 		return view('blocks.main')->with('blocks',$blocks);
@@ -140,6 +158,7 @@ class blocksController extends Controller
 				'blocks.status AS status',
 				'blocks.discount_target AS discount_target',
 				'blocks.created_at AS created_at',
+				'blocks.updated_at AS updated_at',
 				'blocks.number_shares AS number_shares',
 				'custodians.name AS custodian',
 				'exchanges.abbreviation AS exchange',
@@ -154,13 +173,13 @@ class blocksController extends Controller
 			->where('blocks.id', '=' , $id)
 			->get()->first();
 
-
 			$block['date'] 			= $block->created_at->diffForHumans();
+			$block['updated'] 		= $block->updated_at->diffForHumans();
 			$block['noteCount'] 	= $this->getNotesCount($block['id'])['aggregate'];
 
 		return view('blocks.show')
 			->with('block',$block)
-			->with('blocks', $this->getRelated($block['id'],$block['symbol_id']));
+			->with('blocks', $this->getRelated($block['id'], $block['symbol_id']));
 	}
 
 	public function store(blockRequest $request){
@@ -300,7 +319,6 @@ class blocksController extends Controller
 			$arr[] = "Symbol from " .
                 $block_old_data->symbol['name'] . " to " . $block_new_data->all()['symbol'];
         }
-        //explode(".",$block_old_data->symbol['name'])[0]
 
         if ($block_old_data->discount_target != $block_new_data->all()['discount_target']) {
 			$arr[] = "Discount target from " .

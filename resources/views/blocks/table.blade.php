@@ -1,32 +1,21 @@
 		<ul class="list-group">
-			<li class="list-group-item table-header active">
-				<div class="row">
-					<div class="col-sm-1">Symbol</div>
-					<div class="col-sm-1">Added</div>
-					<div class="col-sm-1">Exchange</div>
-					<div class="col-sm-1">Our Disc</div>
-					<div class="col-sm-1">Target Disc</div>
-					<div class="col-sm-1">Shares</div>
-					<div class="col-sm-1">Need</div>
-					<div class="col-sm-1">Custodian</div>
-					<div class="col-sm-1">Source</div>
-					<div class="col-sm-1">Qilin Rep</div>
-					<div class="col-sm-1">Notes</div>
-					<div class="col-sm-1"></div>
-				</div>
-			</li>
+			@include('blocks.tableheader')
 		@foreach ($blocks as $b)
 			@if ($b->need == $blockType)
 
 		  	<li class="list-group-item">
 					<div class="row active">
 						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/{{$b->id}}"><b>{{$b->symbol}}</b></a>{{  (!empty($b->status) && $b->status == 'archived'  ? " (Closed)" : '')}}</div>
-						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$b->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$b->date}}</span></div>
+						<div class="col-sm-1 blocks-items" data-title="Added"><span
+									data-hint="Created: {{$b->created_at}} EST"
+									class="date hint-bottom hint-anim-d-med">{{$b->date}}</span></div>
+						<div class="col-sm-1 blocks-items" data-title="Updated"><span
+									data-hint="Created: {{$b->updated_at}} EST"
+									class="date hint-bottom hint-anim-d-med">{{$b->updated}}</span></div>
 						<div class="col-sm-1 blocks-items" data-title="Exchange">{{$b->exchange}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$b->discount}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$b->discount_target}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$b->number_shares}}</div>
-						<div class="col-sm-1 blocks-items" data-title="Need">{{$b->need}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Custodian">{{$b->custodian}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Source">{{$b->source}}</div>
 						<div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$b->rep}}</div>
@@ -40,7 +29,9 @@
 							</div>
 
 						<div class="col-sm-1 blocks-items" data-title="">
+							@if(!empty($b->status) && $b->status == 'published')
 							<a href="/blocks/{{$b->id}}/edit" class="glyphicon glyphicon-edit"></a>
+							@endif
 						</div>
 						<div class="rows">
 							<div class="col-md-12 comments" id="comments_{{$b->id}}">

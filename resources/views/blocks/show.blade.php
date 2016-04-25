@@ -117,21 +117,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="buy">
             <ul class="list-group">
-                <li class="list-group-item table-header active">
-                    <div class="row">
-                        <div class="col-sm-1">Symbol</div>
-                        <div class="col-sm-1">Added</div>
-                        <div class="col-sm-1">Exchange</div>
-                        <div class="col-sm-1">Our Disc</div>
-                        <div class="col-sm-1">Target Disc</div>
-                        <div class="col-sm-1">Shares</div>
-                        <div class="col-sm-1">Need</div>
-                        <div class="col-sm-1">Custodian</div>
-                        <div class="col-sm-1">Source</div>
-                        <div class="col-sm-1">Qilin Rep</div>
-                        <div class="col-sm-2">Notes</div>
-                    </div>
-                </li>
+                @include('blocks.tableheader')
                 <li class="list-group-item">
                     <table>
                         <div class="row active">
@@ -142,12 +128,16 @@
                                         {{$block->symbol}}
                                     @endif
                                 </b></div>
-                            <div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: {{$block->created_at}} EST" class="hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
+                            <div class="col-sm-1 blocks-items" data-title="Added"><span
+                                        data-hint="Created: {{$block->created_at}} EST"
+                                        class="date hint-bottom hint-anim-d-med">{{$block->date}}</span></div>
+                            <div class="col-sm-1 blocks-items" data-title="Updated"><span
+                                        data-hint="Created: {{$block->updated_at}} EST"
+                                        class="date hint-bottom hint-anim-d-med">{{$block->updated}}</span></div>
                             <div class="col-sm-1 blocks-items" data-title="Exchange">{{$block->exchange}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric">{{$block->discount}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric">{{$block->discount_target}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Shares" class="numeric">{{$block->number_shares}}</div>
-                            <div class="col-sm-1 blocks-items" data-title="Need">{{$block->need}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Custodian">{{$block->custodian}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Source">{{$block->source}}</div>
                             <div class="col-sm-1 blocks-items" data-title="Qilin Rep">{{$block->rep}}</div>

@@ -8,6 +8,7 @@ use TeamQilin\Http\Requests;
 use TeamQilin\Http\Requests\noteRequest;
 use TeamQilin\Http\Controllers\Controller;
 use TeamQilin\Note;
+use TeamQilin\Block;
 use TeamQilin\User;
 use Carbon\Carbon;
 use Telegram;
@@ -54,6 +55,10 @@ class notesController extends Controller
 
         Note::create($input);
 
+		$block = Block::find($request->block_id);
+
+		$block->touch();
+
 		/*
 		 * *****************************
 		 * *****************************
@@ -81,7 +86,7 @@ class notesController extends Controller
 			];
 			\TeamQilin\Http\Controllers\NotificationController::sendNewNote($mail);
 		}
-        return redirect('/blocks');
+        return redirect('/blocks/' . $request->block_id);
 	}
 
 	public function create(){
@@ -96,13 +101,12 @@ class notesController extends Controller
 	}
 
     public function update($id, noteRequest $request){
-
+		return $request->all();
         $note = Note::findOrFail($id);
 
         $note->update($request->all());
-
+		
         return redirect('notes');
-
     }
 
     private function getFullName($firstName,$lastName){
