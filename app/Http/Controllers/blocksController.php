@@ -327,22 +327,31 @@ class blocksController extends Controller
 
         if ($block_old_data->need_id != $block_new_data->all()['need_id']) {
 			$arr[] = "Need a from " .
-                $block_old_data->need_id . " to " . $block_new_data->all()['need_id'];
+                Need::where('id', $block_old_data->need_id)->first()['name'].
+                " to " .
+                Need::where('id', $block_new_data->all()['need_id'])->first()['name'];
         }
 
         if ($block_old_data->exchange_id != $block_new_data->all()['exchange_id']) {
-			$arr[] = "Exchanged ID from " .
-                $block_old_data->exchange_id . " to " . $block_new_data->all()['exchange_id'];
+			$arr[] = "Exchanged from " .
+                Exchange::where('id', $block_old_data->exchange_id)->first()['name'].
+                " to " .
+                Exchange::where('id', $block_new_data->all()['exchange_id'])->first()['name'] ;
         }
 
         if ($block_old_data->custodian_id != $block_new_data->all()['custodian_id']) {
-			$arr[] = "Custodian ID from " .
-                $block_old_data->custodian_id . " to " . $block_new_data->all()['custodian_id'];
+			$arr[] = "Custodian from " .
+                Source::where('id',$block_old_data->custodian_id)->first()['name'] .
+                " to " .
+                Source::where('id',$block_new_data->all()['custodian_id'])->first()['name'] ;
         }
 
         if ($block_old_data->source_id != $block_new_data->all()['source_id']) {
-			$arr[] = "Source ID  from " .
-                $block_old_data->source_id . " to " . $block_new_data->all()['source_id'];
+			$arr[] = "Source  from " .
+                Source::where('id',$block_old_data->source_id)->first()['name'] .
+                " to " .
+                Source::where('id',$block_new_data->all()['source_id'])->first()['name'] ;
+
         }
 
 		if(!empty($arr)){

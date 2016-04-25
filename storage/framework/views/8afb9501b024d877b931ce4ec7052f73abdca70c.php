@@ -49,10 +49,12 @@
                         Blocks
                         <b class="caret"></b>
                         <ul class="dropdown-menu">
-                            <li><a href="/blocks">View All</a></li>
+                            <li><a href="/blocks">View Active</a></li>
+                            <li><a href="/blocks/all">View All</a></li>
                             <li><a href="/blocks/create">Add a block</a></li>
                         </ul>
                     </li>
+                    <li><a href="/custodians">Custodians</a></li>
                 <?php if(session('is_admin')): ?>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Admin
@@ -66,8 +68,8 @@
                                 <li><a href="/reps">Reps</a></li>
                                 <li><a href="/reps/create">Add a Rep</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="/custodians">Custodians</a></li>
-                                <li><a href="/custodians/create">Add a Custodian</a></li>
+                                <li><a href="/admin/custodians">Custodians</a></li>
+                                <li><a href="/admin/custodians/create">Add a Custodian</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/admin/symbols">Symbols</a></li>
                                 <li><a href="/admin/symbols/add">Add a Symbol</a></li>

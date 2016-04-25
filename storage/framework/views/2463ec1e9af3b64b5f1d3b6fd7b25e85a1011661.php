@@ -1,81 +1,65 @@
 		<ul class="list-group">
-			<li class="list-group-item table-header active">
-				<div class="row">
-					<div class="col-sm-1">Symbol</div>
-					<div class="col-sm-1">Added</div>
-					<div class="col-sm-1">Exchange</div>
-					<div class="col-sm-1">Our Disc</div>
-					<div class="col-sm-1">Target Disc</div>
-					<div class="col-sm-1">Shares</div>
-					<div class="col-sm-1">Need</div>
-					<div class="col-sm-1">Custodian</div>
-					<div class="col-sm-1">Source</div>
-					<div class="col-sm-1">Qilin Rep</div>
-					<div class="col-sm-1">Notes</div>
-					<div class="col-sm-1"></div>
-				</div>
-			</li>
-		<?php foreach($blocks as $block): ?>
-			<?php if($block->need == $blockType): ?>
+			<?php echo $__env->make('blocks.tableheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php foreach($blocks as $b): ?>
+			<?php if($b->need == $blockType): ?>
 
 		  	<li class="list-group-item">
 					<div class="row active">
-						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/<?php echo e($block->id); ?>"><b><?php echo e($block->symbol); ?></b></a></div>
-						<div class="col-sm-1 blocks-items" data-title="Added"><span class="date" data-hint="Created: <?php echo e($block->created_at); ?> EST" class="hint-bottom hint-anim-d-med"><?php echo e($block->date); ?></span></div>
-						<div class="col-sm-1 blocks-items" data-title="Exchange"><?php echo e($block->exchange); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric"><?php echo e($block->discount); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric"><?php echo e($block->discount_target); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Shares" class="numeric"><?php echo e($block->number_shares); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Need"><?php echo e($block->need); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Custodian"><?php echo e($block->custodian); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Source"><?php echo e($block->source); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Qilin Rep"><?php echo e($block->rep); ?></div>
-						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="<?php echo e($block->id); ?>" class="commentsShowHide btn btn-info"><span class="badge">
-								<?php if(empty($block->noteCount)): ?>
+						<div class="col-sm-1 blocks-items symbol" data-title="Symbol"><a href="/blocks/<?php echo e($b->id); ?>"><b><?php echo e($b->symbol); ?></b></a><?php echo e((!empty($b->status) && $b->status == 'archived'  ? " (Closed)" : '')); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Added"><span
+									data-hint="Created: <?php echo e($b->created_at); ?> EST"
+									class="date hint-bottom hint-anim-d-med"><?php echo e($b->date); ?></span></div>
+						<div class="col-sm-1 blocks-items" data-title="Updated"><span
+									data-hint="Created: <?php echo e($b->updated_at); ?> EST"
+									class="date hint-bottom hint-anim-d-med"><?php echo e($b->updated); ?></span></div>
+						<div class="col-sm-1 blocks-items" data-title="Exchange"><?php echo e($b->exchange); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Our Discount" class="numeric"><?php echo e($b->discount); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Target Discount" class="numeric"><?php echo e($b->discount_target); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Shares" class="numeric"><?php echo e($b->number_shares); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Custodian"><?php echo e($b->custodian); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Source"><?php echo e($b->source); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Qilin Rep"><?php echo e($b->rep); ?></div>
+						<div class="col-sm-1 blocks-items" data-title="Notes"><button data-id="<?php echo e($b->id); ?>" class="commentsShowHide btn btn-info"><span class="badge">
+								<?php if(empty($b->noteCount)): ?>
 									+
 								<?php else: ?>
-									<?php echo e($block->noteCount); ?>
+									<?php echo e($b->noteCount); ?>
 
 								<?php endif; ?>
 								</span></button>
 							</div>
 
 						<div class="col-sm-1 blocks-items" data-title="">
-							<?php if(session('is_admin')): ?>
-								<a href="/blocks/<?php echo e($block->id); ?>/edit" class="glyphicon glyphicon-edit"></a>
-							<?php else: ?>
+							<?php if(!empty($b->status) && $b->status == 'published'): ?>
+							<a href="/blocks/<?php echo e($b->id); ?>/edit" class="glyphicon glyphicon-edit"></a>
 							<?php endif; ?>
-
 						</div>
 						<div class="rows">
-							<div class="col-md-12 comments" id="comments_<?php echo e($block->id); ?>">
+							<div class="col-md-12 comments" id="comments_<?php echo e($b->id); ?>">
 								<div class="detailBox">
 								    <div class="titleBox">
 								      <label>Notes</label>
 								    </div>
 								    <div class="actionBox">
-								        <ul class="commentList" data-id="<?php echo e($block->id); ?>"></ul>
-								        <?php echo Form::open(array('url' => 'notes/' . $block->id,'class' => 'form-inline')); ?>
+								        <ul class="commentList" data-id="<?php echo e($b->id); ?>"><li>No notes</li></ul>
+										<?php if(!empty($b->status) && $b->status == 'published'): ?>
+								        <?php echo Form::open(array('url' => 'notes/' . $b->id,'class' => 'form-inline')); ?>
 
 
 							        	    <div class="form-group">
-												<input name="block_id" type="hidden" value="<?php echo e($block->id); ?>">
-												<input name="symbol" type="hidden" value="<?php echo e($block->symbol); ?>">
+												<input name="block_id" type="hidden" value="<?php echo e($b->id); ?>">
+												<input name="symbol" type="hidden" value="<?php echo e($b->symbol); ?>">
 								                <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
 								            </div>
 								            <div class="form-group">
 								                <button class="btn btn-success">Add</button>
 								            </div>
-
 										<?php echo Form::close(); ?>
 
-
+										<?php endif; ?>
 										<?php echo $__env->make('errors.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 								    </div>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>
