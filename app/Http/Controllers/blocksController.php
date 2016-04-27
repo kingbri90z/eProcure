@@ -326,14 +326,14 @@ class blocksController extends Controller
         }
 
         if ($block_old_data->need_id != $block_new_data->all()['need_id']) {
-			$arr[] = "Need a from " .
+			$arr[] = "Block Type from " .
                 Need::where('id', $block_old_data->need_id)->first()['name'].
                 " to " .
                 Need::where('id', $block_new_data->all()['need_id'])->first()['name'];
         }
 
         if ($block_old_data->exchange_id != $block_new_data->all()['exchange_id']) {
-			$arr[] = "Exchanged from " .
+			$arr[] = "Exchange from " .
                 Exchange::where('id', $block_old_data->exchange_id)->first()['name'].
                 " to " .
                 Exchange::where('id', $block_new_data->all()['exchange_id'])->first()['name'] ;
@@ -347,14 +347,14 @@ class blocksController extends Controller
         }
 
         if ($block_old_data->source_id != $block_new_data->all()['source_id']) {
-			$arr[] = "Source  from " .
+			$arr[] = "Source from " .
                 Source::where('id',$block_old_data->source_id)->first()['name'] .
                 " to " .
                 Source::where('id',$block_new_data->all()['source_id'])->first()['name'] ;
 
         }
         if ($block_old_data->source_id != $block_new_data->all()['rep_id']) {
-            $arr[] = "Source  from " .
+            $arr[] = "Rep  from " .
                 Rep::where('id',$block_old_data->rep_id)->first()['name'] .
                 " to " .
                 Rep::where('id',$block_new_data->all()['rep_id'])->first()['name'] ;
