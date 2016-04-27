@@ -341,9 +341,9 @@ class blocksController extends Controller
 
         if ($block_old_data->custodian_id != $block_new_data->all()['custodian_id']) {
 			$arr[] = "Custodian from " .
-                Source::where('id',$block_old_data->custodian_id)->first()['name'] .
+                Custodian::where('id',$block_old_data->custodian_id)->first()['name'] .
                 " to " .
-                Source::where('id',$block_new_data->all()['custodian_id'])->first()['name'] ;
+                Custodian::where('id',$block_new_data->all()['custodian_id'])->first()['name'] ;
         }
 
         if ($block_old_data->source_id != $block_new_data->all()['source_id']) {
@@ -351,6 +351,13 @@ class blocksController extends Controller
                 Source::where('id',$block_old_data->source_id)->first()['name'] .
                 " to " .
                 Source::where('id',$block_new_data->all()['source_id'])->first()['name'] ;
+
+        }
+        if ($block_old_data->source_id != $block_new_data->all()['rep_id']) {
+            $arr[] = "Source  from " .
+                Rep::where('id',$block_old_data->rep_id)->first()['name'] .
+                " to " .
+                Rep::where('id',$block_new_data->all()['rep_id'])->first()['name'] ;
 
         }
 
