@@ -166,7 +166,7 @@
                                                 <input class="form-control" name="body" type="text" placeholder="Leave a note" required/>
                                             </div>
                                             <div class="form-group">
-                                                <button class="btn btn-success">Add</button>
+                                                <button id="add-notes" class="btn btn-success">Add</button>
                                             </div>
 
                                             {!! Form::close() !!}
@@ -213,6 +213,8 @@
 
     <script type="text/javascript">
         $( document ).ready(function() {
+            //prevent form double submission on ready state
+            $('form').preventDoubleSubmission();
 
             $.date = function(dateObject) {
                 var d = new Date(dateObject);
@@ -245,5 +247,23 @@
 
             });
         });
+
+        // jQuery plugin to prevent double submission of forms
+        jQuery.fn.preventDoubleSubmission = function() {
+          $(this).on('submit',function(e){
+            var $form = $(this);
+
+            if ($form.data('submitted') === true) {
+              // Previously submitted - don't submit again
+              e.preventDefault();
+            } else {
+              // Mark it so that the next submit can be ignored
+              $form.data('submitted', true);
+            }
+          });
+
+          // Keep chainability
+          return this;
+        };
     </script>
 @stop
