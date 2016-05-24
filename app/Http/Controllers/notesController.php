@@ -70,11 +70,11 @@ class notesController extends Controller
 			'" on ' . str_replace('.', ':', $request['symbol']) .
 			' http://team.qilinfinance.com/blocks/' . $request['block_id'];
 
-		if(env('APP_ENV') == 'production') {
-			Telegram::sendMessage([
-				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
-				'text' => $text
-			]);
+	//	if(env('APP_ENV') == 'production') {
+//			Telegram::sendMessage([
+//				'chat_id' => env('TELEGRAM_CHAT_ROOM'),
+//				'text' => $text
+//			]);
 
 			$mail = [
 				'id'	=> $request['block_id'],
@@ -85,7 +85,7 @@ class notesController extends Controller
 				]
 			];
 			\TeamQilin\Http\Controllers\NotificationController::sendNewNote($mail);
-		}
+	//	}
         return redirect('/blocks/' . $request->block_id);
 	}
 

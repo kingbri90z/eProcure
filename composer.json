@@ -13,7 +13,8 @@
         "orangehill/iseed": "dev-master",
         "adamwathan/eloquent-oauth-l5": "^0.4.2",
         "nesbot/carbon": "^1.21",
-        "irazasyed/telegram-bot-sdk": "^2.0"
+        "irazasyed/telegram-bot-sdk": "^2.0",
+        "google/apiclient": "1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
