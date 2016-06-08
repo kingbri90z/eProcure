@@ -7,12 +7,39 @@ use Mail;
 use TeamQilin\User;
 use TeamQilin\Block;
 use Auth;
-use Google_Client;
-use Google_Service_Books;
+use Ddeboer\Imap\Server;
+use Ddeboer\Imap\SearchExpression;
+use Ddeboer\Imap\Search\Text\Body;
+
 class NotificationController extends Controller
 {
 
-    public static function sendUpdateToAll($blade,$data){
+    public static function sendUpdateToAll($blade,$data)
+    {
+//        $server = new Server('imap.gmail.com');
+        $server = new Server(
+            "imap.gmail.com", // required
+            "993",     // defaults to 993
+            "imap/ssl/novalidate-cert"    // defaults to '/imap/ssl/validate-cert'
+
+        );
+        $connection = $server->authenticate('r2d2@qilinfinance.com', 'whatpassword');
+        $mailboxes = $connection->getMailboxes();
+        $count=0;
+        foreach ($mailboxes as $mailbox) {
+            // $mailbox is instance of \Ddeboer\Imap\Mailbox
+            $messages = $mailbox->getMessages();
+            foreach ($messages as $message) {
+                if(str_contains($message->getSubject(),"Qilin")) {
+                    dd($message->getBodyText());
+                }
+                // $message is instance of \Ddeboer\Imap\Message
+
+
+
+            }
+           // dd(($messages));
+        }
         //Loop through list and send emails.
 //        $users = User::get();
 //
@@ -25,30 +52,7 @@ class NotificationController extends Controller
 //                });
 //           // }
 //        }
-        $client = new Google_Client();
-        $client->setApplicationName(APPLICATION_NAME);
-        $client->setScopes(SCOPES);
-        $client->setAuthConfigFile(CLIENT_SECRET_PATH);
-        $client->setAccessType('offline');
-
-        // Get the API client and construct the service object.
-        $client = getClient();
-        $service = new Google_Service_Gmail($client);
-
-        // Print the labels in the user's account.
-        $user = 'me';
-        $results = $service->users_labels->listUsersLabels($user);
-
-        if (count($results->getLabels()) == 0) {
-            print "No labels found.\n";
-        } else {
-            print "Labels:\n";
-            foreach ($results->getLabels() as $label) {
-                echo $label->getName();
-            }
-        }
     }
-    
     public static function sendNewBlock($data){
 
         $data['block']      = Block::findOrFail($data['id']);
