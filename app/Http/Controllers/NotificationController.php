@@ -72,7 +72,7 @@ class NotificationController extends Controller
                $message=strip_tags($message);
                 $end_position=strpos($message,'On Jun');
                 $message=substr($message, 0, $end_position);
-                dd($message);
+                dd(print_r($message));
 
             }
 
