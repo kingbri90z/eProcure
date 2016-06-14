@@ -79,7 +79,8 @@ class NotificationController extends Controller
             echo $output;
         }
 
-        /* close the connection */
+        /* close the connection  */
+
         imap_close($inbox);
 
 
