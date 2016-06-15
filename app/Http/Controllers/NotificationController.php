@@ -60,6 +60,10 @@ class NotificationController extends Controller
 
             /* for every email... */
             foreach($emails as $email_number) {
+                $header = imap_headerinfo($inbox, $email_number);
+                $fromaddr = $header->to[0]->mailbox;
+                $user_id = substr($fromaddr, strpos($fromaddr, "+") + 1);
+
 
                 /* get information specific to this email */
                 $overview = imap_fetch_overview($inbox,$email_number,0);
@@ -70,7 +74,7 @@ class NotificationController extends Controller
 
 
                $message=strip_tags($message);
-                $end_position=strpos($message,'On Jun');
+                $end_position=strpos($message,'On');
                 $message=substr($message, 0, $end_position);
                 dd(print_r($message));
 
