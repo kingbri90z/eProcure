@@ -62,6 +62,7 @@ class NotificationController extends Controller
             foreach($emails as $email_number) {
                 $header = imap_headerinfo($inbox, $email_number);
                 $fromaddr = $header->to[0]->mailbox;
+                $message_uid=imap_uid($inbox, $email_number);
                 $user_id = substr($fromaddr, strpos($fromaddr, "+") + 1);
 
 
