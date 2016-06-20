@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->integer('block_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
             $table->text('body');
-            $table->string('uid')->unique();
+            $table->string('uid');
             $table->timestamps();
         });
     }

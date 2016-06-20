@@ -32,6 +32,8 @@ class BlocksTableSeeder extends Seeder
                 'status' => 'published',
                 'discount_target' => '14',
                 'source_id' => 1,
+                'user_id' => 5,
+
             ),
             1 =>
             array (
@@ -48,6 +50,8 @@ class BlocksTableSeeder extends Seeder
                 'status' => 'published',
                 'discount_target' => '10',
                 'source_id' => 2,
+                'user_id' => 6,
+
             ),
         ));
 

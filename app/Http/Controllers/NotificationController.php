@@ -5,6 +5,7 @@ namespace TeamQilin\Http\Controllers;
 use TeamQilin\Http\Requests;
 use Mail;
 use TeamQilin\User;
+use TeamQilin\Note;
 use TeamQilin\Block;
 use Auth;
 use Ddeboer\Imap\Server;
@@ -16,26 +17,19 @@ class NotificationController extends Controller
     public static function sendUpdateToAll($blade,$data)
     {
 
-        //Loop through list and send emails.
+
+       // Loop through list and send emails.
 //        $users = User::get();
 //
 //        foreach ($users as $key => $user) {
 //            //if($users[$key]['email'] == 'j.dombroski@qilinfinance.com'){
 //                Mail::send('emails.' . $blade, ['data' => $data], function ($message) use($users,$key,$data) {
-//                    $message->from('r2d2+'.$users[$key]['id'].'@qilinfinance.com', 'Qilin Bot');
+//                    $message->from('r2d2+'.$users[$key]['id'].'.'.$data['id'].'@qilinfinance.com', 'Qilin Bot');
 //                    $message->to($users[$key]['email']);
 //                    $message->subject($data['title']);
 //                });
 //           // }
 //        }
-//
-//               "imap.gmail.com", // required
-//            "993",     // defaults to 993
-//            "imap/ssl/novalidate-cert"    // defaults to '/imap/ssl/validate-cert'
-//
-//        );
-//        $connection = $server->authenticate('r2d2@qilinfinance.com', 'whatpassword');
-//
 
 
         /* connect to gmail */
@@ -58,30 +52,36 @@ class NotificationController extends Controller
             /* put the newest emails on top */
             rsort($emails);
 
+
             /* for every email... */
             foreach($emails as $email_number) {
                 $header = imap_headerinfo($inbox, $email_number);
                 $fromaddr = $header->to[0]->mailbox;
                 $message_uid=imap_uid($inbox, $email_number);
-                $user_id = substr($fromaddr, strpos($fromaddr, "+") + 1);
-
+                $alias_data = substr($fromaddr, strpos($fromaddr, "+") + 1);
+                $user_id = substr($alias_data, 0, strpos($alias_data, '.'));
+                $block_id= substr($fromaddr, strpos($fromaddr, ".") + 1);
 
                 /* get information specific to this email */
                 $overview = imap_fetch_overview($inbox,$email_number,0);
                 $message = imap_fetchbody($inbox,$email_number,2);
 
-              $message=preg_replace("/<signature>.+?<\/signature>/i", "", $message);
-//                $message=preg_replace('"','',$message);
-
+                $message=preg_replace("/<signature>.+?<\/signature>/i", "", $message);
 
                $message=strip_tags($message);
                 $end_position=strpos($message,'On');
                 $message=substr($message, 0, $end_position);
-                dd(print_r($message));
+   //             dd(print_r($message));
+                
+                $notes= new Note;
+                $notes->uid=$message_uid;
+                $notes->block_id=$block_id;
+                $notes->user_id=$user_id;
+                $notes->body=$message;
+                $notes->save();
 
             }
 
-            echo $output;
         }
 
         /* close the connection  */
