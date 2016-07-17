@@ -89,7 +89,7 @@
                <strong><i class="fa fa-user margin-r-5"></i> Entity Name</strong>
 
                <p class="text-muted">
-                 DevCon Manufacturing Ltd
+                {{$bidderDetails[0]->Name}}
                </p>
 
                <hr>
@@ -100,10 +100,10 @@
                {{--</p>--}}
 
                <hr>
-               <strong><i class="fa fa-user margin-r-5"></i> Gender</strong>
+               <strong><i class="fa fa-user margin-r-5"></i> Address</strong>
 
               <p class="text-muted">
-                Male
+                {{$bidderDetails[0]->address}}
               </p>
 
               <hr>
@@ -111,17 +111,30 @@
                <strong><i class="fa fa-envelope margin-r-5"></i> Work Email</strong>
 
               <p class="text-muted">
-                test@exed.com
+                {{$bidderDetails[0]->email}}
               </p>
 
               <hr>
               <strong><i class="fa fa-phone margin-r-5"></i> Work Phone</strong>
 
              <p class="text-muted">
-               (876) 999-9999
+                {{$bidderDetails[0]->telephone}}
              </p>
 
              <hr>
+<strong><i class="fa fa-phone margin-r-5"></i> Mobile Phone</strong>
+
+             <p class="text-muted">
+                {{$bidderDetails[0]->mobile}}
+             </p>
+                          <hr>
+
+             <strong><i class="fa fa-phone margin-r-5"></i>Fax</strong>
+
+                          <p class="text-muted">
+                             {{$bidderDetails[0]->fax}}
+                          </p>
+                                       <hr>
 
 
                {{--<strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>--}}

@@ -93,7 +93,7 @@
                           @foreach ($tenders as $tender)
                       <tr>
                         <td>{{$tender['id']}}</td>
-                        <td>{{$tender['Title']}}</td>
+                        <td><a href="#" data-toggle="modal" data-target="#{{$tender['id']}}">{{$tender['Title']}}</a></td>
                         <td>{{$tender['open_date']}}</td>
                         <td>{{$tender['close_date']}}</td>
                         <td>{{$tender['classification']}}</td>
@@ -102,7 +102,32 @@
                         <td>3</td>
                         <td class="text-center"><a href="#"><i class="glyphicon glyphicon-edit"></i></a></td>
                         <td class="text-center"><a href="#"><i class="glyphicon glyphicon-remove"></i></a></td>
+
+                         <!-- Modal -->
+                      <div id="{{$tender['id']}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Item Description</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>{{$tender['description']}}</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--End Modal-->
+
                       </tr>
+
+
                        @endforeach
 
                       </tbody>
@@ -122,6 +147,8 @@
     </section>
     <!-- /.content -->
   </div>
+
+
   <!-- /.content-wrapper -->
 <script src="{!!asset('js/jQuery-2.2.0.min.js')!!}"></script>
 <script src="{!!asset('js/bootstrap.min.js')!!}"></script>

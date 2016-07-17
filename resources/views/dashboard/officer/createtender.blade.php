@@ -82,11 +82,11 @@
                          {{--</div>--}}
 
                          <div class="form-group">
-                          <label for="openingDate">Opening Date</label>
+                          <label for="openingDate">Start Date</label>
                           <input type="date" class="form-control" id="date" name="open_date">
                         </div>
                         <div class="form-group">
-                          <label for="closingDate">Closing Date</label>
+                          <label for="closingDate">End Date</label>
                           <input type="date" class="form-control" id="date" name="close_date">
                         </div>
                         {{--<div class="form-group">--}}
@@ -115,7 +115,17 @@
                               <option>Inactive</option>
                             </select>
                           </div>
+                            <div class="form-group">
+                           <label>Estimated Value (JMD)</label>
+                          <input type="number" class="form-control" id="value" placeholder="Estimated Value" name="estimatedvalue">
+                         </div>
+
                       <!-- /.box-body -->
+                        <div class="form-group">
+                             <label>Description</label>
+                             <textarea class="form-control" rows="3" placeholder="Enter description here" name="description"></textarea>
+                           </div>
+
 
                       <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>

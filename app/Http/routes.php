@@ -78,13 +78,17 @@ Route::post('tender/store', 'OfficerController@storeTender');
 Route::get('officer/contracts', function () {
     return view('dashboard.officer.contracts');
 });
-Route::get('officer/profile', function () {
-    return view('dashboard.officer.profile');
-});
+//Route::get('officer/profile', function () {
+//    return view('dashboard.officer.profile');
+//});
 
-Route::get('bidder/profile', function () {
-    return view('dashboard.bidder.profile');
-});
+//Route::get('bidder/profile', function () {
+//    return view('dashboard.bidder.profile');
+//});
+
+Route::get('bidder/profile', 'BidderController@bidderDetails');
+Route::get('officer/profile', 'OfficerController@officerDetails');
+
 
 Route::post('officer/store', 'OfficerController@storeOfficer');
 Route::post('bidder/store', 'BidderController@storeBidder');

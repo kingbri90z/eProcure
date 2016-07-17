@@ -66,7 +66,7 @@
              <div class="box-body box-profile">
                <img class="profile-user-img img-responsive img-circle" src="{!!asset('images/avatar.jpg')!!}" alt="User profile picture">
 
-               <h3 class="profile-username text-center">Brian Nelson</h3>
+               <h3 class="profile-username text-center">{{$officerDetails[0]->firstname.' '.$officerDetails[0]->lastname}} </h3>
 
                <p class="text-muted text-center">Procurement Officer</p>
 
@@ -86,28 +86,28 @@
                <strong><i class="fa fa-building-o margin-r-5"></i> Employee ID</strong>
 
                  <p class="text-muted">
-                   9820
+                   {{$officerDetails[0]->employee_id}}
                  </p>
 
                  <hr>
                <strong><i class="fa fa-user margin-r-5"></i> First Name</strong>
 
                <p class="text-muted">
-                 Brian
+                   {{$officerDetails[0]->firstname}}
                </p>
 
                <hr>
               <strong><i class="fa fa-user margin-r-5"></i> Last Name</strong>
 
                <p class="text-muted">
-                 Nelson
+                 {{$officerDetails[0]->lastname}}
                </p>
 
                <hr>
                <strong><i class="fa fa-user margin-r-5"></i> Gender</strong>
 
               <p class="text-muted">
-                Male
+                  {{$officerDetails[0]->gender}}
               </p>
 
               <hr>
@@ -115,14 +115,14 @@
                <strong><i class="fa fa-envelope margin-r-5"></i> Work Email</strong>
 
               <p class="text-muted">
-                test@exed.com
+                {{$officerDetails[0]->email}}
               </p>
 
               <hr>
               <strong><i class="fa fa-phone margin-r-5"></i> Work Phone</strong>
 
              <p class="text-muted">
-               (876) 999-9999
+                {{$officerDetails[0]->work_phone}}
              </p>
 
              <hr>

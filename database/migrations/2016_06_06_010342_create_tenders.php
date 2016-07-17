@@ -22,6 +22,7 @@ class CreateTenders extends Migration
 //            $table->string('estimated_value');
 //            $table->string('proposed_date');
             $table->string('classification');
+            $table->string('description');
             $table->string('comments');
             $table->string('state');
 //            $table->rememberToken();

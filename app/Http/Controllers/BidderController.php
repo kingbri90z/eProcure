@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Bidder;
 use App\Tender;
 use App\User;
+use Auth;
 use Hash;
 use Redirect;
 class BidderController extends Controller
@@ -40,5 +41,10 @@ class BidderController extends Controller
         $tenders = Tender::all();
 
         return view('dashboard.bidder.tenders',['tenders'=>$tenders]);
+    }
+
+    public function bidderDetails(){
+        $bidderDetails=Bidder::where('email','=', Auth::user()->email)->get();
+        return view('dashboard.bidder.profile',['bidderDetails'=>$bidderDetails]);
     }
 }

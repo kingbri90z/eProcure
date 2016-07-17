@@ -87,6 +87,9 @@ class OfficerController extends Controller
         $tender->classification=$request->get('classification');
         $tender->comments=$request->get('comments');
         $tender->state=$request->get('state');
+        $tender->state=$request->get('estimatedvalue');
+        $tender->description=$request->get('description');
+
 //        $officer->firstname=$request->get('confirm_password');
         $tender->save();
         return redirect('dashboard/officer/tenders')->with('status','Tender was created successfully');
@@ -106,37 +109,8 @@ class OfficerController extends Controller
         return view('dashboard.officer.tenders',['tenders'=>$tenders]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function officerDetails(){
+        $officerDetails=Officer::where('email','=', Auth::user()->email)->get();
+        return view('dashboard.officer.profile',['officerDetails'=>$officerDetails]);
     }
 }
