@@ -16,15 +16,15 @@ class CreateTenders extends Migration
             $table->increments('id');
             $table->string('Title');
             //$table->string('email')->unique();
-            $table->string('bidder');
+//            $table->string('bidder');
             $table->string('open_date');
             $table->string('close_date');
-//            $table->string('estimated_value');
+            $table->string('budgetallocation');
 //            $table->string('proposed_date');
             $table->string('classification');
             $table->string('description');
             $table->string('comments');
-            $table->string('state');
+            $table->string('procurement_method');
 //            $table->rememberToken();
             $table->timestamps();
         });

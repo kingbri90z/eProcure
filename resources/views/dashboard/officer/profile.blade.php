@@ -14,7 +14,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{!!asset('images/user2-160x160.jpg')!!}" class="img-circle" alt="User Image">
+          <img src="{!!asset('images/officer.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Brian Nelson</p>
@@ -29,12 +29,18 @@
       <ul class="sidebar-menu">
         <li class="header">Procurement Officer Dashboard</li>
         <!-- Optionally, you can add icons to the links -->
+
+                <li><a href="/officer/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard Overview</span></a></li>
+
          <li class="active"><a href="/officer/profile"><i class="fa fa-user"></i> <span>My Account</span></a></li>
+
         <li ><a href="/dashboard/officer/tenders"><i class="fa fa-ticket"></i> <span>View Tenders</span></a></li>
-         <li class="active"><a href="/tender/create"><i class="fa fa-plus"></i> <span>Create Tender</span></a></li>
+         <li ><a href="/tender/create"><i class="fa fa-plus"></i> <span>Create Tender</span></a></li>
         <li><a href="/officer/viewbids"><i class="fa fa-exchange"></i> <span>View Bids</span></a></li>
         <li><a href="/officer/contracts"><i class="fa fa-file-o"></i> <span>View Contracts</span></a></li>
         <li><a href="/contract/create"><i class="fa fa-plus-square-o"></i> <span>Create Contract</span></a></li>
+                      <li><a href="/officer/reports"><i class="fa fa-file-o"></i> <span>Reports</span></a></li>
+
         <li><a href="/user/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
 
@@ -59,12 +65,12 @@
      <section class="content">
 
        <div class="row">
-         <div class="col-md-3">
+         <div class="col-md-8">
 
            <!-- Profile Image -->
            <div class="box box-primary">
              <div class="box-body box-profile">
-               <img class="profile-user-img img-responsive img-circle" src="{!!asset('images/avatar.jpg')!!}" alt="User profile picture">
+               <img class="profile-user-img img-responsive img-circle" src="{!!asset('images/officer.png')!!}" alt="User profile picture">
 
                <h3 class="profile-username text-center">{{$officerDetails[0]->firstname.' '.$officerDetails[0]->lastname}} </h3>
 
@@ -137,107 +143,107 @@
            <!-- /.box -->
          </div>
          <!-- /.col -->
-         <div class="col-md-9">
-           <div class="nav-tabs-custom">
-             <ul class="nav nav-tabs">
-               <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+         {{--<div class="col-md-9">--}}
+           {{--<div class="nav-tabs-custom">--}}
+             {{--<ul class="nav nav-tabs">--}}
+               {{--<li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>--}}
 
-             </ul>
-             <div class="tab-content">
-               <div class="active tab-pane" id="activity">
-                 <!-- Post -->
-                 <div class="post">
-                   <div class="user-block">
-                     <img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">
-                         <span class="username">
-                           <a href="#">Brian Nelson</a>
-                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                         </span>
-                     <span class="description">Public - 7:30 PM today</span>
-                   </div>
-                   <!-- /.user-block -->
-                   <p>
-                     Lorem ipsum represents a long-held tradition for designers,
-                     typographers and the like. Some people hate it and argue for
-                     its demise, but others ignore the hate as they create awesome
-                     tools to help create filler text for everyone from bacon lovers
-                     to Charlie Sheen fans.
-                   </p>
-                   <ul class="list-inline">
+             {{--</ul>--}}
+             {{--<div class="tab-content">--}}
+               {{--<div class="active tab-pane" id="activity">--}}
+                 {{--<!-- Post -->--}}
+                 {{--<div class="post">--}}
+                   {{--<div class="user-block">--}}
+                     {{--<img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">--}}
+                         {{--<span class="username">--}}
+                           {{--<a href="#">Brian Nelson</a>--}}
+                           {{--<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>--}}
+                         {{--</span>--}}
+                     {{--<span class="description">Public - 7:30 PM today</span>--}}
+                   {{--</div>--}}
+                   {{--<!-- /.user-block -->--}}
+                   {{--<p>--}}
+                     {{--Lorem ipsum represents a long-held tradition for designers,--}}
+                     {{--typographers and the like. Some people hate it and argue for--}}
+                     {{--its demise, but others ignore the hate as they create awesome--}}
+                     {{--tools to help create filler text for everyone from bacon lovers--}}
+                     {{--to Charlie Sheen fans.--}}
+                   {{--</p>--}}
+                   {{--<ul class="list-inline">--}}
                      {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>--}}
                      {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>--}}
                      {{--</li>--}}
-                     <li class="pull-right">
-                       <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                         (5)</a></li>
-                   </ul>
+                     {{--<li class="pull-right">--}}
+                       {{--<a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments--}}
+                         {{--(5)</a></li>--}}
+                   {{--</ul>--}}
 
-                   <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                 </div>
-                 <!-- /.post -->
- <div class="post">
-                   <div class="user-block">
-                     <img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">
-                         <span class="username">
-                           <a href="#">Brian Nelson</a>
-                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                         </span>
-                     <span class="description">Public - 7:30 PM today</span>
-                   </div>
-                   <!-- /.user-block -->
-                   <p>
-                     Lorem ipsum represents a long-held tradition for designers,
-                     typographers and the like. Some people hate it and argue for
-                     its demise, but others ignore the hate as they create awesome
-                     tools to help create filler text for everyone from bacon lovers
-                     to Charlie Sheen fans.
-                   </p>
-                   <ul class="list-inline">
+                   {{--<input class="form-control input-sm" type="text" placeholder="Type a comment">--}}
+                 {{--</div>--}}
+                 {{--<!-- /.post -->--}}
+ {{--<div class="post">--}}
+                   {{--<div class="user-block">--}}
+                     {{--<img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">--}}
+                         {{--<span class="username">--}}
+                           {{--<a href="#">Brian Nelson</a>--}}
+                           {{--<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>--}}
+                         {{--</span>--}}
+                     {{--<span class="description">Public - 7:30 PM today</span>--}}
+                   {{--</div>--}}
+                   {{--<!-- /.user-block -->--}}
+                   {{--<p>--}}
+                     {{--Lorem ipsum represents a long-held tradition for designers,--}}
+                     {{--typographers and the like. Some people hate it and argue for--}}
+                     {{--its demise, but others ignore the hate as they create awesome--}}
+                     {{--tools to help create filler text for everyone from bacon lovers--}}
+                     {{--to Charlie Sheen fans.--}}
+                   {{--</p>--}}
+                   {{--<ul class="list-inline">--}}
                      {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>--}}
                      {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>--}}
                      {{--</li>--}}
-                     <li class="pull-right">
-                       <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                         (5)</a></li>
-                   </ul>
+                     {{--<li class="pull-right">--}}
+                       {{--<a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments--}}
+                         {{--(5)</a></li>--}}
+                   {{--</ul>--}}
 
-                   <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                 </div>
-                  <div class="post">
-                                    <div class="user-block">
-                                      <img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">
-                                          <span class="username">
-                                            <a href="#">Brian Nelson</a>
-                                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                                          </span>
-                                      <span class="description">Public - 7:30 PM today</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                      Lorem ipsum represents a long-held tradition for designers,
-                                      typographers and the like. Some people hate it and argue for
-                                      its demise, but others ignore the hate as they create awesome
-                                      tools to help create filler text for everyone from bacon lovers
-                                      to Charlie Sheen fans.
-                                    </p>
-                                    <ul class="list-inline">
+                   {{--<input class="form-control input-sm" type="text" placeholder="Type a comment">--}}
+                 {{--</div>--}}
+                  {{--<div class="post">--}}
+                                    {{--<div class="user-block">--}}
+                                      {{--<img class="img-circle img-bordered-sm" src="{!!asset('images/user1-128x128.jpg')!!}" alt="user image">--}}
+                                          {{--<span class="username">--}}
+                                            {{--<a href="#">Brian Nelson</a>--}}
+                                            {{--<a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>--}}
+                                          {{--</span>--}}
+                                      {{--<span class="description">Public - 7:30 PM today</span>--}}
+                                    {{--</div>--}}
+                                    {{--<!-- /.user-block -->--}}
+                                    {{--<p>--}}
+                                      {{--Lorem ipsum represents a long-held tradition for designers,--}}
+                                      {{--typographers and the like. Some people hate it and argue for--}}
+                                      {{--its demise, but others ignore the hate as they create awesome--}}
+                                      {{--tools to help create filler text for everyone from bacon lovers--}}
+                                      {{--to Charlie Sheen fans.--}}
+                                    {{--</p>--}}
+                                    {{--<ul class="list-inline">--}}
                                       {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>--}}
                                       {{--<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>--}}
                                       {{--</li>--}}
-                                      <li class="pull-right">
-                                        <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                                          (5)</a></li>
-                                    </ul>
+                                      {{--<li class="pull-right">--}}
+                                        {{--<a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments--}}
+                                          {{--(5)</a></li>--}}
+                                    {{--</ul>--}}
 
-                                    <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                                  </div>
-               </div>
+                                    {{--<input class="form-control input-sm" type="text" placeholder="Type a comment">--}}
+                                  {{--</div>--}}
+               {{--</div>--}}
 
-             </div>
-             <!-- /.tab-content -->
-           </div>
-           <!-- /.nav-tabs-custom -->
-         </div>
+             {{--</div>--}}
+             {{--<!-- /.tab-content -->--}}
+           {{--</div>--}}
+           {{--<!-- /.nav-tabs-custom -->--}}
+         {{--</div>--}}
          <!-- /.col -->
        </div>
        <!-- /.row -->

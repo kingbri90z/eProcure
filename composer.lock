@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "324efa9a5f6173865842890ca649d05b",
-    "content-hash": "497c32f0cad028ff5d56807d1e77e9a5",
+    "hash": "f5acdf23db03229b03db43571204c857",
+    "content-hash": "9e2a7344ba172ff592da5cfebb4b17b7",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -305,56 +305,6 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
-        },
-        {
-            "name": "kbwebs/multiauth",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Kbwebs/MultiAuth.git",
-                "reference": "be6b2780fc63b92a956a332f781e43023cfb8233"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Kbwebs/MultiAuth/zipball/be6b2780fc63b92a956a332f781e43023cfb8233",
-                "reference": "be6b2780fc63b92a956a332f781e43023cfb8233",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/auth": "~5.1",
-                "illuminate/console": "~5.1",
-                "illuminate/database": "~5.1",
-                "illuminate/filesystem": "~5.1",
-                "illuminate/support": "~5.1",
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Kbwebs\\MultiAuth\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kasper Basse",
-                    "email": "kasperbasse@gmail.com"
-                }
-            ],
-            "description": "MultiAuth for Laravel 5.1",
-            "keywords": [
-                "auth",
-                "laravel",
-                "login",
-                "multi",
-                "multiauth",
-                "signin",
-                "user"
-            ],
-            "time": "2015-09-12 08:04:15"
         },
         {
             "name": "laravel/framework",
@@ -789,6 +739,93 @@
             "time": "2016-04-19 13:41:41"
         },
         {
+            "name": "niklasravnsborg/laravel-pdf",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/niklasravnsborg/laravel-pdf.git",
+                "reference": "9784fb95b6bf42a268e41be7baada5f8523df762"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/niklasravnsborg/laravel-pdf/zipball/9784fb95b6bf42a268e41be7baada5f8523df762",
+                "reference": "9784fb95b6bf42a268e41be7baada5f8523df762",
+                "shasum": ""
+            },
+            "require": {
+                "niklasravnsborg/mpdf": "^6.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "niklasravnsborg\\LaravelPdf\\": "src/LaravelPdf"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generate PDFs in Laravel with this mPDF wrapper.",
+            "keywords": [
+                "laravel",
+                "mpdf",
+                "pdf"
+            ],
+            "time": "2016-04-23 17:07:02"
+        },
+        {
+            "name": "niklasravnsborg/mpdf",
+            "version": "v6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/niklasravnsborg/mpdf.git",
+                "reference": "eb1d4de1f2330f398c4d05f39dfbf87f2105c99e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/niklasravnsborg/mpdf/zipball/eb1d4de1f2330f398c4d05f39dfbf87f2105c99e",
+                "reference": "eb1d4de1f2330f398c4d05f39dfbf87f2105c99e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.2",
+                "setasign/fpdi": "1.6.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
+            },
+            "suggest": {
+                "ext-zlib": "Needed for compression of embedded resources, such as fonts"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "mpdf.php",
+                    "classes"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ian Back",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
+            "homepage": "http://www.mpdf1.com/mpdf/index.php",
+            "keywords": [
+                "pdf",
+                "php",
+                "utf-8"
+            ],
+            "time": "2016-03-14 11:03:27"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v1.4.1",
             "source": {
@@ -945,6 +982,55 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "setasign/fpdi",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Setasign/FPDI.git",
+                "reference": "5b899b2b41463bf261aa69840fd30b50950a500c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/5b899b2b41463bf261aa69840fd30b50950a500c",
+                "reference": "5b899b2b41463bf261aa69840fd30b50950a500c",
+                "shasum": ""
+            },
+            "suggest": {
+                "setasign/fpdf": "FPDI will extend this class but as it is also possible to use \"tecnickcom/tcpdf\" as an alternative there's no fixed dependency configured.",
+                "setasign/fpdi-fpdf": "Use this package to automatically evaluate dependencies to FPDF.",
+                "setasign/fpdi-tcpdf": "Use this package to automatically evaluate dependencies to TCPDF."
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "filters/",
+                    "fpdi.php",
+                    "fpdf_tpl.php",
+                    "fpdi_pdf_parser.php",
+                    "pdf_context.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Slabon",
+                    "email": "jan.slabon@setasign.com",
+                    "homepage": "https://www.setasign.com"
+                }
+            ],
+            "description": "FPDI is a collection of PHP classes facilitating developers to read pages from existing PDF documents and use them as templates in FPDF. Because it is also possible to use FPDI with TCPDF, there are no fixed dependencies defined. Please see suggestions for packages which evaluates the dependencies automatically.",
+            "homepage": "https://www.setasign.com/fpdi",
+            "keywords": [
+                "fpdf",
+                "fpdi",
+                "pdf"
+            ],
+            "time": "2015-11-30 10:53:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1976,6 +2062,56 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
+        },
+        {
+            "name": "kbwebs/multiauth",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kbwebs/MultiAuth.git",
+                "reference": "be6b2780fc63b92a956a332f781e43023cfb8233"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kbwebs/MultiAuth/zipball/be6b2780fc63b92a956a332f781e43023cfb8233",
+                "reference": "be6b2780fc63b92a956a332f781e43023cfb8233",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.1",
+                "illuminate/console": "~5.1",
+                "illuminate/database": "~5.1",
+                "illuminate/filesystem": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kbwebs\\MultiAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kasper Basse",
+                    "email": "kasperbasse@gmail.com"
+                }
+            ],
+            "description": "MultiAuth for Laravel 5.1",
+            "keywords": [
+                "auth",
+                "laravel",
+                "login",
+                "multi",
+                "multiauth",
+                "signin",
+                "user"
+            ],
+            "time": "2015-09-12 08:04:15"
         },
         {
             "name": "mockery/mockery",

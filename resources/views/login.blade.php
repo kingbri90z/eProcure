@@ -27,7 +27,7 @@
 <body class="hold-transition register-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>e</b>Procure</a>
+    <a href="../../index2.html"><b>e</b>Procure</a><img src="images/logo-no-bg.png" height="100" width="150" alt="logo" />
   </div>
   <!-- /.login-logo -->
   @if (count($errors) > 0)
@@ -75,7 +75,6 @@
     </form>
 
 
-    <a href="#">I forgot my password</a><br>
     {{--<a href="register.html" class="text-center">Register a new Procurement Officer</a></br>--}}
     {{--<a href="register.html" class="text-center">Register a new Bidder</a>--}}
 

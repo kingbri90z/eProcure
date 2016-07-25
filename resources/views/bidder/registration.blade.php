@@ -52,11 +52,11 @@
               <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
             </div>
               <div class="form-group has-feedback">
-                          <input type="text" class="form-control" placeholder="Telephone" name="telephone">
+                          <input type="text" class="form-control"  placeholder="Eg.: (999)999-9999" name="telephone">
                           <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
                         </div>
                            <div class="form-group has-feedback">
-                              <input type="text" class="form-control" placeholder="Mobile" name="mobile">
+                              <input type="text" class="form-control" placeholder="(999)999-9999" name="mobile">
                               <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                             </div>
                              <div class="form-group has-feedback">
@@ -71,6 +71,7 @@
         <input type="password" class="form-control" placeholder="Retype password" name="confirm_password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

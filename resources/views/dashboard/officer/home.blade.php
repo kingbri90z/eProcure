@@ -14,7 +14,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{!!asset('images/avatar.jpg')!!}" class="img-circle" alt="User Image">
+          <img src="{!!asset('images/officer.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Brian Nelson</p>
@@ -29,12 +29,16 @@
       <ul class="sidebar-menu">
         <li class="header">Procurement Officer Dashboard</li>
         <!-- Optionally, you can add icons to the links -->
+                <li><a href="/officer/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard Overview</span></a></li>
+
         <li><a href="/officer/profile"><i class="fa fa-user"></i> <span>My Account</span></a></li>
        <li class="active"><a href="/dashboard/officer/tenders"><i class="fa fa-ticket"></i> <span>View Tenders</span></a></li>
         <li class="active"><a href="/tender/create"><i class="fa fa-plus"></i> <span>Create Tender</span></a></li>
        <li><a href="/officer/viewbids"><i class="fa fa-exchange"></i> <span>View Bids</span></a></li>
        <li><a href="/officer/contracts"><i class="fa fa-file-o"></i> <span>View Contracts</span></a></li>
        <li><a href="/contract/create"><i class="fa fa-plus-square-o"></i> <span>Create Contract</span></a></li>
+                      <li><a href="/officer/reports"><i class="fa fa-file-o"></i> <span>Reports</span></a></li>
+
        <li><a href="/user/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
 

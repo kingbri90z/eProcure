@@ -64,7 +64,7 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
        <div class="form-group has-feedback">
-              <input type="text" class="form-control" placeholder="Work Phone" name="work_phone">
+              <input type="text" class="form-control" placeholder="(999)999-9999" name="work_phone">
               <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

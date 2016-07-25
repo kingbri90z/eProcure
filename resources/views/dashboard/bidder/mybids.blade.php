@@ -70,84 +70,56 @@
                         <th>ID</th>
                         <th>Title</th>
                         {{--<th>Entity</th>--}}
-                        <th>Start Date</th>
-                        <th>End Date</th>
+                        <th>Category</th>
+                        <th>Bid Details</th>
                         {{--<th>Estimated Value</th>--}}
-                        <th>Classification</th>
+                        <th>Company Name</th>
                         {{--<th>Comments</th>--}}
-                         <th>State</th>
-                         <th>Bid</th>
+
                       </tr>
                       </thead>
                       <tbody>
+                    @foreach ($mybids as $mybid)
+
                       <tr>
-                        <td>1</td>
-                        <td>Desktop Computers & Installation
-                        </td>
-                        {{--<td>Win 95+</td>--}}
-                        <td>July 1, 2016</td>
-                        <td>July 31, 2016</td>
+                        <td>{{$mybid['id']}}</td>
+
+                        <td><a href="#" data-toggle="modal" data-target="#{{$mybid['id']}}">{{$mybid['title']}}</a></td>
+
+
+                        <td>{{$mybid['category']}}</td>
                         {{--<td>X</td>--}}
-                        <td>Goods & Services</td>
+                        <td>{{$mybid['bid_details']}}</td>
                         {{--<td>To be contacted</td>--}}
-                       <td>Active</td>
-                        <td class="text-center">
-                            <a href="#">
-                                <button type="button" class="btn btn-block btn-danger"><b>Revoke</b></button>
-                            </a>
-                        </td>
+                        <td>{{$mybid['company']}}</td>
+                        {{--<td class="text-center">--}}
+                            {{--<a href="#">--}}
+                                {{--<button type="button" class="btn btn-block btn-danger"><b>Revoke</b></button>--}}
+                            {{--</a>--}}
+                        {{--</td>--}}
+                          <!-- Modal -->
+                          <div id="{{$mybid['id']}}" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Bid Details</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>{{$mybid['bid_details']}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                          <!--End Modal-->
                         </tr>
-                      <tr>
-                      <td>2</td>
-                      <td>Steel and Lumbers
-                      </td>
-                      {{--<td>Win 95+</td>--}}
-                      <td>May 1, 2016</td>
-                      <td>July 31, 2016</td>
-                      {{--<td>X</td>--}}
-                      <td>Goods</td>
-                      {{--<td>To be contacted</td>--}}
-                     <td>Active</td>
-                      <td class="text-center">
-                          <a href="#">
-                              <button type="button" class="btn btn-block btn-danger"><b>Revoke</b></button>
-                          </a>
-                      </td>
-                        </tr>
-                     <tr>
-                       <td>3</td>
-                       <td>Sagem Officer Phones
-                       </td>
-                       {{--<td>Win 95+</td>--}}
-                       <td>February 1, 2016</td>
-                       <td>August 31, 2016</td>
-                       {{--<td>X</td>--}}
-                       <td>Goods</td>
-                       {{--<td>To be contacted</td>--}}
-                      <td>Active</td>
-                       <td class="text-center">
-                           <a href="#">
-                               <button type="button" class="btn btn-block btn-danger"><b>Revoke</b></button>
-                           </a>
-                       </td>
-                       </tr>
-                     <tr>
-                       <td>4</td>
-                           <td>MacBook Computers
-                           </td>
-                           {{--<td>Win 95+</td>--}}
-                           <td>June 1, 2016</td>
-                           <td>September 31, 2016</td>
-                           {{--<td>X</td>--}}
-                           <td>Goods</td>
-                           {{--<td>To be contacted</td>--}}
-                          <td>Active</td>
-                           <td class="text-center">
-                               <a href="#">
-                                   <button type="button" class="btn btn-block btn-danger"><b>Revoke</b></button>
-                               </a>
-                           </td>
-                    </tr>
+                      @endforeach
 
                       </tbody>
 

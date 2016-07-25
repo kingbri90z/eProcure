@@ -14,16 +14,16 @@ class CreateContracts extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Title');
+//            $table->string('Title');
             //$table->string('email')->unique();
-            $table->string('bidder');
-            $table->string('open_date');
-            $table->string('close_date');
-            $table->string('estimated_value');
+            $table->string('bid_id');
+            $table->string('contract_open_date');
+            $table->string('contract_close_date');
+            $table->longText('contract_note');
 //            $table->string('proposed_date');
-            $table->string('classification');
-            $table->string('comments');
-            $table->string('state');
+//            $table->string('classification');
+//            $table->string('comments');
+//            $table->string('state');
 //            $table->rememberToken();
             $table->timestamps();
         });

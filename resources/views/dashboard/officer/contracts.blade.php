@@ -14,7 +14,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{!!asset('images/avatar.jpg')!!}" class="img-circle" alt="User Image">
+          <img src="{!!asset('images/officer.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Brian Nelson</p>
@@ -29,12 +29,16 @@
       <ul class="sidebar-menu">
         <li class="header">Procurement Officer Dashboard</li>
         <!-- Optionally, you can add icons to the links -->
+                <li><a href="/officer/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard Overview</span></a></li>
+
         <li><a href="/officer/profile"><i class="fa fa-user"></i> <span>My Account</span></a></li>
         <li ><a href="/dashboard/officer/tenders"><i class="fa fa-ticket"></i> <span>View Tenders</span></a></li>
          <li><a href="/tender/create"><i class="fa fa-plus"></i> <span>Create Tender</span></a></li>
         <li><a href="/officer/viewbids"><i class="fa fa-exchange"></i> <span>View Bids</span></a></li>
         <li class="active"><a href="/officer/contracts"><i class="fa fa-file-o"></i> <span>View Contracts</span></a></li>
         <li><a href="/contract/create"><i class="fa fa-plus-square-o"></i> <span>Create Contract</span></a></li>
+                     <li><a href="/officer/reports"><i class="fa fa-file-o"></i> <span>Reports</span></a></li>
+
         <li><a href="/user/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
 
@@ -73,70 +77,33 @@
                       <thead>
                       <tr>
                         <th>ID</th>
+                        <th>Bid No.</th>
                         <th>Title</th>
-                        <th>Selected Bidder</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        {{--<th>Estimated Value</th>--}}
-                        <th>Signed Date</th>
-                        <th>Classification</th>
-                        <th>Comments</th>
-                         <th>State</th>
+                        <th>Company</th>
+                        <th>Bid Details</th>
+                         <th>Category</th>
+                          <th>Estimated Value</th>
+                        <th>Contract Open</th>
+                        <th>Contract Close</th>
+                        {{--<th>Contract Note</th>--}}
                       </tr>
                       </thead>
                       <tbody>
+                      @foreach($contracts as $contract)
                       <tr>
-                        <td>1</td>
-                        <td>Light Bulbs - Ceiling
-                        </td>
-                        <td>Tint Ltd</td>
-                        <td> May 3, 2016</td>
-                        <td>July 9, 2016</td>
-                        {{--<td>X</td>--}}
-                        <td>July 5, 2016</td>
-                        <td>Goods</td>
-                        <td>To Be contacted</td>
-                         <td>Active</td>
+                        <td>{{$contract->id}}</td>
+                        <td>{{$contract->bid_id}}</td>
+                        <td>{{$contract->title}}</td>
+
+                        <td> {{$contract->company}}</td>
+                        <td>{{$contract->bid_details}}</td>
+                         <td>{{$contract->category}}</td>
+                         <td>{{$contract->estimated_value}}</td>
+                         <td>{{$contract->contract_open_date}}</td>
+                         <td>{{$contract->contract_close_date}}</td>
+                         {{--<td>{{$contract->contract_close_date}}</td>--}}
                       </tr>
-                      <tr>
-                       <td>2</td>
-                          <td>Chair
-                          </td>
-                          <td>Hardware & More Ltd</td>
-                          <td> May 3, 2016</td>
-                          <td>July 9, 2016</td>
-                          {{--<td>X</td>--}}
-                          <td>July 5, 2016</td>
-                          <td>Goods</td>
-                          <td>To Be contacted</td>
-                           <td>Active</td>
-                    </tr>
-                     <tr>
-                       <td>3</td>
-                          <td> Office Desk
-                          </td>
-                          <td>Twenty1st Ltd</td>
-                          <td> May 3, 2016</td>
-                          <td>July 9, 2016</td>
-                          {{--<td>X</td>--}}
-                          <td>July 5, 2016</td>
-                          <td>Goods</td>
-                          <td>To Be contacted</td>
-                           <td>Active</td>
-                    </tr>
-                     <tr>
-                       <td>4</td>
-                          <td>Ceiling Fan
-                          </td>
-                          <td>Sheriff Ltd</td>
-                          <td> May 3, 2016</td>
-                          <td>July 9, 2016</td>
-                          {{--<td>X</td>--}}
-                          <td>July 5, 2016</td>
-                          <td>Goods</td>
-                          <td>To Be contacted</td>
-                           <td>Active</td>
-                    </tr>
+                    @endforeach
 
                       </tbody>
 

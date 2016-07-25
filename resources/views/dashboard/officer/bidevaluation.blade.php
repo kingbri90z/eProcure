@@ -29,15 +29,13 @@
       <ul class="sidebar-menu">
         <li class="header">Procurement Officer Dashboard</li>
         <!-- Optionally, you can add icons to the links -->
-                <li><a href="/officer/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard Overview</span></a></li>
-
          <li><a href="/officer/profile"><i class="fa fa-user"></i> <span>My Account</span></a></li>
         <li ><a href="/dashboard/officer/tenders"><i class="fa fa-ticket"></i> <span>View Tenders</span></a></li>
          <li ><a href="/tender/create"><i class="fa fa-plus"></i> <span>Create Tender</span></a></li>
         <li class="active"><a href="/officer/viewbids"><i class="fa fa-exchange"></i> <span>View Bids</span></a></li>
         <li><a href="/officer/contracts"><i class="fa fa-file-o"></i> <span>View Contracts</span></a></li>
         <li><a href="/contract/create"><i class="fa fa-plus-square-o"></i> <span>Create Contract</span></a></li>
-                     <li><a href="/officer/reports"><i class="fa fa-file-o"></i> <span>Reports</span></a></li>
+               <li><a href="/officer/reports"><i class="fa fa-file-o"></i> <span>Reports</span></a></li>
 
         <li><a href="/user/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
@@ -53,20 +51,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Current Bids
+        Bid Evaluation
         {{--<small>Optional description</small>--}}
       </h1>
 
     </section>
- @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
+
     <!-- Main content -->
     <section class="content">
 
-        
+
             <div class="row">
               <div class="col-xs-12">
 
@@ -77,42 +71,53 @@
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
+                   <form name="bid_eval" method="POST" action="/officer/bidevaluation/store">
+
                     <table id="example1" class="table table-bordered table-hover">
                       <thead>
                       <tr>
-                        <th>Bid ID</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Company</th>
-                         <th>Estimated Value</th>
-                         <th>Bid Details</th>
-                         <th>Offer Accepted</th>
-                         <th>Evaluate</th>
+                        <th>Want</th>
+                        <th>Offer</th>
+                        <th>Yes/No</th>
+                        <th>Comment</th>
+                        <th>Complete</th>
+
                       </tr>
                       </thead>
                       <tbody>
-                     @foreach($bids as $bid)
                      <tr>
-
-                     <td>{{$bid->bid_id}}</td>
-                     <td>{{$bid->title}}</td>
-                     <td>{{$bid->category}}</td>
-                     <td>{{$bid->company}}</td>
-                     <td>{{$bid->estimated_value}}</td>
-                     <td>{{$bid->bid_details}}</td>
-                     <td>{{$bid->decision}}</td>
+                     <td>{{$want[0]->description}}</td>
+                     <td>{{$offer[0]->bid_details}}</td>
                      <td>
-                     <a href="/dashboard/officer/bidevaluation/{{$bid->tender_id}}">
-                         <button type="button" class="btn btn-block btn-success"><b>EVALUATE</b></button>
-                     </a>
+                     Yes
+                     <input type="radio" name="bidevalRadios" id="optionsRadios1" value="Yes">
+                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                     No
+                     <input type="radio" name="bidevalRadios" id="optionsRadios2" value="No">
+                     </td>
+                     <td>
+                        <textarea name="comment" rows="3" class="form-control" cols="30" placeholder="Enter Comment"></textarea>
+                        <input type="hidden" name="bid_id"  value="{{$offer[0]->bid_id}}">
+                        <input type="hidden" name="bidder_id"  value="{{$offer[0]->bidder_id}}">
+
+                     <td>
+                     {{--<a href="#">--}}
+                       <input type="submit" class="btn btn-block btn-success"><b></b>
+                     {{--</a>--}}
                      </td>
 
+                  </td>
 
+                     {{--<td>--}}
+                        {{--<a href="#">--}}
+                         {{--<button type="button" class="btn btn-block btn-success"><b>EVALUATE</b></button>--}}
+                     {{--</a>--}}
+                     {{--</td>--}}
                      </tr>
-                     @endforeach
                       </tbody>
 
                     </table>
+                    </form>
                   </div>
                   <!-- /.box-body -->
                 </div>

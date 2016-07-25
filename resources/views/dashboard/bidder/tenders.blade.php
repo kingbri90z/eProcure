@@ -48,7 +48,11 @@
       </h1>
 
     </section>
-
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <!-- Main content -->
     <section class="content">
 
@@ -82,7 +86,7 @@
                       @foreach ($tenders as $tender)
                       <tr>
                         <td>{{$tender['id']}}</td>
-                        <td><a href="#" data-toggle="modal" data-target="#myModal">{{$tender['Title']}}</a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#{{$tender['id']}}">{{$tender['Title']}}</a></td>
                         <td>{{$tender['open_date']}}</td>
                         <td>{{$tender['close_date']}}</td>
                         <td>{{$tender['classification']}}</td>
@@ -90,33 +94,32 @@
                         <td>{{$tender['state']}}</td>
 
                         <td class="text-center">
-                            <a href="#">
+                            <a href="/bidder/bidsubmission/{{$tender['id']}}">
                                 <button type="button" class="btn btn-block btn-warning"><b>Bid</b></button>
                             </a>
                         </td>
 
                            <!-- Modal -->
-                          <div id="{{$tender['id']}}" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                        <div id="{{$tender['id']}}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
 
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Item Description</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <p>{{$tender['description']}}</p>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Item Description</h4>
                               </div>
-
+                              <div class="modal-body">
+                                <p>{{$tender['description']}}</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
                             </div>
-                          </div>
-                          <!--End Modal-->
 
+                          </div>
+                        </div>
+                        <!--End Modal-->
 
                         </tr>
                       @endforeach
