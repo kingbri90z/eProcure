@@ -17,7 +17,7 @@
           <img src="{!!asset('images/bidder.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>DevCon Manufacturing Ltd</p>
+          {{--<p>DevCon Manufacturing Ltd</p>--}}
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Bidder</a>
         </div>

@@ -17,7 +17,7 @@
           <img src="{!!asset('images/bidder.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>DevCon Manufacturing Ltd</p>
+          <p>{{$bidderDetails[0]->Name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Bidder</a>
         </div>
@@ -62,7 +62,7 @@
              <div class="box-body box-profile">
                <img class="profile-user-img img-responsive img-circle" src="{!!asset('images/bidder.png')!!}" alt="User profile picture">
 
-               <h3 class="profile-username text-center">DevCon Manufacturing Ltd</h3>
+               <h3 class="profile-username text-center">{{$bidderDetails[0]->Name}}</h3>
 
                <p class="text-muted text-center">Bidder</p>
 

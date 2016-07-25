@@ -17,7 +17,7 @@
           <img src="{!!asset('images/officer.png')!!}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Brian Nelson</p>
+          {{--<p>Brian Nelson</p>--}}
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Procurement Officer</a>
         </div>
