@@ -206,6 +206,7 @@ dd($offer);
 
     }
         public function generateContractPDF(Request $request){
+
         $contract_data=$request->all();
         $contract = new Contract;
         $contract->bid_id = $request->get('bid_no');

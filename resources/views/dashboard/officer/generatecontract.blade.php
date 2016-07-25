@@ -87,6 +87,8 @@
                      <div class="form-group">
                       <label for="contractStart">Contract Start Date</label>
                       <input type="date" class="form-control" name="contract_start" id="date">
+                         <input type="hidden" class="form-control" name="company"  value="{{$contract_data[0]->company}}">
+
                     </div>
                     <div class="form-group">
                       <label for="contractEnd">Contract End Date</label>
